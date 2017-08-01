@@ -291,17 +291,23 @@ namespace CSSPWQInputTool
         }
         private void butSendToServer_Click(object sender, EventArgs e)
         {
+            if (lblFilePath.Text.EndsWith("_S.txt"))
+            {
+                MessageBox.Show("Can't post lab sheet that has already been sent or has the status of sent [ends with _S.txt].", "Error");
+                return;
+            }
+
             TrySendingToServer();
         }
         private void butSyncArchives_Click(object sender, EventArgs e)
         {
             TryToSyncArchive();
         }
-        private void butGetSubsectorLabSheetStatus_Click(object sender, EventArgs e)
+        private void butGetLabSheetsStatus_Click(object sender, EventArgs e)
         {
-            butGetSubsectorLabSheetStatus.Text = "Working ...";
-            SyncWithServer();
-            butGetSubsectorLabSheetStatus.Text = "Get subsector lab sheet status";
+            butGetLabSheetsStatus.Text = "Working ...";
+            GetLabSheetsStatus();
+            butGetLabSheetsStatus.Text = "Get lab sheets status";
             SetupAppInputFiles();
         }
         private void butViewFCForm_Click(object sender, EventArgs e)
@@ -422,14 +428,14 @@ namespace CSSPWQInputTool
         private void comboBoxSubsectorNames_SelectedIndexChanged(object sender, EventArgs e)
         {
             CheckIfFileExist();
-            if (comboBoxSubsectorNames.SelectedIndex == 0)
-            {
-                butGetSubsectorLabSheetStatus.Enabled = false;
-            }
-            else
-            {
-                butGetSubsectorLabSheetStatus.Enabled = true;
-            }
+            //if (comboBoxSubsectorNames.SelectedIndex == 0)
+            //{
+            //    butGetLabSheetsStatus.Enabled = false;
+            //}
+            //else
+            //{
+            //    butGetLabSheetsStatus.Enabled = true;
+            //}
         }
         #endregion Events comboBoxSubsectorNames
         #region Events comboBoxFile
@@ -4433,17 +4439,18 @@ namespace CSSPWQInputTool
                 {
                     butSendToServer.Text = "Send to Server";
                     butSendToServer.Enabled = true;
-                    if (comboBoxSubsectorNames.SelectedIndex != 0)
-                    {
-                        butGetSubsectorLabSheetStatus.Enabled = true;
-                    }
+                    butGetLabSheetsStatus.Enabled = true;
+                    //if (comboBoxSubsectorNames.SelectedIndex != 0)
+                    //{
+                    //    butGetLabSheetsStatus.Enabled = true;
+                    //}
                 }
             }
             else
             {
                 butSendToServer.Text = "No Internet Connection";
                 butSendToServer.Enabled = false;
-                butGetSubsectorLabSheetStatus.Enabled = false;
+                butGetLabSheetsStatus.Enabled = false;
             }
             butViewFCForm.Enabled = true;
 
@@ -4561,45 +4568,77 @@ namespace CSSPWQInputTool
                     }
 
                     // Temperature Control #1 Field
-                    if (string.IsNullOrWhiteSpace(textBoxTCField1.Text))
+                    if (!string.IsNullOrWhiteSpace(textBoxTCField1.Text))
                     {
-                        sb.AppendLine("Temperature control #1 field required");
-                        //butSendToServer.Text = "Temperature control field required";
+                        float temp = 0.0f;
+                        if (!float.TryParse(textBoxTCField1.Text, out temp))
+                        {
+                            butSendToServer.Text = "TC Field #1 (number or empty)";
+                            lblStatus.Text = "Temperature control field #1 should be a number or empty";
+                            textBoxTCField1.BackColor = Color.Red;
+                            textBoxTCField1.ForeColor = Color.Black;
+                            return false;
+                        }
+                    }
+                    else
+                    {
                         textBoxTCField1.BackColor = Color.Red;
-                        //textBoxTCField1.Focus();
-                        //return false;
                     }
 
                     // Temperature Control #1 Lab
-                    if (string.IsNullOrWhiteSpace(textBoxTCLab1.Text))
+                    if (!string.IsNullOrWhiteSpace(textBoxTCLab1.Text))
                     {
-                        sb.AppendLine("Temperature control #1 lab required");
-                        //butSendToServer.Text = "Temperature control lab required";
+                        float temp = 0.0f;
+                        if (!float.TryParse(textBoxTCLab1.Text, out temp))
+                        {
+                            butSendToServer.Text = "TC Lab #1 (number or empty)";
+                            lblStatus.Text = "Temperature control Lab #1 should be a number or empty";
+                            textBoxTCLab1.BackColor = Color.Red;
+                            textBoxTCLab1.ForeColor = Color.Black;
+                            return false;
+                        }
+                    }
+                    else
+                    {
                         textBoxTCLab1.BackColor = Color.Red;
-                        //textBoxTCLab1.Focus();
-                        //return false;
                     }
 
                     if (checkBox2Coolers.Checked)
                     {
                         // Temperature Control #2 Field
-                        if (string.IsNullOrWhiteSpace(textBoxTCField2.Text))
+                        if (!string.IsNullOrWhiteSpace(textBoxTCField2.Text))
                         {
-                            sb.AppendLine("Temperature control #2 field required");
-                            //butSendToServer.Text = "Temperature control #2 field required";
+                            float temp = 0.0f;
+                            if (!float.TryParse(textBoxTCField2.Text, out temp))
+                            {
+                                butSendToServer.Text = "TC Field #2 (number or empty)";
+                                lblStatus.Text = "Temperature control field #2 should be a number or empty";
+                                textBoxTCField2.BackColor = Color.Red;
+                                textBoxTCField2.ForeColor = Color.Black;
+                                return false;
+                            }
+                        }
+                        else
+                        {
                             textBoxTCField2.BackColor = Color.Red;
-                            //textBoxTCField2.Focus();
-                            //return false;
                         }
 
                         // Temperature Control #2 Lab
-                        if (string.IsNullOrWhiteSpace(textBoxTCLab2.Text))
+                        if (!string.IsNullOrWhiteSpace(textBoxTCLab2.Text))
                         {
-                            sb.AppendLine("Temperature control #2 lab required");
-                            //butSendToServer.Text = "Temperature control #2 lab required";
+                            float temp = 0.0f;
+                            if (!float.TryParse(textBoxTCLab2.Text, out temp))
+                            {
+                                butSendToServer.Text = "TC Lab #2 (number or empty)";
+                                lblStatus.Text = "Temperature control Lab #2 should be a number or empty";
+                                textBoxTCLab2.BackColor = Color.Red;
+                                textBoxTCLab2.ForeColor = Color.Black;
+                                return false;
+                            }
+                        }
+                        else
+                        {
                             textBoxTCLab2.BackColor = Color.Red;
-                            //textBoxTCLab2.Focus();
-                            //return false;
                         }
                     }
 
@@ -4967,7 +5006,7 @@ namespace CSSPWQInputTool
                         butSendToServer.Enabled = true;
                         if (comboBoxSubsectorNames.SelectedIndex != 0)
                         {
-                            butGetSubsectorLabSheetStatus.Enabled = true;
+                            butGetLabSheetsStatus.Enabled = true;
                         }
                     }
                 }
@@ -4977,7 +5016,7 @@ namespace CSSPWQInputTool
                 this.Text = FormTitle + " (No internet connection)";
                 InternetConnection = false;
                 butSendToServer.Enabled = false;
-                butGetSubsectorLabSheetStatus.Enabled = false;
+                butGetLabSheetsStatus.Enabled = false;
                 butGetTides.Enabled = false;
                 return "Error";
             }
@@ -5532,47 +5571,100 @@ namespace CSSPWQInputTool
                     }
 
                     paramList.Add("SamplingPlanName", lblSamplingPlanFileName.Text);
-                    string Rest = fi.FullName.Replace(CurrentPath, "");
-                    int Pos = Rest.IndexOf("_");
-                    string Subsector = Rest.Substring(0, Pos);
+                    // "C:\\CSSPLabSheets\\SamplingPlan_Subsector_Routine_A1_2017_aaa.txt"
+                    string Rest = lblSamplingPlanFileName.Text;
+                    //Rest = Rest.Substring(Rest.IndexOf("SamplingPlan"));
+                    Rest = Rest.Substring(Rest.IndexOf("_") + 1);
+                    string SamplingPlanTypeText = Rest.Substring(0, Rest.IndexOf("_"));
+                    Rest = Rest.Substring(SamplingPlanTypeText.Length + 1);
+                    SamplingPlanTypeEnum SamplingPlanType = SamplingPlanTypeEnum.Error;
+                    for (int i = 0, count = Enum.GetNames(typeof(SamplingPlanTypeEnum)).Count(); i < count; i++)
+                    {
+                        if (((SamplingPlanTypeEnum)i).ToString() == SamplingPlanTypeText)
+                        {
+                            SamplingPlanType = (SamplingPlanTypeEnum)i;
+                        }
+                    }
+                    string SampleTypeText = Rest.Substring(0, Rest.IndexOf("_"));
+                    Rest = Rest.Substring(SampleTypeText.Length + 1);
+                    SampleTypeEnum SampleType = SampleTypeEnum.Error;
+                    for (int i = 101, count = Enum.GetNames(typeof(SampleTypeEnum)).Count() + 101; i < count; i++)
+                    {
+                        if (((SampleTypeEnum)i).ToString() == SampleTypeText)
+                        {
+                            SampleType = (SampleTypeEnum)i;
+                        }
+                    }
+                    string LabSheetTypeText = Rest.Substring(0, Rest.IndexOf("_"));
+                    Rest = Rest.Substring(LabSheetTypeText.Length + 1);
+                    LabSheetTypeEnum LabSheetType = LabSheetTypeEnum.Error;
+                    for (int i = 0, count = Enum.GetNames(typeof(LabSheetTypeEnum)).Count(); i < count; i++)
+                    {
+                        if (((LabSheetTypeEnum)i).ToString() == LabSheetTypeText)
+                        {
+                            LabSheetType = (LabSheetTypeEnum)i;
+                        }
+                    }
+
+                    Rest = fi.FullName.Replace(CurrentPath, "");
+                    int Pos = Rest.IndexOf(@"\");
+                    if (Pos > 0)
+                    {
+                        Rest = Rest.Substring(Pos + 1);
+                    }
+                    string Subsector = Rest.Substring(0, Rest.IndexOf("_"));
+                    Rest = Rest.Substring(Subsector.Length + 1);
                     int Year = 0;
-                    int.TryParse(Rest.Substring(Pos + 1, 4), out Year);
+                    int.TryParse(Rest.Substring(0, 4), out Year);
                     if (Year == 0)
                     {
                         return "Year not found";
                     }
+                    Rest = Rest.Substring(5);
                     int Month = 0;
-                    int.TryParse(Rest.Substring(Pos + 6, 2), out Month);
+                    int.TryParse(Rest.Substring(0, 2), out Month);
                     if (Month == 0)
                     {
                         return "Month not found";
                     }
+                    Rest = Rest.Substring(3);
                     int Day = 0;
-                    int.TryParse(Rest.Substring(Pos + 9, 2), out Day);
+                    int.TryParse(Rest.Substring(0, 2), out Day);
                     if (Day == 0)
                     {
                         return "Day not found";
                     }
+                    Rest = Rest.Substring(3);
+                    string LabSheetTypeNotUsed = Rest.Substring(0, 2);
+                    Rest = Rest.Substring(3);
+                    int RunNumber = 0;
+                    int.TryParse(Rest.Substring(1, 2), out RunNumber);
+                    if (RunNumber == 0)
+                    {
+                        return "Day not found";
+                    }
+                    Rest = Rest.Substring(4);
+
 
                     DateTime dateTimeRun = new DateTime(Year, Month, Day);
 
                     paramList.Add("Year", Year.ToString());
                     paramList.Add("Month", Month.ToString());
                     paramList.Add("Day", Day.ToString());
-                    paramList.Add("RunNumber", labSheetA1Sheet.RunNumber.ToString());
-                    if (comboBoxSubsectorNames.SelectedItem == null)
+                    paramList.Add("RunNumber", RunNumber.ToString());
+                    FileItem item = null;
+                    foreach (FileItem fileItem in comboBoxSubsectorNames.Items)
                     {
-                        return "Subsector not selected";
-                    }
-                    FileItem item = (FileItem)comboBoxSubsectorNames.SelectedItem;
-                    if (item.TVItemID == 0)
-                    {
-                        return "Subsector not selected";
+                        if (fileItem.Name.StartsWith(Subsector))
+                        {
+                            item = fileItem;
+                            break;
+                        }
                     }
                     paramList.Add("SubsectorTVItemID", item.TVItemID.ToString());
-                    paramList.Add("SamplingPlanType", ((int)labSheetA1Sheet.SamplingPlanType).ToString());
-                    paramList.Add("SampleType", ((int)labSheetA1Sheet.SampleType).ToString());
-                    paramList.Add("LabSheetType", ((int)labSheetA1Sheet.LabSheetType).ToString());
+                    paramList.Add("SamplingPlanType", ((int)SamplingPlanType).ToString());
+                    paramList.Add("SampleType", ((int)SampleType).ToString());
+                    paramList.Add("LabSheetType", ((int)LabSheetType).ToString());
 
                     webClient.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
                     byte[] ret = webClient.UploadValues(new Uri("http://cssplabsheet.azurewebsites.net/LabSheetExistAndStatus.aspx"), "POST", paramList);
@@ -5594,6 +5686,12 @@ namespace CSSPWQInputTool
         }
         private void GetTides()
         {
+            if (CSSPWQInputParamCurrent.sidList.Count == 0)
+            {
+                lblStatus.Text = "Tide site missing";
+                return;
+            }
+
             timerGetTides.Enabled = false;
             webBrowserCSSP.Navigate(new Uri("http://www.tides.gc.ca/eng/station?type=0&date=" + dateTimePickerRun.Value.Year + "%2F" +
                          dateTimePickerRun.Value.Month + "%2F" + dateTimePickerRun.Value.Day + "&sid=" + CSSPWQInputParamCurrent.sidList[TideToTryIndex]));
@@ -6018,7 +6116,7 @@ namespace CSSPWQInputTool
             lblStatus.Text = "Modified";
             butSendToServer.Text = "Saving ...";
             butSendToServer.Enabled = false;
-            butGetSubsectorLabSheetStatus.Enabled = false;
+            butGetLabSheetsStatus.Enabled = false;
             butGetTides.Enabled = false;
             butViewFCForm.Enabled = false;
             if (!timerSave.Enabled)
@@ -6736,6 +6834,10 @@ namespace CSSPWQInputTool
         }
         private void ReplaceFileFromTo(FileInfo fiFrom, FileInfo fiTo, bool FromLocal)
         {
+            butFileArchiveCancel.Enabled = true;
+            butFileArchiveSkip.Enabled = true;
+            butFileArchiveCopy.Enabled = true;
+
             string LocalFileText = "";
             string ServerFileText = "";
 
@@ -6788,7 +6890,9 @@ namespace CSSPWQInputTool
                     }
                     catch (Exception ex)
                     {
+                        lblStatus.Text = "Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
                         richTextBoxLabSheetSender.AppendText("Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "") + "\r\n");
+                        MessageBox.Show("Error: " + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : ""), "Error");
                         WaitingForUserAction = false;
                         return;
                     }
@@ -7267,6 +7371,12 @@ namespace CSSPWQInputTool
         }
         private void SendToServer()
         {
+            if (lblFilePath.Text.EndsWith("_S.txt"))
+            {
+                MessageBox.Show("Can't post lab sheet that has already been sent or has the status of sent [ends with _S.txt].", "Error");
+                return;
+            }
+
             if (csspWQInputApp.IncludeLaboratoryQAQC)
             {
                 if (dateTimePickerSalinitiesReadDate.Value == null)
@@ -7332,7 +7442,7 @@ namespace CSSPWQInputTool
             {
                 butSendToServer.Text = "No Internet Connection";
                 butSendToServer.Enabled = false;
-                butGetSubsectorLabSheetStatus.Enabled = false;
+                butGetLabSheetsStatus.Enabled = false;
                 MessageBox.Show("No internet connection", "Internet connection");
                 return;
             }
@@ -7343,7 +7453,7 @@ namespace CSSPWQInputTool
             }
             butSendToServer.Text = "Working ...";
             butSendToServer.Enabled = false;
-            butGetSubsectorLabSheetStatus.Enabled = false;
+            butGetLabSheetsStatus.Enabled = false;
             lblStatus.Text = "Sending lab sheet to server ... Working ...";
             lblStatus.Refresh();
             Application.DoEvents();
@@ -7352,10 +7462,11 @@ namespace CSSPWQInputTool
             {
                 butSendToServer.Text = "Lab sheet sent ok";
                 butSendToServer.Enabled = false;
-                if (comboBoxSubsectorNames.SelectedIndex != 0)
-                {
-                    butGetSubsectorLabSheetStatus.Enabled = true;
-                }
+                butGetLabSheetsStatus.Enabled = true;
+                //if (comboBoxSubsectorNames.SelectedIndex != 0)
+                //{
+                //    butGetLabSheetsStatus.Enabled = true;
+                //}
                 lblStatus.Text = "Lab sheet sent ok";
 
                 File.Copy(lblFilePath.Text, lblFilePath.Text.Replace("_C.txt", "_S.txt"));
@@ -7368,10 +7479,11 @@ namespace CSSPWQInputTool
                 if (InternetConnection)
                 {
                     butSendToServer.Enabled = true;
-                    if (comboBoxSubsectorNames.SelectedIndex != 0)
-                    {
-                        butGetSubsectorLabSheetStatus.Enabled = true;
-                    }
+                    butGetLabSheetsStatus.Enabled = true;
+                    //if (comboBoxSubsectorNames.SelectedIndex != 0)
+                    //{
+                    //    butGetLabSheetsStatus.Enabled = true;
+                    //}
                 }
                 lblStatus.Text = retStr;
             }
@@ -7425,10 +7537,7 @@ namespace CSSPWQInputTool
             butSendToServer.Enabled = false;
             if (InternetConnection)
             {
-                if (comboBoxSubsectorNames.SelectedIndex != 0)
-                {
-                    butGetSubsectorLabSheetStatus.Enabled = true;
-                }
+                butGetLabSheetsStatus.Enabled = true;
             }
         }
         private void SetupCSSPWQInputTool()
@@ -7724,8 +7833,6 @@ namespace CSSPWQInputTool
         }
         private void SyncArchives(DirectoryInfo di, DirectoryInfo diShared)
         {
-            List<FileInfo> fileListAll = new List<FileInfo>();
-
             lblStatus.Text = "Doing local To Shared Archived Directory";
             richTextBoxLabSheetSender.AppendText("Doing local To Shared Archived Directory \r\n");
 
@@ -7770,6 +7877,10 @@ namespace CSSPWQInputTool
             List<FileInfo> fileList = (from c in di.GetFiles() select c).ToList();
             foreach (FileInfo fi in fileList)
             {
+                butFileArchiveCancel.Enabled = false;
+                butFileArchiveCopy.Enabled = false;
+                butFileArchiveSkip.Enabled = false;
+
                 lblSendingFileName.Text = fi.Name;
                 lblSendingFileName.Refresh();
                 Application.DoEvents();
@@ -8038,7 +8149,7 @@ namespace CSSPWQInputTool
 
             return "";
         }
-        private void SyncWithServer()
+        private void GetLabSheetsStatus()
         {
             List<FileInfo> fileListAll = new List<FileInfo>();
             DirectoryInfo di = new DirectoryInfo(CurrentPath);
@@ -8068,12 +8179,10 @@ namespace CSSPWQInputTool
             foreach (FileInfo fi in fileListAll)
             {
                 count += 1;
-                butGetSubsectorLabSheetStatus.Text = "Doing ... " + count + "/" + countFile;
+                butGetLabSheetsStatus.Text = "Doing ... " + count + "/" + countFile;
                 lblStatus.Text = "Checking status of LabSheet loaded [" + fi.Name + "] Doing ... " + count + "/" + countFile;
                 lblStatus.Refresh();
                 Application.DoEvents();
-                lblFilePath.Text = fi.FullName;
-                ReadFileFromLocalMachine();
                 string retStr = GetLabSheetExist(fi);
                 if (retStr.Substring(0, 1) == "[")
                 {
@@ -8520,7 +8629,9 @@ namespace CSSPWQInputTool
                 }
                 catch (Exception ex)
                 {
+                    lblStatus.Text = "Error: " + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
                     richTextBoxLabSheetSender.AppendText("Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "") + "\r\n");
+                    MessageBox.Show(lblStatus.Text, "Error");
                     return;
                 }
                 richTextBoxLabSheetSender.AppendText("Copied - " + fiSamplingPlan.FullName + "\r\n to " + fiArchive.FullName + "\r\n");
@@ -8552,6 +8663,7 @@ namespace CSSPWQInputTool
             {
                 lblStatus.Text = "Did not copy file [" + fiArchive.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Did not copy file [" + fiArchive.FullName + "]\r\n");
+                MessageBox.Show(lblStatus.Text, "Error");
                 return;
             }
 
@@ -8561,12 +8673,23 @@ namespace CSSPWQInputTool
             {
                 lblStatus.Text = "Could not find directory [" + di.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Could not find directory [" + di.FullName + "]\r\n");
+                MessageBox.Show(lblStatus.Text, "Error");
                 return;
             }
             DirectoryInfo diShared = new DirectoryInfo(textBoxSharedArchivedDirectory.Text + @"\" + fiSamplingPlan.Name.Replace(".txt", "") + @"\");
             if (!diShared.Exists)
             {
-                diShared.Create();
+                try
+                {
+                    diShared.Create();
+                }
+                catch (Exception ex)
+                {
+                    lblStatus.Text = "Error: " + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
+                    richTextBoxLabSheetSender.AppendText("Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "") + "\r\n");
+                    MessageBox.Show(lblStatus.Text, "Error");
+                    return;
+                }
             }
 
             diShared = new DirectoryInfo(diShared.FullName);
@@ -8575,6 +8698,7 @@ namespace CSSPWQInputTool
             {
                 lblStatus.Text = "Could not find directory [" + diShared.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Could not find directory [" + diShared.FullName + "]\r\n");
+                MessageBox.Show(lblStatus.Text, "Error");
                 return;
             }
 
@@ -8635,7 +8759,7 @@ namespace CSSPWQInputTool
                 CurrentPanel = panelAppInput;
                 panelAppInputIsVisible = true;
                 butSendToServer.Enabled = false;
-                butGetSubsectorLabSheetStatus.Enabled = false;
+                //butGetLabSheetsStatus.Enabled = false;
 
                 if (fi.FullName.EndsWith("_S.txt"))
                 {
@@ -8681,10 +8805,11 @@ namespace CSSPWQInputTool
             InLoadingFile = false;
             if (InternetConnection)
             {
-                if (comboBoxSubsectorNames.SelectedIndex != 0)
-                {
-                    butGetSubsectorLabSheetStatus.Enabled = true;
-                }
+                butGetLabSheetsStatus.Enabled = true;
+                //if (comboBoxSubsectorNames.SelectedIndex != 0)
+                //{
+                //    butGetLabSheetsStatus.Enabled = true;
+                //}
             }
 
         }

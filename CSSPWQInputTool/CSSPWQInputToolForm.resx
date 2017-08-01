@@ -5121,31 +5121,31 @@
   <data name="&gt;&gt;butSendToServer.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="butGetSubsectorLabSheetStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="butGetLabSheetsStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="butGetSubsectorLabSheetStatus.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="butGetLabSheetsStatus.Location" type="System.Drawing.Point, System.Drawing">
     <value>393, 3</value>
   </data>
-  <data name="butGetSubsectorLabSheetStatus.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="butGetLabSheetsStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>187, 25</value>
   </data>
-  <data name="butGetSubsectorLabSheetStatus.TabIndex" type="System.Int32, mscorlib">
+  <data name="butGetLabSheetsStatus.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="butGetSubsectorLabSheetStatus.Text" xml:space="preserve">
-    <value>Get subsector lab sheet status</value>
+  <data name="butGetLabSheetsStatus.Text" xml:space="preserve">
+    <value>Get lab sheets status</value>
   </data>
-  <data name="&gt;&gt;butGetSubsectorLabSheetStatus.Name" xml:space="preserve">
-    <value>butGetSubsectorLabSheetStatus</value>
+  <data name="&gt;&gt;butGetLabSheetsStatus.Name" xml:space="preserve">
+    <value>butGetLabSheetsStatus</value>
   </data>
-  <data name="&gt;&gt;butGetSubsectorLabSheetStatus.Type" xml:space="preserve">
+  <data name="&gt;&gt;butGetLabSheetsStatus.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;butGetSubsectorLabSheetStatus.Parent" xml:space="preserve">
+  <data name="&gt;&gt;butGetLabSheetsStatus.Parent" xml:space="preserve">
     <value>panelButtonBar</value>
   </data>
-  <data name="&gt;&gt;butGetSubsectorLabSheetStatus.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;butGetLabSheetsStatus.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="butArchive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">

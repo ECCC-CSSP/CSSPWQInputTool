@@ -216,7 +216,7 @@
             this.lblSamplingPlanType = new System.Windows.Forms.Label();
             this.butFail = new System.Windows.Forms.Button();
             this.butSendToServer = new System.Windows.Forms.Button();
-            this.butGetSubsectorLabSheetStatus = new System.Windows.Forms.Button();
+            this.butGetLabSheetsStatus = new System.Windows.Forms.Button();
             this.butArchive = new System.Windows.Forms.Button();
             this.butLogoff = new System.Windows.Forms.Button();
             this.timerSave = new System.Windows.Forms.Timer(this.components);
@@ -1581,7 +1581,7 @@
             this.panelButtonBar.Controls.Add(this.lblSamplingPlanType);
             this.panelButtonBar.Controls.Add(this.butFail);
             this.panelButtonBar.Controls.Add(this.butSendToServer);
-            this.panelButtonBar.Controls.Add(this.butGetSubsectorLabSheetStatus);
+            this.panelButtonBar.Controls.Add(this.butGetLabSheetsStatus);
             this.panelButtonBar.Controls.Add(this.butArchive);
             this.panelButtonBar.Controls.Add(this.butLogoff);
             resources.ApplyResources(this.panelButtonBar, "panelButtonBar");
@@ -1616,12 +1616,12 @@
             this.butSendToServer.UseVisualStyleBackColor = true;
             this.butSendToServer.Click += new System.EventHandler(this.butSendToServer_Click);
             // 
-            // butGetSubsectorLabSheetStatus
+            // butGetLabSheetsStatus
             // 
-            resources.ApplyResources(this.butGetSubsectorLabSheetStatus, "butGetSubsectorLabSheetStatus");
-            this.butGetSubsectorLabSheetStatus.Name = "butGetSubsectorLabSheetStatus";
-            this.butGetSubsectorLabSheetStatus.UseVisualStyleBackColor = true;
-            this.butGetSubsectorLabSheetStatus.Click += new System.EventHandler(this.butGetSubsectorLabSheetStatus_Click);
+            resources.ApplyResources(this.butGetLabSheetsStatus, "butGetLabSheetsStatus");
+            this.butGetLabSheetsStatus.Name = "butGetLabSheetsStatus";
+            this.butGetLabSheetsStatus.UseVisualStyleBackColor = true;
+            this.butGetLabSheetsStatus.Click += new System.EventHandler(this.butGetLabSheetsStatus_Click);
             // 
             // butArchive
             // 
@@ -1990,7 +1990,7 @@
         private System.Windows.Forms.Label lblEnterInitialsBeforeCodeText;
         private System.Windows.Forms.Label lblInitials;
         private System.Windows.Forms.TextBox textBoxInitials;
-        private System.Windows.Forms.Button butGetSubsectorLabSheetStatus;
+        private System.Windows.Forms.Button butGetLabSheetsStatus;
         private System.Windows.Forms.Label lblSharedArchived;
         private System.Windows.Forms.Button butSyncArchives;
         private System.Windows.Forms.TextBox textBoxSharedArchivedDirectory;
