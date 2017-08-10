@@ -4822,97 +4822,176 @@ namespace CSSPWQInputTool
                 }
 
                 // Data Grid View 
-                bool dataGridViewHasEmptyCells = false;
-                bool dataGridViewTubeCombinationError = false;
-                bool dataGridViewTubeInvalid = false;
+                string ErrorMessage = "";
+                List<int> EmptyRow = new List<int>();
+                List<int> ColumnNumber = new List<int>() { 2, 4, 5, 6, 7, 8, 9, 12 };
+
                 for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
                 {
+                    bool AllEmpty = true;
                     for (int col = 0, countCol = dataGridViewCSSP.Columns.Count - 1; col < countCol; col++)
                     {
-                        if (col > 3 && col < 7)
+                        if (ColumnNumber.Contains(col))
+                        {
+                            if (dataGridViewCSSP[col, row].Value != null && !string.IsNullOrWhiteSpace(dataGridViewCSSP[col, row].Value.ToString()))
+                            {
+                                AllEmpty = false;
+                            }
+                        }
+                    }
+                    if (AllEmpty)
+                    {
+                        EmptyRow.Add(row);
+                        continue;
+                    }
+                }
+
+
+                if (labSheetA1Sheet.IncludeLaboratoryQAQC)
+                {
+                    ColumnNumber = new List<int>() { 2, 4, 5, 6, 9 };
+                }
+                else
+                {
+                    ColumnNumber = new List<int>() { 2, 4, 5, 6 };
+                }
+
+                for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
+                {
+                    if (EmptyRow.Contains(row))
+                    {
+                        continue;
+                    }
+
+                    bool CellEmpty = false;
+                    for (int col = 0, countCol = dataGridViewCSSP.Columns.Count - 1; col < countCol; col++)
+                    {
+                        if (ColumnNumber.Contains(col))
+                        {
+                            if (dataGridViewCSSP[col, row].Value == null || string.IsNullOrWhiteSpace(dataGridViewCSSP[col, row].Value.ToString()))
+                            {
+                                CellEmpty = true;
+                                string firstCol = dataGridViewCSSP[0, row].Value.ToString();
+                                ErrorMessage = firstCol.Substring(0, firstCol.IndexOf("  ")) + " --- " + dataGridViewCSSP.Columns[col].HeaderText.ToString() + "\r\n";
+                            }
+                        }
+                    }
+                    if (CellEmpty)
+                    {
+                        butSendToServer.Text = "Data missing in grid";
+                        DialogResult dialogResult = MessageBox.Show("Please correct before sending lab sheet to server.\r\n\r\n" + ErrorMessage, "Data missing in grid.", MessageBoxButtons.OK);
+                        return false;
+                    }
+                }
+
+                ColumnNumber = new List<int>() { 4, 5, 6 };
+                for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
+                {
+                    if (EmptyRow.Contains(row))
+                    {
+                        continue;
+                    }
+
+                    bool InvalidTubeCombination = false;
+                    for (int col = 0, countCol = dataGridViewCSSP.Columns.Count - 1; col < countCol; col++)
+                    {
+                        if (ColumnNumber.Contains(col))
                         {
                             if (dataGridViewCSSP[col, row].Value != null)
                             {
                                 int tubeNumber = -1;
                                 if (!int.TryParse(dataGridViewCSSP[col, row].Value.ToString(), out tubeNumber))
                                 {
-                                    dataGridViewTubeInvalid = true;
+                                    string firstCol = dataGridViewCSSP[0, row].Value.ToString();
+                                    ErrorMessage = firstCol.Substring(0, firstCol.IndexOf("  ")) + " --- " + dataGridViewCSSP.Columns[col].HeaderText.ToString() + "\r\n";
+                                    InvalidTubeCombination = true;
+                                    break;
                                 }
-                                if (tubeNumber > 5 || tubeNumber < 0)
+                                else if (tubeNumber > 5 || tubeNumber < 0)
                                 {
-                                    dataGridViewTubeInvalid = true;
+                                    string firstCol = dataGridViewCSSP[0, row].Value.ToString();
+                                    ErrorMessage = firstCol.Substring(0, firstCol.IndexOf("  ")) + " --- " + dataGridViewCSSP.Columns[col].HeaderText.ToString() + "\r\n";
+                                    InvalidTubeCombination = true;
+                                    break;
                                 }
                             }
                         }
+                    }
+                    if (InvalidTubeCombination)
+                    {
+                        butSendToServer.Text = "Invalid tube combination";
+                        DialogResult dialogResult = MessageBox.Show("Please correct before sending lab sheet to server.\r\n\r\n" + ErrorMessage, "Invalid tube combination.", MessageBoxButtons.OK);
+                        return false;
+                    }
 
-                        if (dataGridViewCSSP[col, row].Value == null || string.IsNullOrWhiteSpace(dataGridViewCSSP[col, row].Value.ToString()))
+                }
+
+                ColumnNumber = new List<int>() { 7, 8 };
+                for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
+                {
+                    if (EmptyRow.Contains(row))
+                    {
+                        continue;
+                    }
+
+                    bool SalOrTempIsMissing = false;
+                    for (int col = 0, countCol = dataGridViewCSSP.Columns.Count - 1; col < countCol; col++)
+                    {
+                        if (ColumnNumber.Contains(col))
                         {
-                            if (col == 9 && !csspWQInputApp.IncludeLaboratoryQAQC)
-                                continue;
-
-                            dataGridViewHasEmptyCells = true;
+                            if (dataGridViewCSSP[col, row].Value == null || string.IsNullOrWhiteSpace(dataGridViewCSSP[col, row].Value.ToString()))
+                            {
+                                SalOrTempIsMissing = true;
+                                string firstCol = dataGridViewCSSP[0, row].Value.ToString();
+                                ErrorMessage = firstCol.Substring(0, firstCol.IndexOf("  ")) + " --- " + dataGridViewCSSP.Columns[col].HeaderText.ToString() + "\r\n";
+                                break;
+                            }
                         }
+                    }
+                    if (SalOrTempIsMissing)
+                    {
+                        butSendToServer.Text = "Salinity and/or temperature missing";
+                        DialogResult dialogResult = MessageBox.Show(ErrorMessage + "\r\nDo you still want to send the lab sheet to server?", "Salinity and/or temperature missing.", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.No)
+                        {
+                            return false;
+                        }
+                    }
 
-                        if (dataGridViewCSSP[col, row].Value != null)
+                }
+
+                ColumnNumber = new List<int>() { 3 };
+                for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
+                {
+                    if (EmptyRow.Contains(row))
+                    {
+                        continue;
+                    }
+
+                    bool UnusualTubeCombination = false;
+                    for (int col = 0, countCol = dataGridViewCSSP.Columns.Count - 1; col < countCol; col++)
+                    {
+                        if (ColumnNumber.Contains(col))
                         {
                             if (dataGridViewCSSP[col, row].Value.ToString() == "Error")
                             {
-                                dataGridViewTubeCombinationError = true;
+                                UnusualTubeCombination = true;
+                                string firstCol = dataGridViewCSSP[0, row].Value.ToString();
+                                ErrorMessage = firstCol.Substring(0, firstCol.IndexOf("  ")) + "\r\n";
+                                break;
                             }
                         }
                     }
-                    if (dataGridViewHasEmptyCells)
+                    if (UnusualTubeCombination)
                     {
-                        List<int> ColumnNumberNeedBlank = new List<int>() { 2, 4, 5, 6, 7, 8, 9, 12 };
-                        bool AllBlank = true;
-                        foreach (int col in ColumnNumberNeedBlank)
+                        butSendToServer.Text = "Unusual tube combination";
+                        DialogResult dialogResult = MessageBox.Show(ErrorMessage + "\r\nDo you still want to send the lab sheet to server?", "Unusual tube combination.", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.No)
                         {
-                            if (dataGridViewCSSP[col, row].Value != null && !string.IsNullOrWhiteSpace(dataGridViewCSSP[col, row].Value.ToString()))
-                            {
-                                AllBlank = false;
-                            }
-                        }
-                        if (AllBlank)
-                        {
-                            dataGridViewHasEmptyCells = false;
-                        }
-                        else
-                        {
-                            break;
+                            return false;
                         }
                     }
-                    if (dataGridViewTubeCombinationError)
-                    {
-                        break;
-                    }
-                    if (dataGridViewTubeInvalid)
-                    {
-                        break;
-                    }
                 }
-
-                if (dataGridViewHasEmptyCells)
-                {
-                    dataGridViewCSSP.BackgroundColor = Color.Red;
-                    butSendToServer.Text = "Data missing in grid";
-                    return false;
-                }
-
-                if (dataGridViewTubeInvalid)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Please correct before sending lab sheet to server.", "Invalid tube combination.", MessageBoxButtons.OK);
-                    return false;
-                }
-
-                if (dataGridViewTubeCombinationError)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Do you still want to send the lab sheet to server?", "Unusual tube combination.", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.No)
-                    {
-                        return false;
-                    }
-                }
-
             }
 
             if (sb.ToString().Length > 0)
@@ -7481,10 +7560,10 @@ namespace CSSPWQInputTool
                 return;
             }
 
-            if (!EverythingEntered())
-            {
-                return;
-            }
+            //if (!EverythingEntered())
+            //{
+            //    return;
+            //}
             butSendToServer.Text = "Working ...";
             butSendToServer.Enabled = false;
             butGetLabSheetsStatus.Enabled = false;
@@ -8356,10 +8435,10 @@ namespace CSSPWQInputTool
                 return;
             }
 
-            if (!EverythingEntered())
-            {
-                return;
-            }
+            //if (!EverythingEntered())
+            //{
+            //    return;
+            //}
 
             string FileTextToSend = "";
             FileInfo fi = new FileInfo(lblFilePath.Text);
