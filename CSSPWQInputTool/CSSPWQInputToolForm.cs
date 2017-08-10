@@ -4829,9 +4829,9 @@ namespace CSSPWQInputTool
                 {
                     for (int col = 0, countCol = dataGridViewCSSP.Columns.Count - 1; col < countCol; col++)
                     {
-                        if (dataGridViewCSSP[col, row].Value != null)
+                        if (col > 3 && col < 7)
                         {
-                            if (col > 3 && col < 7)
+                            if (dataGridViewCSSP[col, row].Value != null)
                             {
                                 int tubeNumber = -1;
                                 if (!int.TryParse(dataGridViewCSSP[col, row].Value.ToString(), out tubeNumber))
@@ -4853,9 +4853,12 @@ namespace CSSPWQInputTool
                             dataGridViewHasEmptyCells = true;
                         }
 
-                        if (dataGridViewCSSP[col, row].Value.ToString() == "Error")
+                        if (dataGridViewCSSP[col, row].Value != null)
                         {
-                            dataGridViewTubeCombinationError = true;
+                            if (dataGridViewCSSP[col, row].Value.ToString() == "Error")
+                            {
+                                dataGridViewTubeCombinationError = true;
+                            }
                         }
                     }
                     if (dataGridViewHasEmptyCells)
