@@ -297,6 +297,11 @@ namespace CSSPWQInputTool
                 return;
             }
 
+            if (!EverythingEntered())
+            {
+                return;
+            }
+
             TrySendingToServer();
         }
         private void butSyncArchives_Click(object sender, EventArgs e)
@@ -4819,23 +4824,38 @@ namespace CSSPWQInputTool
                 // Data Grid View 
                 bool dataGridViewHasEmptyCells = false;
                 bool dataGridViewTubeCombinationError = false;
+                bool dataGridViewTubeInvalid = false;
                 for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
                 {
                     for (int col = 0, countCol = dataGridViewCSSP.Columns.Count - 1; col < countCol; col++)
                     {
+                        if (dataGridViewCSSP[col, row].Value != null)
+                        {
+                            if (col > 3 && col < 7)
+                            {
+                                int tubeNumber = -1;
+                                if (!int.TryParse(dataGridViewCSSP[col, row].Value.ToString(), out tubeNumber))
+                                {
+                                    dataGridViewTubeInvalid = true;
+                                }
+                                if (tubeNumber > 5 || tubeNumber < 0)
+                                {
+                                    dataGridViewTubeInvalid = true;
+                                }
+                            }
+                        }
+
                         if (dataGridViewCSSP[col, row].Value == null || string.IsNullOrWhiteSpace(dataGridViewCSSP[col, row].Value.ToString()))
                         {
                             if (col == 9 && !csspWQInputApp.IncludeLaboratoryQAQC)
                                 continue;
 
                             dataGridViewHasEmptyCells = true;
-                            break;
                         }
 
                         if (dataGridViewCSSP[col, row].Value.ToString() == "Error")
                         {
                             dataGridViewTubeCombinationError = true;
-                            break;
                         }
                     }
                     if (dataGridViewHasEmptyCells)
@@ -4858,12 +4878,26 @@ namespace CSSPWQInputTool
                             break;
                         }
                     }
+                    if (dataGridViewTubeCombinationError)
+                    {
+                        break;
+                    }
+                    if (dataGridViewTubeInvalid)
+                    {
+                        break;
+                    }
                 }
 
                 if (dataGridViewHasEmptyCells)
                 {
                     dataGridViewCSSP.BackgroundColor = Color.Red;
                     butSendToServer.Text = "Data missing in grid";
+                    return false;
+                }
+
+                if (dataGridViewTubeInvalid)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Please correct before sending lab sheet to server.", "Invalid tube combination.", MessageBoxButtons.OK);
                     return false;
                 }
 
@@ -4874,9 +4908,6 @@ namespace CSSPWQInputTool
                     {
                         return false;
                     }
-                    //dataGridViewCSSP.BackgroundColor = Color.Red;
-                    //butSendToServer.Text = "Tube combination error";
-                    //return false;
                 }
 
             }
@@ -8319,6 +8350,11 @@ namespace CSSPWQInputTool
             if (!lblFilePath.Text.EndsWith("_C.txt"))
             {
                 MessageBox.Show("Only changed files i.e. ending with _C.txt can be sent to the server.");
+                return;
+            }
+
+            if (!EverythingEntered())
+            {
                 return;
             }
 
