@@ -1251,6 +1251,7 @@ namespace CSSPWQInputTool
                                         dataGridViewCSSP.Rows[RowOfDuplicate].Cells[9].Value = "";
                                         dataGridViewCSSP.Rows[RowOfDuplicate].Cells[12].Value = "";
                                         DoSave();
+                                        ReadFileFromLocalMachine();
                                     }
                                     else
                                     {
@@ -1263,6 +1264,7 @@ namespace CSSPWQInputTool
                                             dataGridViewCSSP[TVItemIDIndex, RowOfDuplicate].Value = dataGridViewCSSP[TVItemIDIndex, dataGridViewCSSP.CurrentCell.RowIndex].Value.ToString().Trim();
                                             AddLog("Change Daily Duplicate [" + MWQMSiteOld + "]", MWQMSite);
                                             DoSave();
+                                            ReadFileFromLocalMachine();
                                         }
                                     }
                                 }
