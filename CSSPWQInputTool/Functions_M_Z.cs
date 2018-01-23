@@ -71,11 +71,9 @@ namespace CSSPWQInputTool
         }
         private void Modifying()
         {
-            IsSaving = true;
-
             if (InLoadingFile)
                 return;
-
+          
             if (lblFilePath.Text.Contains("F.txt") || lblFilePath.Text.Contains("A.txt") || lblFilePath.Text.Contains("S.txt"))
             {
                 string EndFileText = lblFilePath.Text.Substring(lblFilePath.Text.Length - 5);
@@ -479,6 +477,8 @@ namespace CSSPWQInputTool
         }
         private bool ReadSamplingPlan()
         {
+            InLoadingFile = true;
+
             bool HasSubsector = false;
             bool HasInfrastructure = false;
             labSheetA1Sheet = new LabSheetA1Sheet();
@@ -1501,6 +1501,7 @@ namespace CSSPWQInputTool
         {
             listBoxFiles.Focus();
             panelAppInputFiles.BringToFront();
+            butArchive.Enabled = false;
             panelSendToServerCompare.SendToBack();
             comboBoxFileSubsector.Items.Clear();
 
@@ -2747,6 +2748,7 @@ namespace CSSPWQInputTool
                 if (!ReadFileFromLocalMachine())
                     return;
                 panelAppInput.BringToFront();
+                butArchive.Enabled = true;
                 CurrentPanel = panelAppInput;
                 panelAppInputIsVisible = true;
                 butSendToServer.Enabled = false;
@@ -2802,7 +2804,6 @@ namespace CSSPWQInputTool
                 //    butGetLabSheetsStatus.Enabled = true;
                 //}
             }
-
         }
         private void ValidateCellA1(int ColumnIndex, int RowIndex)
         {

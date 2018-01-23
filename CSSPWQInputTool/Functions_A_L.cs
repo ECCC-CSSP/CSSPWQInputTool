@@ -540,6 +540,7 @@ namespace CSSPWQInputTool
             dateTimePickerResultsReadDate.Value = dateTimePickerRun.Value.AddDays(1);
             dateTimePickerResultsRecordedDate.Value = dateTimePickerRun.Value.AddDays(1);
             panelAppInput.BringToFront();
+            butArchive.Enabled = true;
             CurrentPanel = panelAppInput;
         }
         private string CheckDestinationFilesDocx(FileInfo fi, FileInfo fiTo)
@@ -3265,7 +3266,7 @@ namespace CSSPWQInputTool
                 || StartResultsReadDateMonth != dateTimePickerResultsReadDate.Value.Month.ToString()
                 || StartResultsReadDateDay != dateTimePickerResultsReadDate.Value.Day.ToString())
             {
-                AddLog("Results Results Date", dateTimePickerResultsReadDate.Value.Year.ToString() + 
+                AddLog("Results Read Date", dateTimePickerResultsReadDate.Value.Year.ToString() + 
                     "\t" + dateTimePickerResultsReadDate.Value.Month.ToString() + 
                     "\t" + dateTimePickerResultsReadDate.Value.Day.ToString());
             }
@@ -3279,7 +3280,7 @@ namespace CSSPWQInputTool
                 || StartResultsRecordedDateMonth != dateTimePickerResultsRecordedDate.Value.Month.ToString()
                 || StartResultsRecordedDateDay != dateTimePickerResultsRecordedDate.Value.Day.ToString())
             {
-                AddLog("Results Results Date", dateTimePickerResultsRecordedDate.Value.Year.ToString() +
+                AddLog("Results Recorded Date", dateTimePickerResultsRecordedDate.Value.Year.ToString() +
                     "\t" + dateTimePickerResultsRecordedDate.Value.Month.ToString() +
                     "\t" + dateTimePickerResultsRecordedDate.Value.Day.ToString());
             }

@@ -56,6 +56,8 @@ namespace CSSPWQInputTool
             }
 
             SetupAppInputFiles();
+
+            IsSaving = false;
         }
         private void butBrowseSamplingPlanFile_Click(object sender, EventArgs e)
         {
@@ -77,6 +79,7 @@ namespace CSSPWQInputTool
         {
             lblChangeDateError.Text = "";
             panelAppInput.BringToFront();
+            butArchive.Enabled = true;
             CurrentPanel = panelAppInput;
         }
         private void butCreateFile_Click(object sender, EventArgs e)
@@ -2901,12 +2904,18 @@ namespace CSSPWQInputTool
         private void richTextBoxRunWeatherComment_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void richTextBoxRunComment_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBlank35_TextChanged(object sender, EventArgs e)
         {
@@ -2929,7 +2938,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath1Blank44_5_TextChanged(object sender, EventArgs e)
         {
@@ -2959,7 +2971,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath2Blank44_5_TextChanged(object sender, EventArgs e)
         {
@@ -2989,7 +3004,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath3Blank44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3012,12 +3030,18 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlLot_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlNegative35_TextChanged(object sender, EventArgs e)
         {
@@ -3039,7 +3063,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath1Negative44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3061,7 +3088,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath2Negative44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3083,7 +3113,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath3Negative44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3105,7 +3138,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlNonTarget35_TextChanged(object sender, EventArgs e)
         {
@@ -3132,7 +3168,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath1NonTarget44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3158,7 +3197,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath2NonTarget44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3184,7 +3226,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath3NonTarget44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3210,7 +3255,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlPositive35_TextChanged(object sender, EventArgs e)
         {
@@ -3232,7 +3280,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath1Positive44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3254,7 +3305,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath2Positive44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3276,7 +3330,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxControlBath3Positive44_5_TextChanged(object sender, EventArgs e)
         {
@@ -3298,14 +3355,20 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxDailyDuplicatePrecisionCriteria_TextChanged(object sender, EventArgs e)
         {
             CalculateDuplicate();
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxIncubationBath1StartTime_TextChanged(object sender, EventArgs e)
         {
@@ -3326,7 +3389,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxIncubationBath2StartTime_TextChanged(object sender, EventArgs e)
         {
@@ -3347,7 +3413,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxIncubationBath3StartTime_TextChanged(object sender, EventArgs e)
         {
@@ -3368,7 +3437,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxIncubationBath1EndTime_TextChanged(object sender, EventArgs e)
         {
@@ -3389,7 +3461,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxIncubationBath2EndTime_TextChanged(object sender, EventArgs e)
         {
@@ -3410,7 +3485,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxIncubationBath3EndTime_TextChanged(object sender, EventArgs e)
         {
@@ -3431,44 +3509,68 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxIntertechDuplicatePrecisionCriteria_TextChanged(object sender, EventArgs e)
         {
             CalculateDuplicate();
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxLot35_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxLot44_5_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxResultsReadBy_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxResultsRecordedBy_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxSalinitiesReadBy_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxSampleBottleLotNumber_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxSampleCrewInitials_TextChanged(object sender, EventArgs e)
         {
@@ -3485,7 +3587,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxAccessCode_TextChanged(object sender, EventArgs e)
         {
@@ -3541,7 +3646,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxTCField2_TextChanged(object sender, EventArgs e)
         {
@@ -3573,7 +3681,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxTCLab1_TextChanged(object sender, EventArgs e)
         {
@@ -3605,7 +3716,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxTCLab2_TextChanged(object sender, EventArgs e)
         {
@@ -3637,7 +3751,10 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxTides_TextChanged(object sender, EventArgs e)
         {
@@ -3655,22 +3772,34 @@ namespace CSSPWQInputTool
             }
 
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxWaterBath1Number_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxWaterBath2Number_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         private void textBoxWaterBath3Number_TextChanged(object sender, EventArgs e)
         {
             if (!InLoadingFile)
+            {
+                IsSaving = true;
                 Modifying();
+            }
         }
         #endregion Events TextChanged
         #region Events timerGetTides
