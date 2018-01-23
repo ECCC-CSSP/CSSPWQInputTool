@@ -104,6 +104,7 @@
             this.lblControlPositiveTxt = new System.Windows.Forms.Label();
             this.lblControlTxt = new System.Windows.Forms.Label();
             this.panelTC = new System.Windows.Forms.Panel();
+            this.lblIncubationBath1TimeCalculated = new System.Windows.Forms.Label();
             this.lblBath3IncubationTimeTxt = new System.Windows.Forms.Label();
             this.lblBath2IncubationTimeTxt = new System.Windows.Forms.Label();
             this.lblIncubationBath3TimeCalculated = new System.Windows.Forms.Label();
@@ -111,17 +112,13 @@
             this.checkBox2Coolers = new System.Windows.Forms.CheckBox();
             this.textBoxTCLab2 = new System.Windows.Forms.TextBox();
             this.textBoxTCField2 = new System.Windows.Forms.TextBox();
-            this.lblAverage = new System.Windows.Forms.Label();
-            this.lblFirst = new System.Windows.Forms.Label();
-            this.lblTCAverage = new System.Windows.Forms.Label();
-            this.lblTCFirst = new System.Windows.Forms.Label();
             this.lblLabTxt = new System.Windows.Forms.Label();
             this.lblFieldTxt = new System.Windows.Forms.Label();
             this.textBoxTCLab1 = new System.Windows.Forms.TextBox();
             this.textBoxTCField1 = new System.Windows.Forms.TextBox();
             this.lblTCTxt = new System.Windows.Forms.Label();
+            this.lblBath1IncubationTimeTxt = new System.Windows.Forms.Label();
             this.panelAppInputTopIncubation = new System.Windows.Forms.Panel();
-            this.lblIncubationBath1TimeCalculated = new System.Windows.Forms.Label();
             this.lblBath3 = new System.Windows.Forms.Label();
             this.lblBath2 = new System.Windows.Forms.Label();
             this.lblBath1 = new System.Windows.Forms.Label();
@@ -138,7 +135,6 @@
             this.checkBoxIncubationStartSameDay = new System.Windows.Forms.CheckBox();
             this.textBoxIncubationBath2EndTime = new System.Windows.Forms.TextBox();
             this.textBoxIncubationBath2StartTime = new System.Windows.Forms.TextBox();
-            this.lblBath1IncubationTimeTxt = new System.Windows.Forms.Label();
             this.lblBathNumberTxt = new System.Windows.Forms.Label();
             this.textBoxWaterBath1Number = new System.Windows.Forms.TextBox();
             this.lblEndTxt = new System.Windows.Forms.Label();
@@ -146,6 +142,7 @@
             this.lblTimeTxt = new System.Windows.Forms.Label();
             this.textBoxIncubationBath1StartTime = new System.Windows.Forms.TextBox();
             this.panelAppInputTopTideCrew = new System.Windows.Forms.Panel();
+            this.lblTideTextExample = new System.Windows.Forms.Label();
             this.textBoxTides = new System.Windows.Forms.TextBox();
             this.webBrowserCSSP = new System.Windows.Forms.WebBrowser();
             this.butGetTides = new System.Windows.Forms.Button();
@@ -592,6 +589,7 @@
             resources.ApplyResources(this.textBoxControlBath3Blank44_5, "textBoxControlBath3Blank44_5");
             this.textBoxControlBath3Blank44_5.Name = "textBoxControlBath3Blank44_5";
             this.textBoxControlBath3Blank44_5.TextChanged += new System.EventHandler(this.textBoxControlBath3Blank44_5_TextChanged);
+            this.textBoxControlBath3Blank44_5.Enter += new System.EventHandler(this.textBoxControlBath3Blank44_5_Enter);
             this.textBoxControlBath3Blank44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath3Blank44_5_KeyDown);
             this.textBoxControlBath3Blank44_5.Leave += new System.EventHandler(this.textBoxControlBath3Blank44_5_Leave);
             // 
@@ -600,6 +598,7 @@
             resources.ApplyResources(this.textBoxControlBath3Negative44_5, "textBoxControlBath3Negative44_5");
             this.textBoxControlBath3Negative44_5.Name = "textBoxControlBath3Negative44_5";
             this.textBoxControlBath3Negative44_5.TextChanged += new System.EventHandler(this.textBoxControlBath3Negative44_5_TextChanged);
+            this.textBoxControlBath3Negative44_5.Enter += new System.EventHandler(this.textBoxControlBath3Negative44_5_Enter);
             this.textBoxControlBath3Negative44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath3Negative44_5_KeyDown);
             this.textBoxControlBath3Negative44_5.Leave += new System.EventHandler(this.textBoxControlBath3Negative44_5_Leave);
             // 
@@ -608,6 +607,7 @@
             resources.ApplyResources(this.textBoxControlBath3NonTarget44_5, "textBoxControlBath3NonTarget44_5");
             this.textBoxControlBath3NonTarget44_5.Name = "textBoxControlBath3NonTarget44_5";
             this.textBoxControlBath3NonTarget44_5.TextChanged += new System.EventHandler(this.textBoxControlBath3NonTarget44_5_TextChanged);
+            this.textBoxControlBath3NonTarget44_5.Enter += new System.EventHandler(this.textBoxControlBath3NonTarget44_5_Enter);
             this.textBoxControlBath3NonTarget44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath3NonTarget44_5_KeyDown);
             this.textBoxControlBath3NonTarget44_5.Leave += new System.EventHandler(this.textBoxControlBath3NonTarget44_5_Leave);
             // 
@@ -621,6 +621,7 @@
             resources.ApplyResources(this.textBoxControlBath3Positive44_5, "textBoxControlBath3Positive44_5");
             this.textBoxControlBath3Positive44_5.Name = "textBoxControlBath3Positive44_5";
             this.textBoxControlBath3Positive44_5.TextChanged += new System.EventHandler(this.textBoxControlBath3Positive44_5_TextChanged);
+            this.textBoxControlBath3Positive44_5.Enter += new System.EventHandler(this.textBoxControlBath3Positive44_5_Enter);
             this.textBoxControlBath3Positive44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath3Positive44_5_KeyDown);
             this.textBoxControlBath3Positive44_5.Leave += new System.EventHandler(this.textBoxControlBath3Positive44_5_Leave);
             // 
@@ -629,6 +630,7 @@
             resources.ApplyResources(this.textBoxControlBath2Blank44_5, "textBoxControlBath2Blank44_5");
             this.textBoxControlBath2Blank44_5.Name = "textBoxControlBath2Blank44_5";
             this.textBoxControlBath2Blank44_5.TextChanged += new System.EventHandler(this.textBoxControlBath2Blank44_5_TextChanged);
+            this.textBoxControlBath2Blank44_5.Enter += new System.EventHandler(this.textBoxControlBath2Blank44_5_Enter);
             this.textBoxControlBath2Blank44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath2Blank44_5_KeyDown);
             this.textBoxControlBath2Blank44_5.Leave += new System.EventHandler(this.textBoxControlBath2Blank44_5_Leave);
             // 
@@ -637,6 +639,7 @@
             resources.ApplyResources(this.textBoxControlBath2Negative44_5, "textBoxControlBath2Negative44_5");
             this.textBoxControlBath2Negative44_5.Name = "textBoxControlBath2Negative44_5";
             this.textBoxControlBath2Negative44_5.TextChanged += new System.EventHandler(this.textBoxControlBath2Negative44_5_TextChanged);
+            this.textBoxControlBath2Negative44_5.Enter += new System.EventHandler(this.textBoxControlBath2Negative44_5_Enter);
             this.textBoxControlBath2Negative44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath2Negative44_5_KeyDown);
             this.textBoxControlBath2Negative44_5.Leave += new System.EventHandler(this.textBoxControlBath2Negative44_5_Leave);
             // 
@@ -645,6 +648,7 @@
             resources.ApplyResources(this.textBoxControlBath2NonTarget44_5, "textBoxControlBath2NonTarget44_5");
             this.textBoxControlBath2NonTarget44_5.Name = "textBoxControlBath2NonTarget44_5";
             this.textBoxControlBath2NonTarget44_5.TextChanged += new System.EventHandler(this.textBoxControlBath2NonTarget44_5_TextChanged);
+            this.textBoxControlBath2NonTarget44_5.Enter += new System.EventHandler(this.textBoxControlBath2NonTarget44_5_Enter);
             this.textBoxControlBath2NonTarget44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath2NonTarget44_5_KeyDown);
             this.textBoxControlBath2NonTarget44_5.Leave += new System.EventHandler(this.textBoxControlBath2NonTarget44_5_Leave);
             // 
@@ -658,6 +662,7 @@
             resources.ApplyResources(this.textBoxControlBath2Positive44_5, "textBoxControlBath2Positive44_5");
             this.textBoxControlBath2Positive44_5.Name = "textBoxControlBath2Positive44_5";
             this.textBoxControlBath2Positive44_5.TextChanged += new System.EventHandler(this.textBoxControlBath2Positive44_5_TextChanged);
+            this.textBoxControlBath2Positive44_5.Enter += new System.EventHandler(this.textBoxControlBath2Positive44_5_Enter);
             this.textBoxControlBath2Positive44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath2Positive44_5_KeyDown);
             this.textBoxControlBath2Positive44_5.Leave += new System.EventHandler(this.textBoxControlBath2Positive44_5_Leave);
             // 
@@ -666,6 +671,7 @@
             resources.ApplyResources(this.textBoxControlBath1Blank44_5, "textBoxControlBath1Blank44_5");
             this.textBoxControlBath1Blank44_5.Name = "textBoxControlBath1Blank44_5";
             this.textBoxControlBath1Blank44_5.TextChanged += new System.EventHandler(this.textBoxControlBath1Blank44_5_TextChanged);
+            this.textBoxControlBath1Blank44_5.Enter += new System.EventHandler(this.textBoxControlBath1Blank44_5_Enter);
             this.textBoxControlBath1Blank44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath1Blank44_5_KeyDown);
             this.textBoxControlBath1Blank44_5.Leave += new System.EventHandler(this.textBoxControlBath1Blank44_5_Leave);
             // 
@@ -689,6 +695,7 @@
             resources.ApplyResources(this.textBoxLot44_5, "textBoxLot44_5");
             this.textBoxLot44_5.Name = "textBoxLot44_5";
             this.textBoxLot44_5.TextChanged += new System.EventHandler(this.textBoxLot44_5_TextChanged);
+            this.textBoxLot44_5.Enter += new System.EventHandler(this.textBoxLot44_5_Enter);
             this.textBoxLot44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxLot44_5_KeyDown);
             this.textBoxLot44_5.Leave += new System.EventHandler(this.textBoxLot44_5_Leave);
             // 
@@ -697,6 +704,7 @@
             resources.ApplyResources(this.textBoxLot35, "textBoxLot35");
             this.textBoxLot35.Name = "textBoxLot35";
             this.textBoxLot35.TextChanged += new System.EventHandler(this.textBoxLot35_TextChanged);
+            this.textBoxLot35.Enter += new System.EventHandler(this.textBoxLot35_Enter);
             this.textBoxLot35.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxLot35_KeyDown);
             this.textBoxLot35.Leave += new System.EventHandler(this.textBoxLot35_Leave);
             // 
@@ -705,6 +713,7 @@
             resources.ApplyResources(this.textBoxControlBlank35, "textBoxControlBlank35");
             this.textBoxControlBlank35.Name = "textBoxControlBlank35";
             this.textBoxControlBlank35.TextChanged += new System.EventHandler(this.textBoxControlBlank35_TextChanged);
+            this.textBoxControlBlank35.Enter += new System.EventHandler(this.textBoxControlBlank35_Enter);
             this.textBoxControlBlank35.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBlank35_KeyDown);
             this.textBoxControlBlank35.Leave += new System.EventHandler(this.textBoxControlBlank35_Leave);
             // 
@@ -713,6 +722,7 @@
             resources.ApplyResources(this.textBoxControlBath1Negative44_5, "textBoxControlBath1Negative44_5");
             this.textBoxControlBath1Negative44_5.Name = "textBoxControlBath1Negative44_5";
             this.textBoxControlBath1Negative44_5.TextChanged += new System.EventHandler(this.textBoxControlBath1Negative44_5_TextChanged);
+            this.textBoxControlBath1Negative44_5.Enter += new System.EventHandler(this.textBoxControlBath1Negative44_5_Enter);
             this.textBoxControlBath1Negative44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath1Negative44_5_KeyDown);
             this.textBoxControlBath1Negative44_5.Leave += new System.EventHandler(this.textBoxControlBath1Negative44_5_Leave);
             // 
@@ -721,6 +731,7 @@
             resources.ApplyResources(this.textBoxControlNegative35, "textBoxControlNegative35");
             this.textBoxControlNegative35.Name = "textBoxControlNegative35";
             this.textBoxControlNegative35.TextChanged += new System.EventHandler(this.textBoxControlNegative35_TextChanged);
+            this.textBoxControlNegative35.Enter += new System.EventHandler(this.textBoxControlNegative35_Enter);
             this.textBoxControlNegative35.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlNegative35_KeyDown);
             this.textBoxControlNegative35.Leave += new System.EventHandler(this.textBoxControlNegative35_Leave);
             // 
@@ -729,6 +740,7 @@
             resources.ApplyResources(this.textBoxControlBath1NonTarget44_5, "textBoxControlBath1NonTarget44_5");
             this.textBoxControlBath1NonTarget44_5.Name = "textBoxControlBath1NonTarget44_5";
             this.textBoxControlBath1NonTarget44_5.TextChanged += new System.EventHandler(this.textBoxControlBath1NonTarget44_5_TextChanged);
+            this.textBoxControlBath1NonTarget44_5.Enter += new System.EventHandler(this.textBoxControlBath1NonTarget44_5_Enter);
             this.textBoxControlBath1NonTarget44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath1NonTarget44_5_KeyDown);
             this.textBoxControlBath1NonTarget44_5.Leave += new System.EventHandler(this.textBoxControlBath1NonTarget44_5_Leave);
             // 
@@ -737,6 +749,7 @@
             resources.ApplyResources(this.textBoxControlNonTarget35, "textBoxControlNonTarget35");
             this.textBoxControlNonTarget35.Name = "textBoxControlNonTarget35";
             this.textBoxControlNonTarget35.TextChanged += new System.EventHandler(this.textBoxControlNonTarget35_TextChanged);
+            this.textBoxControlNonTarget35.Enter += new System.EventHandler(this.textBoxControlNonTarget35_Enter);
             this.textBoxControlNonTarget35.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlNonTarget35_KeyDown);
             this.textBoxControlNonTarget35.Leave += new System.EventHandler(this.textBoxControlNonTarget35_Leave);
             // 
@@ -745,6 +758,7 @@
             resources.ApplyResources(this.textBoxControlLot, "textBoxControlLot");
             this.textBoxControlLot.Name = "textBoxControlLot";
             this.textBoxControlLot.TextChanged += new System.EventHandler(this.textBoxControlLot_TextChanged);
+            this.textBoxControlLot.Enter += new System.EventHandler(this.textBoxControlLot_Enter);
             this.textBoxControlLot.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlLot_KeyDown);
             this.textBoxControlLot.Leave += new System.EventHandler(this.textBoxControlLot_Leave);
             // 
@@ -768,6 +782,7 @@
             resources.ApplyResources(this.textBoxControlBath1Positive44_5, "textBoxControlBath1Positive44_5");
             this.textBoxControlBath1Positive44_5.Name = "textBoxControlBath1Positive44_5";
             this.textBoxControlBath1Positive44_5.TextChanged += new System.EventHandler(this.textBoxControlBath1Positive44_5_TextChanged);
+            this.textBoxControlBath1Positive44_5.Enter += new System.EventHandler(this.textBoxControlBath1Positive44_5_Enter);
             this.textBoxControlBath1Positive44_5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlBath1Positive44_5_KeyDown);
             this.textBoxControlBath1Positive44_5.Leave += new System.EventHandler(this.textBoxControlBath1Positive44_5_Leave);
             // 
@@ -776,6 +791,7 @@
             resources.ApplyResources(this.textBoxControlPositive35, "textBoxControlPositive35");
             this.textBoxControlPositive35.Name = "textBoxControlPositive35";
             this.textBoxControlPositive35.TextChanged += new System.EventHandler(this.textBoxControlPositive35_TextChanged);
+            this.textBoxControlPositive35.Enter += new System.EventHandler(this.textBoxControlPositive35_Enter);
             this.textBoxControlPositive35.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControlPositive35_KeyDown);
             this.textBoxControlPositive35.Leave += new System.EventHandler(this.textBoxControlPositive35_Leave);
             // 
@@ -817,6 +833,7 @@
             // panelTC
             // 
             this.panelTC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTC.Controls.Add(this.lblIncubationBath1TimeCalculated);
             this.panelTC.Controls.Add(this.lblBath3IncubationTimeTxt);
             this.panelTC.Controls.Add(this.lblBath2IncubationTimeTxt);
             this.panelTC.Controls.Add(this.lblIncubationBath3TimeCalculated);
@@ -824,17 +841,19 @@
             this.panelTC.Controls.Add(this.checkBox2Coolers);
             this.panelTC.Controls.Add(this.textBoxTCLab2);
             this.panelTC.Controls.Add(this.textBoxTCField2);
-            this.panelTC.Controls.Add(this.lblAverage);
-            this.panelTC.Controls.Add(this.lblFirst);
-            this.panelTC.Controls.Add(this.lblTCAverage);
-            this.panelTC.Controls.Add(this.lblTCFirst);
             this.panelTC.Controls.Add(this.lblLabTxt);
             this.panelTC.Controls.Add(this.lblFieldTxt);
             this.panelTC.Controls.Add(this.textBoxTCLab1);
             this.panelTC.Controls.Add(this.textBoxTCField1);
             this.panelTC.Controls.Add(this.lblTCTxt);
+            this.panelTC.Controls.Add(this.lblBath1IncubationTimeTxt);
             resources.ApplyResources(this.panelTC, "panelTC");
             this.panelTC.Name = "panelTC";
+            // 
+            // lblIncubationBath1TimeCalculated
+            // 
+            resources.ApplyResources(this.lblIncubationBath1TimeCalculated, "lblIncubationBath1TimeCalculated");
+            this.lblIncubationBath1TimeCalculated.Name = "lblIncubationBath1TimeCalculated";
             // 
             // lblBath3IncubationTimeTxt
             // 
@@ -860,9 +879,10 @@
             // 
             resources.ApplyResources(this.checkBox2Coolers, "checkBox2Coolers");
             this.checkBox2Coolers.Name = "checkBox2Coolers";
-            this.checkBox2Coolers.TabStop = false;
             this.checkBox2Coolers.UseVisualStyleBackColor = true;
             this.checkBox2Coolers.CheckedChanged += new System.EventHandler(this.checkBox2Coolers_CheckedChanged);
+            this.checkBox2Coolers.Enter += new System.EventHandler(this.checkBox2Coolers_Enter);
+            this.checkBox2Coolers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkBox2Coolers_KeyDown);
             this.checkBox2Coolers.Leave += new System.EventHandler(this.checkBox2Coolers_Leave);
             // 
             // textBoxTCLab2
@@ -870,6 +890,8 @@
             resources.ApplyResources(this.textBoxTCLab2, "textBoxTCLab2");
             this.textBoxTCLab2.Name = "textBoxTCLab2";
             this.textBoxTCLab2.TextChanged += new System.EventHandler(this.textBoxTCLab2_TextChanged);
+            this.textBoxTCLab2.Enter += new System.EventHandler(this.textBoxTCLab2_Enter);
+            this.textBoxTCLab2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxTCLab2_KeyDown);
             this.textBoxTCLab2.Leave += new System.EventHandler(this.textBoxTCLab2_Leave);
             // 
             // textBoxTCField2
@@ -877,28 +899,9 @@
             resources.ApplyResources(this.textBoxTCField2, "textBoxTCField2");
             this.textBoxTCField2.Name = "textBoxTCField2";
             this.textBoxTCField2.TextChanged += new System.EventHandler(this.textBoxTCField2_TextChanged);
+            this.textBoxTCField2.Enter += new System.EventHandler(this.textBoxTCField2_Enter);
             this.textBoxTCField2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxTCField2_KeyDown);
             this.textBoxTCField2.Leave += new System.EventHandler(this.textBoxTCField2_Leave);
-            // 
-            // lblAverage
-            // 
-            resources.ApplyResources(this.lblAverage, "lblAverage");
-            this.lblAverage.Name = "lblAverage";
-            // 
-            // lblFirst
-            // 
-            resources.ApplyResources(this.lblFirst, "lblFirst");
-            this.lblFirst.Name = "lblFirst";
-            // 
-            // lblTCAverage
-            // 
-            resources.ApplyResources(this.lblTCAverage, "lblTCAverage");
-            this.lblTCAverage.Name = "lblTCAverage";
-            // 
-            // lblTCFirst
-            // 
-            resources.ApplyResources(this.lblTCFirst, "lblTCFirst");
-            this.lblTCFirst.Name = "lblTCFirst";
             // 
             // lblLabTxt
             // 
@@ -915,6 +918,7 @@
             resources.ApplyResources(this.textBoxTCLab1, "textBoxTCLab1");
             this.textBoxTCLab1.Name = "textBoxTCLab1";
             this.textBoxTCLab1.TextChanged += new System.EventHandler(this.textBoxTCLab1_TextChanged);
+            this.textBoxTCLab1.Enter += new System.EventHandler(this.textBoxTCLab1_Enter);
             this.textBoxTCLab1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxTCLab1_KeyDown);
             this.textBoxTCLab1.Leave += new System.EventHandler(this.textBoxTCLab1_Leave);
             // 
@@ -923,6 +927,7 @@
             resources.ApplyResources(this.textBoxTCField1, "textBoxTCField1");
             this.textBoxTCField1.Name = "textBoxTCField1";
             this.textBoxTCField1.TextChanged += new System.EventHandler(this.textBoxTCField1_TextChanged);
+            this.textBoxTCField1.Enter += new System.EventHandler(this.textBoxTCField1_Enter);
             this.textBoxTCField1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxTCField1_KeyDown);
             this.textBoxTCField1.Leave += new System.EventHandler(this.textBoxTCField1_Leave);
             // 
@@ -931,10 +936,14 @@
             resources.ApplyResources(this.lblTCTxt, "lblTCTxt");
             this.lblTCTxt.Name = "lblTCTxt";
             // 
+            // lblBath1IncubationTimeTxt
+            // 
+            resources.ApplyResources(this.lblBath1IncubationTimeTxt, "lblBath1IncubationTimeTxt");
+            this.lblBath1IncubationTimeTxt.Name = "lblBath1IncubationTimeTxt";
+            // 
             // panelAppInputTopIncubation
             // 
             this.panelAppInputTopIncubation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelAppInputTopIncubation.Controls.Add(this.lblIncubationBath1TimeCalculated);
             this.panelAppInputTopIncubation.Controls.Add(this.lblBath3);
             this.panelAppInputTopIncubation.Controls.Add(this.lblBath2);
             this.panelAppInputTopIncubation.Controls.Add(this.lblBath1);
@@ -951,7 +960,6 @@
             this.panelAppInputTopIncubation.Controls.Add(this.checkBoxIncubationStartSameDay);
             this.panelAppInputTopIncubation.Controls.Add(this.textBoxIncubationBath2EndTime);
             this.panelAppInputTopIncubation.Controls.Add(this.textBoxIncubationBath2StartTime);
-            this.panelAppInputTopIncubation.Controls.Add(this.lblBath1IncubationTimeTxt);
             this.panelAppInputTopIncubation.Controls.Add(this.lblBathNumberTxt);
             this.panelAppInputTopIncubation.Controls.Add(this.textBoxWaterBath1Number);
             this.panelAppInputTopIncubation.Controls.Add(this.lblEndTxt);
@@ -960,11 +968,6 @@
             this.panelAppInputTopIncubation.Controls.Add(this.textBoxIncubationBath1StartTime);
             resources.ApplyResources(this.panelAppInputTopIncubation, "panelAppInputTopIncubation");
             this.panelAppInputTopIncubation.Name = "panelAppInputTopIncubation";
-            // 
-            // lblIncubationBath1TimeCalculated
-            // 
-            resources.ApplyResources(this.lblIncubationBath1TimeCalculated, "lblIncubationBath1TimeCalculated");
-            this.lblIncubationBath1TimeCalculated.Name = "lblIncubationBath1TimeCalculated";
             // 
             // lblBath3
             // 
@@ -986,6 +989,7 @@
             resources.ApplyResources(this.textBoxWaterBath3Number, "textBoxWaterBath3Number");
             this.textBoxWaterBath3Number.Name = "textBoxWaterBath3Number";
             this.textBoxWaterBath3Number.TextChanged += new System.EventHandler(this.textBoxWaterBath3Number_TextChanged);
+            this.textBoxWaterBath3Number.Enter += new System.EventHandler(this.textBoxWaterBath3Number_Enter);
             this.textBoxWaterBath3Number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxWaterBath3Number_KeyDown);
             this.textBoxWaterBath3Number.Leave += new System.EventHandler(this.textBoxWaterBath3Number_Leave);
             // 
@@ -994,6 +998,7 @@
             resources.ApplyResources(this.textBoxIncubationBath3EndTime, "textBoxIncubationBath3EndTime");
             this.textBoxIncubationBath3EndTime.Name = "textBoxIncubationBath3EndTime";
             this.textBoxIncubationBath3EndTime.TextChanged += new System.EventHandler(this.textBoxIncubationBath3EndTime_TextChanged);
+            this.textBoxIncubationBath3EndTime.Enter += new System.EventHandler(this.textBoxIncubationBath3EndTime_Enter);
             this.textBoxIncubationBath3EndTime.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxIncubationBath3EndTime_KeyDown);
             this.textBoxIncubationBath3EndTime.Leave += new System.EventHandler(this.textBoxIncubationBath3EndTime_Leave);
             // 
@@ -1002,6 +1007,7 @@
             resources.ApplyResources(this.textBoxIncubationBath3StartTime, "textBoxIncubationBath3StartTime");
             this.textBoxIncubationBath3StartTime.Name = "textBoxIncubationBath3StartTime";
             this.textBoxIncubationBath3StartTime.TextChanged += new System.EventHandler(this.textBoxIncubationBath3StartTime_TextChanged);
+            this.textBoxIncubationBath3StartTime.Enter += new System.EventHandler(this.textBoxIncubationBath3StartTime_Enter);
             this.textBoxIncubationBath3StartTime.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxIncubationBath3StartTime_KeyDown);
             this.textBoxIncubationBath3StartTime.Leave += new System.EventHandler(this.textBoxIncubationBath3StartTime_Leave);
             // 
@@ -1009,15 +1015,21 @@
             // 
             resources.ApplyResources(this.radioButton3Baths, "radioButton3Baths");
             this.radioButton3Baths.Name = "radioButton3Baths";
+            this.radioButton3Baths.TabStop = true;
             this.radioButton3Baths.UseVisualStyleBackColor = true;
             this.radioButton3Baths.CheckedChanged += new System.EventHandler(this.radioButton3Baths_CheckedChanged);
+            this.radioButton3Baths.Enter += new System.EventHandler(this.radioButton3Baths_Enter);
+            this.radioButton3Baths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.radioButton3Baths_KeyDown);
             // 
             // radioButton2Baths
             // 
             resources.ApplyResources(this.radioButton2Baths, "radioButton2Baths");
             this.radioButton2Baths.Name = "radioButton2Baths";
+            this.radioButton2Baths.TabStop = true;
             this.radioButton2Baths.UseVisualStyleBackColor = true;
             this.radioButton2Baths.CheckedChanged += new System.EventHandler(this.radioButton2Baths_CheckedChanged);
+            this.radioButton2Baths.Enter += new System.EventHandler(this.radioButton2Baths_Enter);
+            this.radioButton2Baths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.radioButton2Baths_KeyDown);
             // 
             // radioButton1Baths
             // 
@@ -1027,6 +1039,8 @@
             this.radioButton1Baths.TabStop = true;
             this.radioButton1Baths.UseVisualStyleBackColor = true;
             this.radioButton1Baths.CheckedChanged += new System.EventHandler(this.radioButton1Baths_CheckedChanged);
+            this.radioButton1Baths.Enter += new System.EventHandler(this.radioButton1Baths_Enter);
+            this.radioButton1Baths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.radioButton1Baths_KeyDown);
             // 
             // lblNumberOfBaths
             // 
@@ -1048,6 +1062,7 @@
             resources.ApplyResources(this.textBoxWaterBath2Number, "textBoxWaterBath2Number");
             this.textBoxWaterBath2Number.Name = "textBoxWaterBath2Number";
             this.textBoxWaterBath2Number.TextChanged += new System.EventHandler(this.textBoxWaterBath2Number_TextChanged);
+            this.textBoxWaterBath2Number.Enter += new System.EventHandler(this.textBoxWaterBath2Number_Enter);
             this.textBoxWaterBath2Number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxWaterBath2Number_KeyDown);
             this.textBoxWaterBath2Number.Leave += new System.EventHandler(this.textBoxWaterBath2Number_Leave);
             // 
@@ -1059,12 +1074,15 @@
             this.checkBoxIncubationStartSameDay.Name = "checkBoxIncubationStartSameDay";
             this.checkBoxIncubationStartSameDay.UseVisualStyleBackColor = true;
             this.checkBoxIncubationStartSameDay.CheckedChanged += new System.EventHandler(this.checkBoxIncubationStartSameDay_CheckedChanged);
+            this.checkBoxIncubationStartSameDay.Enter += new System.EventHandler(this.checkBoxIncubationStartSameDay_Enter);
+            this.checkBoxIncubationStartSameDay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkBoxIncubationStartSameDay_KeyDown);
             // 
             // textBoxIncubationBath2EndTime
             // 
             resources.ApplyResources(this.textBoxIncubationBath2EndTime, "textBoxIncubationBath2EndTime");
             this.textBoxIncubationBath2EndTime.Name = "textBoxIncubationBath2EndTime";
             this.textBoxIncubationBath2EndTime.TextChanged += new System.EventHandler(this.textBoxIncubationBath2EndTime_TextChanged);
+            this.textBoxIncubationBath2EndTime.Enter += new System.EventHandler(this.textBoxIncubationBath2EndTime_Enter);
             this.textBoxIncubationBath2EndTime.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxIncubationBath2EndTime_KeyDown);
             this.textBoxIncubationBath2EndTime.Leave += new System.EventHandler(this.textBoxIncubationBath2EndTime_Leave);
             // 
@@ -1073,13 +1091,9 @@
             resources.ApplyResources(this.textBoxIncubationBath2StartTime, "textBoxIncubationBath2StartTime");
             this.textBoxIncubationBath2StartTime.Name = "textBoxIncubationBath2StartTime";
             this.textBoxIncubationBath2StartTime.TextChanged += new System.EventHandler(this.textBoxIncubationBath2StartTime_TextChanged);
+            this.textBoxIncubationBath2StartTime.Enter += new System.EventHandler(this.textBoxIncubationBath2StartTime_Enter);
             this.textBoxIncubationBath2StartTime.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxIncubationBath2StartTime_KeyDown);
             this.textBoxIncubationBath2StartTime.Leave += new System.EventHandler(this.textBoxIncubationBath2StartTime_Leave);
-            // 
-            // lblBath1IncubationTimeTxt
-            // 
-            resources.ApplyResources(this.lblBath1IncubationTimeTxt, "lblBath1IncubationTimeTxt");
-            this.lblBath1IncubationTimeTxt.Name = "lblBath1IncubationTimeTxt";
             // 
             // lblBathNumberTxt
             // 
@@ -1091,6 +1105,7 @@
             resources.ApplyResources(this.textBoxWaterBath1Number, "textBoxWaterBath1Number");
             this.textBoxWaterBath1Number.Name = "textBoxWaterBath1Number";
             this.textBoxWaterBath1Number.TextChanged += new System.EventHandler(this.textBoxWaterBath1Number_TextChanged);
+            this.textBoxWaterBath1Number.Enter += new System.EventHandler(this.textBoxWaterBath1Number_Enter);
             this.textBoxWaterBath1Number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxWaterBath1Number_KeyDown);
             this.textBoxWaterBath1Number.Leave += new System.EventHandler(this.textBoxWaterBath1Number_Leave);
             // 
@@ -1104,6 +1119,7 @@
             resources.ApplyResources(this.textBoxIncubationBath1EndTime, "textBoxIncubationBath1EndTime");
             this.textBoxIncubationBath1EndTime.Name = "textBoxIncubationBath1EndTime";
             this.textBoxIncubationBath1EndTime.TextChanged += new System.EventHandler(this.textBoxIncubationBath1EndTime_TextChanged);
+            this.textBoxIncubationBath1EndTime.Enter += new System.EventHandler(this.textBoxIncubationBath1EndTime_Enter);
             this.textBoxIncubationBath1EndTime.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxIncubationBath1EndTime_KeyDown);
             this.textBoxIncubationBath1EndTime.Leave += new System.EventHandler(this.textBoxIncubationBath1EndTime_Leave);
             // 
@@ -1117,12 +1133,14 @@
             resources.ApplyResources(this.textBoxIncubationBath1StartTime, "textBoxIncubationBath1StartTime");
             this.textBoxIncubationBath1StartTime.Name = "textBoxIncubationBath1StartTime";
             this.textBoxIncubationBath1StartTime.TextChanged += new System.EventHandler(this.textBoxIncubationBath1StartTime_TextChanged);
+            this.textBoxIncubationBath1StartTime.Enter += new System.EventHandler(this.textBoxIncubationBath1StartTime_Enter);
             this.textBoxIncubationBath1StartTime.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxIncubationBath1StartTime_KeyDown);
             this.textBoxIncubationBath1StartTime.Leave += new System.EventHandler(this.textBoxIncubationBath1StartTime_Leave);
             // 
             // panelAppInputTopTideCrew
             // 
             this.panelAppInputTopTideCrew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelAppInputTopTideCrew.Controls.Add(this.lblTideTextExample);
             this.panelAppInputTopTideCrew.Controls.Add(this.textBoxTides);
             this.panelAppInputTopTideCrew.Controls.Add(this.webBrowserCSSP);
             this.panelAppInputTopTideCrew.Controls.Add(this.butGetTides);
@@ -1131,11 +1149,17 @@
             resources.ApplyResources(this.panelAppInputTopTideCrew, "panelAppInputTopTideCrew");
             this.panelAppInputTopTideCrew.Name = "panelAppInputTopTideCrew";
             // 
+            // lblTideTextExample
+            // 
+            resources.ApplyResources(this.lblTideTextExample, "lblTideTextExample");
+            this.lblTideTextExample.Name = "lblTideTextExample";
+            // 
             // textBoxTides
             // 
             resources.ApplyResources(this.textBoxTides, "textBoxTides");
             this.textBoxTides.Name = "textBoxTides";
             this.textBoxTides.TextChanged += new System.EventHandler(this.textBoxTides_TextChanged);
+            this.textBoxTides.Enter += new System.EventHandler(this.textBoxTides_Enter);
             this.textBoxTides.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxTide_KeyDown);
             this.textBoxTides.Leave += new System.EventHandler(this.textBoxTides_Leave);
             // 
@@ -1158,6 +1182,7 @@
             resources.ApplyResources(this.textBoxSampleCrewInitials, "textBoxSampleCrewInitials");
             this.textBoxSampleCrewInitials.Name = "textBoxSampleCrewInitials";
             this.textBoxSampleCrewInitials.TextChanged += new System.EventHandler(this.textBoxSampleCrewInitials_TextChanged);
+            this.textBoxSampleCrewInitials.Enter += new System.EventHandler(this.textBoxSampleCrewInitials_Enter);
             this.textBoxSampleCrewInitials.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSampleCrewInitials_KeyDown);
             this.textBoxSampleCrewInitials.Leave += new System.EventHandler(this.textBoxSampleCrewInitials_Leave);
             // 
@@ -1224,6 +1249,7 @@
             resources.ApplyResources(this.textBoxResultsReadBy, "textBoxResultsReadBy");
             this.textBoxResultsReadBy.Name = "textBoxResultsReadBy";
             this.textBoxResultsReadBy.TextChanged += new System.EventHandler(this.textBoxResultsReadBy_TextChanged);
+            this.textBoxResultsReadBy.Enter += new System.EventHandler(this.textBoxResultsReadBy_Enter);
             this.textBoxResultsReadBy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxResultsReadBy_KeyDown);
             this.textBoxResultsReadBy.Leave += new System.EventHandler(this.textBoxResultsReadBy_Leave);
             // 
@@ -1232,6 +1258,8 @@
             resources.ApplyResources(this.dateTimePickerResultsReadDate, "dateTimePickerResultsReadDate");
             this.dateTimePickerResultsReadDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerResultsReadDate.Name = "dateTimePickerResultsReadDate";
+            this.dateTimePickerResultsReadDate.Enter += new System.EventHandler(this.dateTimePickerResultsReadDate_Enter);
+            this.dateTimePickerResultsReadDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePickerResultsReadDate_KeyDown);
             this.dateTimePickerResultsReadDate.Leave += new System.EventHandler(this.dateTimePickerResultsReadDate_Leave);
             // 
             // lblResultsReadByTxt
@@ -1249,6 +1277,7 @@
             resources.ApplyResources(this.textBoxResultsRecordedBy, "textBoxResultsRecordedBy");
             this.textBoxResultsRecordedBy.Name = "textBoxResultsRecordedBy";
             this.textBoxResultsRecordedBy.TextChanged += new System.EventHandler(this.textBoxResultsRecordedBy_TextChanged);
+            this.textBoxResultsRecordedBy.Enter += new System.EventHandler(this.textBoxResultsRecordedBy_Enter);
             this.textBoxResultsRecordedBy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxResultsRecordedBy_KeyDown);
             this.textBoxResultsRecordedBy.Leave += new System.EventHandler(this.textBoxResultsRecordedBy_Leave);
             // 
@@ -1258,6 +1287,8 @@
             this.dateTimePickerResultsRecordedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerResultsRecordedDate.Name = "dateTimePickerResultsRecordedDate";
             this.dateTimePickerResultsRecordedDate.ValueChanged += new System.EventHandler(this.dateTimePickerResultsRecordedDate_ValueChanged);
+            this.dateTimePickerResultsRecordedDate.Enter += new System.EventHandler(this.dateTimePickerResultsRecordedDate_Enter);
+            this.dateTimePickerResultsRecordedDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePickerResultsRecordedDate_KeyDown);
             this.dateTimePickerResultsRecordedDate.Leave += new System.EventHandler(this.dateTimePickerResultsRecordedDate_Leave);
             // 
             // dateTimePickerSalinitiesReadDate
@@ -1266,6 +1297,8 @@
             this.dateTimePickerSalinitiesReadDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerSalinitiesReadDate.Name = "dateTimePickerSalinitiesReadDate";
             this.dateTimePickerSalinitiesReadDate.ValueChanged += new System.EventHandler(this.dateTimePickerSalinitiesReadDate_ValueChanged);
+            this.dateTimePickerSalinitiesReadDate.Enter += new System.EventHandler(this.dateTimePickerSalinitiesReadDate_Enter);
+            this.dateTimePickerSalinitiesReadDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePickerSalinitiesReadDate_KeyDown);
             this.dateTimePickerSalinitiesReadDate.Leave += new System.EventHandler(this.dateTimePickerSalinitiesReadDate_Leave);
             // 
             // textBoxSalinitiesReadBy
@@ -1273,6 +1306,7 @@
             resources.ApplyResources(this.textBoxSalinitiesReadBy, "textBoxSalinitiesReadBy");
             this.textBoxSalinitiesReadBy.Name = "textBoxSalinitiesReadBy";
             this.textBoxSalinitiesReadBy.TextChanged += new System.EventHandler(this.textBoxSalinitiesReadBy_TextChanged);
+            this.textBoxSalinitiesReadBy.Enter += new System.EventHandler(this.textBoxSalinitiesReadBy_Enter);
             this.textBoxSalinitiesReadBy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSalinitiesReadBy_KeyDown);
             this.textBoxSalinitiesReadBy.Leave += new System.EventHandler(this.textBoxSalinitiesReadBy_Leave);
             // 
@@ -1291,6 +1325,7 @@
             resources.ApplyResources(this.textBoxSampleBottleLotNumber, "textBoxSampleBottleLotNumber");
             this.textBoxSampleBottleLotNumber.Name = "textBoxSampleBottleLotNumber";
             this.textBoxSampleBottleLotNumber.TextChanged += new System.EventHandler(this.textBoxSampleBottleLotNumber_TextChanged);
+            this.textBoxSampleBottleLotNumber.Enter += new System.EventHandler(this.textBoxSampleBottleLotNumber_Enter);
             this.textBoxSampleBottleLotNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSampleBottleLotNumber_KeyDown);
             this.textBoxSampleBottleLotNumber.Leave += new System.EventHandler(this.textBoxSampleBottleLotNumber_Leave);
             // 
@@ -1326,6 +1361,7 @@
             resources.ApplyResources(this.richTextBoxRunWeatherComment, "richTextBoxRunWeatherComment");
             this.richTextBoxRunWeatherComment.Name = "richTextBoxRunWeatherComment";
             this.richTextBoxRunWeatherComment.TextChanged += new System.EventHandler(this.richTextBoxRunWeatherComment_TextChanged);
+            this.richTextBoxRunWeatherComment.Enter += new System.EventHandler(this.richTextBoxRunWeatherComment_Enter);
             this.richTextBoxRunWeatherComment.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxRunWeatherComment_KeyDown);
             this.richTextBoxRunWeatherComment.Leave += new System.EventHandler(this.richTextBoxRunWeatherComment_Leave);
             // 
@@ -1339,6 +1375,7 @@
             resources.ApplyResources(this.richTextBoxRunComment, "richTextBoxRunComment");
             this.richTextBoxRunComment.Name = "richTextBoxRunComment";
             this.richTextBoxRunComment.TextChanged += new System.EventHandler(this.richTextBoxRunComment_TextChanged);
+            this.richTextBoxRunComment.Enter += new System.EventHandler(this.richTextBoxRunComment_Enter);
             this.richTextBoxRunComment.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxRunComment_KeyDown);
             this.richTextBoxRunComment.Leave += new System.EventHandler(this.richTextBoxRunComment_Leave);
             // 
@@ -1422,7 +1459,9 @@
             resources.ApplyResources(this.textBoxDailyDuplicatePrecisionCriteria, "textBoxDailyDuplicatePrecisionCriteria");
             this.textBoxDailyDuplicatePrecisionCriteria.Name = "textBoxDailyDuplicatePrecisionCriteria";
             this.textBoxDailyDuplicatePrecisionCriteria.TextChanged += new System.EventHandler(this.textBoxDailyDuplicatePrecisionCriteria_TextChanged);
+            this.textBoxDailyDuplicatePrecisionCriteria.Enter += new System.EventHandler(this.textBoxDailyDuplicatePrecisionCriteria_Enter);
             this.textBoxDailyDuplicatePrecisionCriteria.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxDuplicatePrecisionCriteria_KeyDown);
+            this.textBoxDailyDuplicatePrecisionCriteria.Leave += new System.EventHandler(this.textBoxDailyDuplicatePrecisionCriteria_Leave);
             // 
             // lblPrecisionCiteria
             // 
@@ -1456,6 +1495,7 @@
             resources.ApplyResources(this.comboBoxRunNumber, "comboBoxRunNumber");
             this.comboBoxRunNumber.Name = "comboBoxRunNumber";
             this.comboBoxRunNumber.SelectedIndexChanged += new System.EventHandler(this.comboBoxRunNumber_SelectedIndexChanged);
+            this.comboBoxRunNumber.Enter += new System.EventHandler(this.comboBoxRunNumber_Enter);
             // 
             // lblFilePath
             // 
@@ -1477,6 +1517,7 @@
             resources.ApplyResources(this.comboBoxSubsectorNames, "comboBoxSubsectorNames");
             this.comboBoxSubsectorNames.Name = "comboBoxSubsectorNames";
             this.comboBoxSubsectorNames.SelectedIndexChanged += new System.EventHandler(this.comboBoxSubsectorNames_SelectedIndexChanged);
+            this.comboBoxSubsectorNames.Enter += new System.EventHandler(this.comboBoxSubsectorNames_Enter);
             // 
             // dateTimePickerRun
             // 
@@ -1484,6 +1525,7 @@
             this.dateTimePickerRun.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerRun.Name = "dateTimePickerRun";
             this.dateTimePickerRun.ValueChanged += new System.EventHandler(this.dateTimePickerRun_ValueChanged);
+            this.dateTimePickerRun.Enter += new System.EventHandler(this.dateTimePickerRun_Enter);
             this.dateTimePickerRun.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimePickerRun_KeyUp);
             // 
             // panelChangeDateOfCurrentDoc
@@ -1941,16 +1983,12 @@
         private System.Windows.Forms.Label lblBath1IncubationTimeTxt;
         private System.Windows.Forms.RichTextBox richTextBoxRunWeatherComment;
         private System.Windows.Forms.Timer timerSave;
-        private System.Windows.Forms.Label lblTCFirst;
         private System.Windows.Forms.Panel panelAddInputBottomLeftDuplicate;
         private System.Windows.Forms.Label lblDailyDuplicateAcceptableOrUnacceptable;
         private System.Windows.Forms.TextBox textBoxDailyDuplicatePrecisionCriteria;
         private System.Windows.Forms.Label lblPrecisionCiteria;
         private System.Windows.Forms.Label lblDailyDuplicateRLog;
         private System.Windows.Forms.Label lblDailyDuplicateRLogValue;
-        private System.Windows.Forms.Label lblAverage;
-        private System.Windows.Forms.Label lblFirst;
-        private System.Windows.Forms.Label lblTCAverage;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.ListBox listBoxFiles;
         private System.Windows.Forms.Panel panelAppInputFilesTop;
@@ -2075,6 +2113,7 @@
         private System.Windows.Forms.TextBox textBoxApprovalCode;
         private System.Windows.Forms.Label lblSupervisorOnly;
         private System.Windows.Forms.Label lblApprovalDate;
+        private System.Windows.Forms.Label lblTideTextExample;
     }
 }
 
