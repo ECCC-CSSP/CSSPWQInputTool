@@ -434,7 +434,7 @@ namespace CSSPWQInputTool
                                         {
                                             dataGridViewCSSP[e.ColumnIndex, e.RowIndex].Style.ForeColor = Color.Black;
                                             dataGridViewCSSP.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = dataGridViewCSSP.Rows[i].Cells[e.ColumnIndex].Value;
-                                            Modifying();
+                                            //Modifying();
                                             break;
                                         }
                                     }
@@ -443,7 +443,7 @@ namespace CSSPWQInputTool
                             else if (e.ColumnIndex == ProcessByColumn)
                             {
                                 dataGridViewCSSP.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = dataGridViewCSSP.Rows[(e.RowIndex - 1)].Cells[e.ColumnIndex].Value;
-                                Modifying();
+                                //Modifying();
                             }
                         }
                     }
@@ -505,37 +505,88 @@ namespace CSSPWQInputTool
                             break;
                     }
                 }
+                switch (dataGridViewCSSP.CurrentCell.ColumnIndex)
+                {
+                    case 0:
+                        {
+                            lblStatus.Text = "Read only. Provided by sampling plan file. Pressing F2 will also set daily duplicate. F3 will also set intertech duplicate. F4 will also set intertech read. F5 add another sample time for the site.";
+                        }
+                        break;
+                    case 1:
+                        {
+                            lblStatus.Text = "Read only. MWQM Site name";
+                        }
+                        break;
+                    case 2:
+                        {
+                            lblStatus.Text = "Sampling Time. Time is entered with 4 digits. 1234 will be converted to 12:34";
+                        }
+                        break;
+                    case 3:
+                        {
+                            lblStatus.Text = "Read only. MPN is calculated from the 3 positive tubes columns";
+                        }
+                        break;
+                    case 4:
+                        {
+                            lblStatus.Text = "Allowable values are 0 to 5";
+                        }
+                        break;
+                    case 5:
+                        {
+                            lblStatus.Text = "Allowable values are 0 to 5";
+                        }
+                        break;
+                    case 6:
+                        {
+                            lblStatus.Text = "Allowable values are 0 to 5";
+                        }
+                        break;
+                    case 7:
+                        {
+                            lblStatus.Text = "Salinity (PPT). Allowable number from 0 to 36";
+                        }
+                        break;
+                    case 8:
+                        {
+                            lblStatus.Text = "Temperature (degree Celcius). Allowable number from 0 to 35";
+                        }
+                        break;
+                    case 9:
+                        {
+                            lblStatus.Text = "Initial of person. Lowercase will automatically convert to uppercase";
+                        }
+                        break;
+                    case 10:
+                        {
+                            lblStatus.Text = "Read only. Provided by the sampling plan file. Example of allowable values Normal, Duplicate, After Rain, Study, Infrastructure etc...";
+                        }
+                        break;
+                    case 11:
+                        {
+                            lblStatus.Text = "Read only. TVItemID of the MWQM site.";
+                        }
+                        break;
+                    case 12:
+                        {
+                            lblStatus.Text = "Comment associated to the MWQM site for the particular run.";
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
             }
         }
-        private SampleTypeEnum GetSampleType(string SampleTypeText)
+        private void dataGridViewCSSP_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            switch (SampleTypeText)
-            {
-                case "DailyDuplicate":
-                    return SampleTypeEnum.DailyDuplicate;
-                case "Infrastructure":
-                    return SampleTypeEnum.Infrastructure;
-                case "IntertechDuplicate":
-                    return SampleTypeEnum.IntertechDuplicate;
-                case "IntertechRead":
-                    return SampleTypeEnum.IntertechRead;
-                case "RainCMPRoutine":
-                    return SampleTypeEnum.RainCMPRoutine;
-                case "RainRun":
-                    return SampleTypeEnum.RainRun;
-                case "ReopeningEmergencyRain":
-                    return SampleTypeEnum.ReopeningEmergencyRain;
-                case "ReopeningSpill":
-                    return SampleTypeEnum.ReopeningSpill;
-                case "Routine":
-                    return SampleTypeEnum.Routine;
-                case "Sanitary":
-                    return SampleTypeEnum.Sanitary;
-                case "Study":
-                    return SampleTypeEnum.Study;
-                default:
-                    return SampleTypeEnum.Error;
-            }
+            dataGridViewCSSP.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.Aqua;
+        }
+
+        private void dataGridViewCSSP_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+
+            dataGridViewCSSP.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightGray;
         }
         #endregion dataGridViewCSSP
         #region Events dateTimePicker
@@ -810,9 +861,6 @@ namespace CSSPWQInputTool
                 textBoxIncubationBath1StartTime.ForeColor = Color.Red;
             }
 
-            if (!InLoadingFile)
-                Modifying();
-
             if (labSheetA1Sheet.IncubationBath1StartTime != textBoxIncubationBath1StartTime.Text)
             {
                 labSheetA1Sheet.IncubationBath1StartTime = textBoxIncubationBath1StartTime.Text;
@@ -835,9 +883,6 @@ namespace CSSPWQInputTool
             {
                 textBoxIncubationBath2StartTime.ForeColor = Color.Red;
             }
-
-            if (!InLoadingFile)
-                Modifying();
 
             if (labSheetA1Sheet.IncubationBath2StartTime != textBoxIncubationBath2StartTime.Text)
             {
@@ -862,9 +907,6 @@ namespace CSSPWQInputTool
                 textBoxIncubationBath3StartTime.ForeColor = Color.Red;
             }
 
-            if (!InLoadingFile)
-                Modifying();
-
             if (labSheetA1Sheet.IncubationBath3StartTime != textBoxIncubationBath3StartTime.Text)
             {
                 labSheetA1Sheet.IncubationBath3StartTime = textBoxIncubationBath3StartTime.Text;
@@ -887,9 +929,6 @@ namespace CSSPWQInputTool
             {
                 textBoxIncubationBath1EndTime.ForeColor = Color.Red;
             }
-
-            if (!InLoadingFile)
-                Modifying();
 
             if (labSheetA1Sheet.IncubationBath1EndTime != textBoxIncubationBath1EndTime.Text)
             {
@@ -914,9 +953,6 @@ namespace CSSPWQInputTool
                 textBoxIncubationBath2EndTime.ForeColor = Color.Red;
             }
 
-            if (!InLoadingFile)
-                Modifying();
-
             if (labSheetA1Sheet.IncubationBath2EndTime != textBoxIncubationBath2EndTime.Text)
             {
                 labSheetA1Sheet.IncubationBath2EndTime = textBoxIncubationBath2EndTime.Text;
@@ -939,9 +975,6 @@ namespace CSSPWQInputTool
             {
                 textBoxIncubationBath3EndTime.ForeColor = Color.Red;
             }
-
-            if (!InLoadingFile)
-                Modifying();
 
             if (labSheetA1Sheet.IncubationBath3EndTime != textBoxIncubationBath3EndTime.Text)
             {
@@ -1460,6 +1493,14 @@ namespace CSSPWQInputTool
                 lblStatus.Text = "Indicate if the lab analysis was started on the same day or the next day.";
             }
 
+        }
+        private void dataGridViewCSSP_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!InLoadingFile)
+            {
+                IsSaving = true;
+                Modifying();
+            }
         }
         private void dataGridViewCSSP_KeyDown(object sender, KeyEventArgs e)
         {
@@ -3847,6 +3888,37 @@ namespace CSSPWQInputTool
             }
         }
         #endregion Events WebBrowserCSSP
+
+        private SampleTypeEnum GetSampleType(string SampleTypeText)
+        {
+            switch (SampleTypeText)
+            {
+                case "DailyDuplicate":
+                    return SampleTypeEnum.DailyDuplicate;
+                case "Infrastructure":
+                    return SampleTypeEnum.Infrastructure;
+                case "IntertechDuplicate":
+                    return SampleTypeEnum.IntertechDuplicate;
+                case "IntertechRead":
+                    return SampleTypeEnum.IntertechRead;
+                case "RainCMPRoutine":
+                    return SampleTypeEnum.RainCMPRoutine;
+                case "RainRun":
+                    return SampleTypeEnum.RainRun;
+                case "ReopeningEmergencyRain":
+                    return SampleTypeEnum.ReopeningEmergencyRain;
+                case "ReopeningSpill":
+                    return SampleTypeEnum.ReopeningSpill;
+                case "Routine":
+                    return SampleTypeEnum.Routine;
+                case "Sanitary":
+                    return SampleTypeEnum.Sanitary;
+                case "Study":
+                    return SampleTypeEnum.Study;
+                default:
+                    return SampleTypeEnum.Error;
+            }
+        }
     }
 
 

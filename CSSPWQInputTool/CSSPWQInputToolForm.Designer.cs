@@ -515,6 +515,9 @@
             this.dataGridViewCSSP.Name = "dataGridViewCSSP";
             this.dataGridViewCSSP.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCSSP_CellEndEdit);
             this.dataGridViewCSSP.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCSSP_CellEnter);
+            this.dataGridViewCSSP.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCSSP_CellValueChanged);
+            this.dataGridViewCSSP.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCSSP_RowEnter);
+            this.dataGridViewCSSP.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCSSP_RowLeave);
             this.dataGridViewCSSP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewCSSP_KeyDown);
             // 
             // panelAppInputTop

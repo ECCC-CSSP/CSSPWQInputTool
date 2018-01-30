@@ -56,6 +56,7 @@ namespace CSSPWQInputTool
         private Color ControlBackColor;
         private Color TextBoxBackColor;
         private Color DataGridViewCSSPBackgroundColor;
+        private Color DataGridViewCSSPFirstCellColor;
         private int VersionOfSamplingPlanFile = 0;
         private string LabSheetType = "";
         private string SamplingPlanType = "";
