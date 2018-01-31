@@ -30,26 +30,26 @@ namespace CSSPWQInputTool
             public string RejectReason { get; set; }
         }
 
-        public class GridCellText
-        {
-            public GridCellText()
-            {
+        //public class GridCellText
+        //{
+        //    public GridCellText()
+        //    {
 
-            }
+        //    }
 
-            public string Site { get; set; }
-            public string Time { get; set; }
-            public string MPN { get; set; }
-            public string Tube10 { get; set; }
-            public string Tube1_0 { get; set; }
-            public string Tube0_1 { get; set; }
-            public string Sal { get; set; }
-            public string Temp { get; set; }
-            public string ProcessBy { get; set; }
-            public string SampleType { get; set; }
-            public string ID { get; set; }
-            public string Comment { get; set; }
-        }
+        //    public string Site { get; set; }
+        //    public string Time { get; set; }
+        //    public string MPN { get; set; }
+        //    public string Tube10 { get; set; }
+        //    public string Tube1_0 { get; set; }
+        //    public string Tube0_1 { get; set; }
+        //    public string Sal { get; set; }
+        //    public string Temp { get; set; }
+        //    public string ProcessBy { get; set; }
+        //    public string SampleType { get; set; }
+        //    public string ID { get; set; }
+        //    public string Comment { get; set; }
+        //}
 
         class RunNumberAndText
         {

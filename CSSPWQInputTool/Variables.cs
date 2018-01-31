@@ -137,6 +137,6 @@ namespace CSSPWQInputTool
         private string StartResultsRecordedDateYear = "";
         private string StartResultsRecordedDateMonth = "";
         private string StartResultsRecordedDateDay = "";
-        private List<GridCellText> StartGridCellText = new List<GridCellText>();
+        private List<List<string>> StartGridCellText = new List<List<string>>();
     }
 }

@@ -3294,33 +3294,33 @@ namespace CSSPWQInputTool
                 {
                     switch (col)
                     {
-                        //case 1:
-                        //    {
-                        //        if (StartGridCellText[row].Site != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
-                        //        {
-                        //            AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() == "Daily Duplicate" ? " Daily Duplicate" : "") + " - " + " [Processed By] ", dataGridViewCSSP[col, row].Value.ToString());
-                        //        }
-                        //    }
-                        //    break;
+                        case 1:
+                            {
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                {
+                                    AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() == "Daily Duplicate" ? " Daily Duplicate" : "") + " - " + " [Processed By] ", dataGridViewCSSP[col, row].Value.ToString());
+                                }
+                            }
+                            break;
                         case 2:
                             {
-                                if (StartGridCellText[row].Time != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
                                 {
                                     AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Time] ", dataGridViewCSSP[col, row].Value.ToString());
                                 }
                             }
                             break;
-                        //case 3:
-                        //    {
-                        //        if (StartGridCellText[row].MPN != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
-                        //        {
-                        //            AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [MPN] ", dataGridViewCSSP[col, row].Value.ToString());
-                        //        }
-                        //    }
-                        //    break;
+                        case 3:
+                            {
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                {
+                                    AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [MPN] ", dataGridViewCSSP[col, row].Value.ToString());
+                                }
+                            }
+                            break;
                         case 4:
                             {
-                                if (StartGridCellText[row].Tube10 != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
                                 {
                                     AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Tube 10] ", dataGridViewCSSP[col, row].Value.ToString());
                                 }
@@ -3328,7 +3328,7 @@ namespace CSSPWQInputTool
                             break;
                         case 5:
                             {
-                                if (StartGridCellText[row].Tube1_0 != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
                                 {
                                     AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Tube 1] ", dataGridViewCSSP[col, row].Value.ToString());
                                 }
@@ -3336,7 +3336,7 @@ namespace CSSPWQInputTool
                             break;
                         case 6:
                             {
-                                if (StartGridCellText[row].Tube1_0 != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
                                 {
                                     AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Tube 0.1] ", dataGridViewCSSP[col, row].Value.ToString());
                                 }
@@ -3344,7 +3344,7 @@ namespace CSSPWQInputTool
                             break;
                         case 7:
                             {
-                                if (StartGridCellText[row].Sal != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
                                 {
                                     AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Sal] ", dataGridViewCSSP[col, row].Value.ToString());
                                 }
@@ -3352,7 +3352,7 @@ namespace CSSPWQInputTool
                             break;
                         case 8:
                             {
-                                if (StartGridCellText[row].Temp != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
                                 {
                                     AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Temp] ", dataGridViewCSSP[col, row].Value.ToString());
                                 }
@@ -3360,33 +3360,33 @@ namespace CSSPWQInputTool
                             break;
                         case 9:
                             {
-                                if (StartGridCellText[row].ProcessBy != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
                                 {
                                     AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Process by] ", dataGridViewCSSP[col, row].Value.ToString());
                                 }
                             }
                             break;
-                        //case 10:
-                        //    {
-                        //        if (StartGridCellText[row].SampleType != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
-                        //        {
-                        //            AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Sample type] ", dataGridViewCSSP[col, row].Value.ToString());
-                        //        }
-                        //    }
-                        //    break;
-                        //case 11:
-                        //    {
-                        //        if (StartGridCellText[row].ID != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
-                        //        {
-                        //            AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [TVItemID] ", dataGridViewCSSP[col, row].Value.ToString());
-                        //        }
-                        //    }
-                        //    break;
+                        case 10:
+                            {
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                {
+                                    AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Sample type] ", dataGridViewCSSP[col, row].Value.ToString());
+                                }
+                            }
+                            break;
+                        case 11:
+                            {
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                {
+                                    AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [TVItemID] ", dataGridViewCSSP[col, row].Value.ToString());
+                                }
+                            }
+                            break;
                         case 12:
                             {
-                                if (StartGridCellText[row].Comment != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
+                                if (StartGridCellText[row][col] != (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()))
                                 {
-                                    AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Comment] ", dataGridViewCSSP[col, row].Value.ToString());
+                                    AddLog("CSSP Grid(" + col + "," + row + ") " + dataGridViewCSSP[SiteColumn, row].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, row].Value.ToString() + " - " + " [Comment] ", (dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString()));
                                 }
                             }
                             break;

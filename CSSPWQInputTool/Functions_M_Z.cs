@@ -1768,79 +1768,88 @@ namespace CSSPWQInputTool
                 dataGridViewCSSP.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
+            StartGridCellText = new List<List<string>>();
+
             for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
             {
-                GridCellText gridCellText = new GridCellText();
+                List<string> gridCellTextList = new List<string>();
+
                 for (int col = 0, countCol = dataGridViewCSSP.Columns.Count; col < countCol; col++)
                 {
                     switch (col)
                     {
+                        case 0:
+                            {
+                                gridCellTextList.Add("");
+                            }
+                            break;
                         case 1:
                             {
-                                gridCellText.Site = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 2:
                             {
-                                gridCellText.Time = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 3:
                             {
-                                gridCellText.MPN = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 4:
                             {
-                                gridCellText.Tube10 = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 5:
                             {
-                                gridCellText.Tube1_0 = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 6:
                             {
-                                gridCellText.Tube0_1 = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 7:
                             {
-                                gridCellText.Sal = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 8:
                             {
-                                gridCellText.Temp = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 9:
                             {
-                                gridCellText.ProcessBy = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 10:
                             {
-                                gridCellText.SampleType = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 11:
                             {
-                                gridCellText.ID = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 12:
                             {
-                                gridCellText.Comment = dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString();
+                                gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         default:
                             break;
                     }
+
                 }
 
-                StartGridCellText.Add(gridCellText);
+                StartGridCellText.Add(gridCellTextList);
             }
 
         }
