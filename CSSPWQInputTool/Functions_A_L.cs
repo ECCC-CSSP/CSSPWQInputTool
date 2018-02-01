@@ -131,7 +131,7 @@ namespace CSSPWQInputTool
 
             // Calculating DailyDuplicate
             int DailyDuplicateRow = -1;
-            int DailyDuplicateMPN = 0;
+            float DailyDuplicateMPN = 0;
             for (int i = 0, count = dataGridViewCSSP.Rows.Count; i < count; i++)
             {
                 if (dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString())
@@ -144,7 +144,7 @@ namespace CSSPWQInputTool
             {
                 if (!string.IsNullOrWhiteSpace(dataGridViewCSSP[MPNColumn, DailyDuplicateRow].Value.ToString()))
                 {
-                    int.TryParse(dataGridViewCSSP[MPNColumn, DailyDuplicateRow].Value.ToString(), out DailyDuplicateMPN);
+                    float.TryParse(dataGridViewCSSP[MPNColumn, DailyDuplicateRow].Value.ToString(), out DailyDuplicateMPN);
 
                     if (DailyDuplicateMPN != 0)
                     {
@@ -159,10 +159,18 @@ namespace CSSPWQInputTool
                                         || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
                                         || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
                                     {
-                                        int OtherMPN = 0;
-                                        int.TryParse(dataGridViewCSSP[MPNColumn, i].Value.ToString(), out OtherMPN);
+                                        float OtherMPN = 0;
+                                        float.TryParse(dataGridViewCSSP[MPNColumn, i].Value.ToString(), out OtherMPN);
                                         if (OtherMPN != 0)
                                         {
+                                            if (OtherMPN < 2.0f)
+                                            {
+                                                OtherMPN = 1.9f;
+                                            }
+                                            if (DailyDuplicateMPN < 2.0f)
+                                            {
+                                                DailyDuplicateMPN = 1.9f;
+                                            }
                                             float OtherMPNLog = (float)Math.Log10((double)OtherMPN);
                                             float MPNLog = (float)Math.Log10((double)DailyDuplicateMPN);
 
@@ -334,83 +342,83 @@ namespace CSSPWQInputTool
                 }
             }
         }
-        private void CalculateTCFirstAndAverage()
-        {
-            int TimeColumn = -1;
-            int TempColumn = -1;
-            int RowWithSmallestTime = -1;
-            List<float> TempList = new List<float>();
-            switch (csspWQInputSheetType)
-            {
-                case CSSPWQInputSheetTypeEnum.A1:
-                    {
-                        TimeColumn = 2;
-                        TempColumn = 7;
-                    }
-                    break;
-                case CSSPWQInputSheetTypeEnum.LTB:
-                    {
-                        TimeColumn = 99;
-                        TempColumn = 99;
-                    }
-                    break;
-                case CSSPWQInputSheetTypeEnum.EC:
-                    {
-                        TimeColumn = 99;
-                        TempColumn = 99;
-                    }
-                    break;
-                default:
-                    break;
-            }
-            int MinHour = 24;
-            int MinMinute = 60;
-            for (int i = 0, count = dataGridViewCSSP.Rows.Count; i < count; i++)
-            {
-                if (dataGridViewCSSP[TempColumn, i].Value == null || string.IsNullOrWhiteSpace(dataGridViewCSSP[TempColumn, i].Value.ToString()))
-                {
-                    // nothing
-                }
-                else
-                {
-                    TempList.Add(float.Parse(dataGridViewCSSP[TempColumn, i].Value.ToString()));
-                }
-                if (dataGridViewCSSP[TimeColumn, i].Value == null)
-                    continue;
+        //private void CalculateTCFirstAndAverage()
+        //{
+        //    int TimeColumn = -1;
+        //    int TempColumn = -1;
+        //    int RowWithSmallestTime = -1;
+        //    List<float> TempList = new List<float>();
+        //    switch (csspWQInputSheetType)
+        //    {
+        //        case CSSPWQInputSheetTypeEnum.A1:
+        //            {
+        //                TimeColumn = 2;
+        //                TempColumn = 7;
+        //            }
+        //            break;
+        //        case CSSPWQInputSheetTypeEnum.LTB:
+        //            {
+        //                TimeColumn = 99;
+        //                TempColumn = 99;
+        //            }
+        //            break;
+        //        case CSSPWQInputSheetTypeEnum.EC:
+        //            {
+        //                TimeColumn = 99;
+        //                TempColumn = 99;
+        //            }
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //    int MinHour = 24;
+        //    int MinMinute = 60;
+        //    for (int i = 0, count = dataGridViewCSSP.Rows.Count; i < count; i++)
+        //    {
+        //        if (dataGridViewCSSP[TempColumn, i].Value == null || string.IsNullOrWhiteSpace(dataGridViewCSSP[TempColumn, i].Value.ToString()))
+        //        {
+        //            // nothing
+        //        }
+        //        else
+        //        {
+        //            TempList.Add(float.Parse(dataGridViewCSSP[TempColumn, i].Value.ToString()));
+        //        }
+        //        if (dataGridViewCSSP[TimeColumn, i].Value == null)
+        //            continue;
 
-                if (!string.IsNullOrWhiteSpace(dataGridViewCSSP[TimeColumn, i].Value.ToString()) && !string.IsNullOrWhiteSpace(dataGridViewCSSP[TimeColumn, i].Value.ToString()))
-                {
-                    string TimeStr = dataGridViewCSSP[TimeColumn, i].Value.ToString();
-                    if (TimeStr.Length == 5)
-                    {
-                        int Hour = int.Parse(TimeStr.Substring(0, 2));
-                        int Minute = int.Parse(TimeStr.Substring(3, 2));
+        //        if (!string.IsNullOrWhiteSpace(dataGridViewCSSP[TimeColumn, i].Value.ToString()) && !string.IsNullOrWhiteSpace(dataGridViewCSSP[TimeColumn, i].Value.ToString()))
+        //        {
+        //            string TimeStr = dataGridViewCSSP[TimeColumn, i].Value.ToString();
+        //            if (TimeStr.Length == 5)
+        //            {
+        //                int Hour = int.Parse(TimeStr.Substring(0, 2));
+        //                int Minute = int.Parse(TimeStr.Substring(3, 2));
 
-                        if (Hour <= MinHour)
-                        {
-                            if (Hour == MinHour)
-                            {
-                                if (Minute < MinMinute)
-                                {
-                                    MinMinute = Minute;
-                                    RowWithSmallestTime = i;
-                                }
-                            }
-                            else
-                            {
-                                MinHour = Hour;
-                                MinMinute = 60;
-                                if (Minute < MinMinute)
-                                {
-                                    MinMinute = Minute;
-                                    RowWithSmallestTime = i;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //                if (Hour <= MinHour)
+        //                {
+        //                    if (Hour == MinHour)
+        //                    {
+        //                        if (Minute < MinMinute)
+        //                        {
+        //                            MinMinute = Minute;
+        //                            RowWithSmallestTime = i;
+        //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        MinHour = Hour;
+        //                        MinMinute = 60;
+        //                        if (Minute < MinMinute)
+        //                        {
+        //                            MinMinute = Minute;
+        //                            RowWithSmallestTime = i;
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
         private void CancelSendToServer()
         {
             panelSendToServerCompare.SendToBack();
@@ -1817,7 +1825,8 @@ namespace CSSPWQInputTool
                 StartIncubationBath2EndTime = textBoxIncubationBath2EndTime.Text;
                 StartWaterBath2Number = textBoxWaterBath2Number.Text;
             }
-            else if (radioButton3Baths.Checked)
+
+            if (radioButton3Baths.Checked)
             {
                 StartIncubationBath3StartTime = textBoxIncubationBath3StartTime.Text;
                 StartIncubationBath3EndTime = textBoxIncubationBath3EndTime.Text;
@@ -1872,6 +1881,9 @@ namespace CSSPWQInputTool
             StartResultsRecordedDateYear = dateTimePickerResultsRecordedDate.Value.Year.ToString();
             StartResultsRecordedDateMonth = dateTimePickerResultsRecordedDate.Value.Month.ToString();
             StartResultsRecordedDateDay = dateTimePickerResultsRecordedDate.Value.Day.ToString();
+
+            StartIntertechDuplicatePrecisionCriteria = textBoxIntertechDuplicatePrecisionCriteria.Text;
+            StartDailyDuplicatePrecisionCriteria = textBoxDailyDuplicatePrecisionCriteria.Text;
 
         }
         private string FillInternetConnectionVariable()
@@ -3252,8 +3264,8 @@ namespace CSSPWQInputTool
                 || StartSalinityReadDateMonth != dateTimePickerSalinitiesReadDate.Value.Month.ToString()
                 || StartSalinityReadDateDay != dateTimePickerSalinitiesReadDate.Value.Day.ToString())
             {
-                AddLog("Results Salinities Date", dateTimePickerSalinitiesReadDate.Value.Year.ToString() + 
-                    "\t" + dateTimePickerSalinitiesReadDate.Value.Month.ToString() + 
+                AddLog("Results Salinities Date", dateTimePickerSalinitiesReadDate.Value.Year.ToString() +
+                    "\t" + dateTimePickerSalinitiesReadDate.Value.Month.ToString() +
                     "\t" + dateTimePickerSalinitiesReadDate.Value.Day.ToString());
             }
 
@@ -3266,8 +3278,8 @@ namespace CSSPWQInputTool
                 || StartResultsReadDateMonth != dateTimePickerResultsReadDate.Value.Month.ToString()
                 || StartResultsReadDateDay != dateTimePickerResultsReadDate.Value.Day.ToString())
             {
-                AddLog("Results Read Date", dateTimePickerResultsReadDate.Value.Year.ToString() + 
-                    "\t" + dateTimePickerResultsReadDate.Value.Month.ToString() + 
+                AddLog("Results Read Date", dateTimePickerResultsReadDate.Value.Year.ToString() +
+                    "\t" + dateTimePickerResultsReadDate.Value.Month.ToString() +
                     "\t" + dateTimePickerResultsReadDate.Value.Day.ToString());
             }
 

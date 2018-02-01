@@ -74,6 +74,20 @@ namespace CSSPWQInputTool
             if (InLoadingFile)
                 return;
           
+            lblStatus.Text = "Modified";
+            butSendToServer.Text = "Saving ...";
+            butSendToServer.Enabled = false;
+            butGetLabSheetsStatus.Enabled = false;
+            butGetTides.Enabled = false;
+            butViewFCForm.Enabled = false;
+            if (!timerSave.Enabled)
+            {
+                timerSave.Enabled = true;
+                timerSave.Start();
+            }
+        }
+        private bool PreModifying()
+        {
             if (lblFilePath.Text.Contains("F.txt") || lblFilePath.Text.Contains("A.txt") || lblFilePath.Text.Contains("S.txt"))
             {
                 string EndFileText = lblFilePath.Text.Substring(lblFilePath.Text.Length - 5);
@@ -95,20 +109,10 @@ namespace CSSPWQInputTool
 
                 if (DialogResult.Yes != MessageBox.Show("Are you sure you want to change this file.\r\n\r\n" +
                     "It will change the status of the file from [" + StatusText + "] to [Changed]", "Warning", MessageBoxButtons.YesNo))
-                    return;
+                    return false;
             }
 
-            lblStatus.Text = "Modified";
-            butSendToServer.Text = "Saving ...";
-            butSendToServer.Enabled = false;
-            butGetLabSheetsStatus.Enabled = false;
-            butGetTides.Enabled = false;
-            butViewFCForm.Enabled = false;
-            if (!timerSave.Enabled)
-            {
-                timerSave.Enabled = true;
-                timerSave.Start();
-            }
+            return true;
         }
         private void OnlyChangedAndRejected()
         {
@@ -354,7 +358,6 @@ namespace CSSPWQInputTool
                 if (labSheetA1Sheet != null && labSheetA1Sheet.WaterBathCount != 3)
                 {
                     labSheetA1Sheet.WaterBathCount = 3;
-                    //AddLog("Water Bath Count", "3");
                 }
 
                 panelAppInputTopIncubation.Height = 200;
@@ -394,7 +397,6 @@ namespace CSSPWQInputTool
                 if (labSheetA1Sheet != null && labSheetA1Sheet.WaterBathCount != 2)
                 {
                     labSheetA1Sheet.WaterBathCount = 2;
-                    //AddLog("Water Bath Count", "2");
                 }
 
                 panelAppInputTopIncubation.Height = 164;
@@ -435,7 +437,6 @@ namespace CSSPWQInputTool
                 if (labSheetA1Sheet != null && labSheetA1Sheet.WaterBathCount != 1)
                 {
                     labSheetA1Sheet.WaterBathCount = 1;
-                    //AddLog("Water Bath Count", "1");
                 }
 
                 panelAppInputTopIncubation.Height = 133;
@@ -469,10 +470,6 @@ namespace CSSPWQInputTool
                 textBoxControlBath3NonTarget44_5.Visible = false;
                 textBoxControlBath3Negative44_5.Visible = false;
                 textBoxControlBath3Blank44_5.Visible = false;
-            }
-            if (!InLoadingFile)
-            {
-                Modifying();
             }
         }
         private bool ReadSamplingPlan()
@@ -1436,10 +1433,10 @@ namespace CSSPWQInputTool
                 return;
             }
 
-            //if (!EverythingEntered())
-            //{
-            //    return;
-            //}
+            if (!EverythingEntered())
+            {
+                return;
+            }
             butSendToServer.Text = "Working ...";
             butSendToServer.Enabled = false;
             butGetLabSheetsStatus.Enabled = false;
@@ -1460,6 +1457,7 @@ namespace CSSPWQInputTool
 
                 File.Copy(lblFilePath.Text, lblFilePath.Text.Replace("_C.txt", "_S.txt"));
                 File.Delete(lblFilePath.Text);
+                OpenedFileName = lblFilePath.Text.Replace("_C.txt", "_S.txt");
                 lblFilePath.Text = lblFilePath.Text.Replace("_C.txt", "_S.txt");
             }
             else
@@ -2761,7 +2759,6 @@ namespace CSSPWQInputTool
                 CurrentPanel = panelAppInput;
                 panelAppInputIsVisible = true;
                 butSendToServer.Enabled = false;
-                //butGetLabSheetsStatus.Enabled = false;
 
                 if (fi.FullName.EndsWith("_S.txt"))
                 {
@@ -2808,10 +2805,6 @@ namespace CSSPWQInputTool
             if (InternetConnection)
             {
                 butGetLabSheetsStatus.Enabled = true;
-                //if (comboBoxSubsectorNames.SelectedIndex != 0)
-                //{
-                //    butGetLabSheetsStatus.Enabled = true;
-                //}
             }
         }
         private void ValidateCellA1(int ColumnIndex, int RowIndex)
@@ -2894,7 +2887,6 @@ namespace CSSPWQInputTool
                         if (labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].ProcessedBy != dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString())
                         {
                             labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].ProcessedBy = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
-                            //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() == "Daily Duplicate" ? " Daily Duplicate" : "") + " - " + " [Processed By] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                         }
 
                     }
@@ -2911,14 +2903,12 @@ namespace CSSPWQInputTool
                         if (labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].SiteComment != null && dataGridViewCSSP[ColumnIndex, RowIndex].Value == null)
                         {
                             labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].SiteComment = "";
-                            //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() == "Daily Duplicate" ? " Daily Duplicate" : "") + " - " + " [Comment] ", "");
                         }
                         else
                         {
                             if (labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].SiteComment != dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString())
                             {
                                 labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].SiteComment = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
-                                //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() == "Daily Duplicate" ? " Daily Duplicate" : "") + " - " + " [Comment] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                             }
                         }
                     }
@@ -3139,19 +3129,19 @@ namespace CSSPWQInputTool
             }
 
 
-            if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null)
-            {
-                CalculateTCFirstAndAverage();
-                return;
-            }
+            //if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null)
+            //{
+            //    CalculateTCFirstAndAverage();
+            //    return;
+            //}
 
             string val = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
             foreach (char c in val)
             {
-                if (!(char.IsNumber(c) || c.ToString() == "."))
+                if (!(char.IsNumber(c) || c.ToString() == "." || c.ToString() == "-"))
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
-                    CalculateTCFirstAndAverage();
+                    //CalculateTCFirstAndAverage();
                     return;
                 }
             }
@@ -3161,7 +3151,7 @@ namespace CSSPWQInputTool
             if (valFloat > 36 || valFloat.ToString() != val)
             {
                 dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
-                CalculateTCFirstAndAverage();
+                //CalculateTCFirstAndAverage();
                 return;
             }
 
@@ -3174,7 +3164,7 @@ namespace CSSPWQInputTool
                 //}
             }
 
-            CalculateTCFirstAndAverage();
+            //CalculateTCFirstAndAverage();
 
             float TempFloat = -1;
             if (!string.IsNullOrWhiteSpace(dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString()))
@@ -3183,13 +3173,11 @@ namespace CSSPWQInputTool
                 if (labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Temperature != TempFloat)
                 {
                     labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Temperature = TempFloat;
-                    //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() == "Duplicate" ? " Dupliate" : "") + " - " + " [Temperature] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                 }
             }
             else
             {
                 labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Temperature = null;
-                //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() == "Duplicate" ? " Dupliate" : "") + " - " + " [Temperature] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
             }
 
         }
@@ -3207,11 +3195,11 @@ namespace CSSPWQInputTool
 
             dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Black;
 
-            if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null)
-            {
-                CalculateTCFirstAndAverage();
-                return;
-            }
+            //if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null)
+            //{
+            //    CalculateTCFirstAndAverage();
+            //    return;
+            //}
 
             string val = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
             foreach (char c in val)
@@ -3222,7 +3210,7 @@ namespace CSSPWQInputTool
                 else
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
-                    CalculateTCFirstAndAverage();
+                    //CalculateTCFirstAndAverage();
                     return;
                 }
             }
@@ -3235,7 +3223,7 @@ namespace CSSPWQInputTool
                 else
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
-                    CalculateTCFirstAndAverage();
+                    //CalculateTCFirstAndAverage();
                     return;
                 }
             }
@@ -3275,7 +3263,7 @@ namespace CSSPWQInputTool
                 dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
                 return;
             }
-            CalculateTCFirstAndAverage();
+            //CalculateTCFirstAndAverage();
 
             string SiteName = dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString();
             for (int i = RowIndex + 1, countRow = dataGridViewCSSP.Rows.Count; i < countRow; i++)

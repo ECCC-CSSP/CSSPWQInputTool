@@ -137,6 +137,8 @@ namespace CSSPWQInputTool
         private string StartResultsRecordedDateYear = "";
         private string StartResultsRecordedDateMonth = "";
         private string StartResultsRecordedDateDay = "";
+        private string StartIntertechDuplicatePrecisionCriteria = "";
+        private string StartDailyDuplicatePrecisionCriteria = "";
         private List<List<string>> StartGridCellText = new List<List<string>>();
     }
 }

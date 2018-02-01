@@ -1749,23 +1749,26 @@
             // 
             // butFileArchiveCancel
             // 
+            this.butFileArchiveCancel.BackColor = System.Drawing.Color.Red;
             resources.ApplyResources(this.butFileArchiveCancel, "butFileArchiveCancel");
             this.butFileArchiveCancel.Name = "butFileArchiveCancel";
-            this.butFileArchiveCancel.UseVisualStyleBackColor = true;
+            this.butFileArchiveCancel.UseVisualStyleBackColor = false;
             this.butFileArchiveCancel.Click += new System.EventHandler(this.butFileArchiveCancel_Click);
             // 
             // butFileArchiveSkip
             // 
+            this.butFileArchiveSkip.BackColor = System.Drawing.Color.Yellow;
             resources.ApplyResources(this.butFileArchiveSkip, "butFileArchiveSkip");
             this.butFileArchiveSkip.Name = "butFileArchiveSkip";
-            this.butFileArchiveSkip.UseVisualStyleBackColor = true;
+            this.butFileArchiveSkip.UseVisualStyleBackColor = false;
             this.butFileArchiveSkip.Click += new System.EventHandler(this.butFileArchiveSkip_Click);
             // 
             // butFileArchiveCopy
             // 
+            this.butFileArchiveCopy.BackColor = System.Drawing.Color.Lime;
             resources.ApplyResources(this.butFileArchiveCopy, "butFileArchiveCopy");
             this.butFileArchiveCopy.Name = "butFileArchiveCopy";
-            this.butFileArchiveCopy.UseVisualStyleBackColor = true;
+            this.butFileArchiveCopy.UseVisualStyleBackColor = false;
             this.butFileArchiveCopy.Click += new System.EventHandler(this.butFileArchiveCopy_Click);
             // 
             // lblLocalFileDateTime
@@ -1775,9 +1778,10 @@
             // 
             // butCancelSendToServer
             // 
+            this.butCancelSendToServer.BackColor = System.Drawing.Color.Red;
             resources.ApplyResources(this.butCancelSendToServer, "butCancelSendToServer");
             this.butCancelSendToServer.Name = "butCancelSendToServer";
-            this.butCancelSendToServer.UseVisualStyleBackColor = true;
+            this.butCancelSendToServer.UseVisualStyleBackColor = false;
             this.butCancelSendToServer.Click += new System.EventHandler(this.butCancelSendToServer_Click);
             // 
             // lblSender
@@ -1787,9 +1791,10 @@
             // 
             // butContinueSendToServer
             // 
+            this.butContinueSendToServer.BackColor = System.Drawing.Color.Lime;
             resources.ApplyResources(this.butContinueSendToServer, "butContinueSendToServer");
             this.butContinueSendToServer.Name = "butContinueSendToServer";
-            this.butContinueSendToServer.UseVisualStyleBackColor = true;
+            this.butContinueSendToServer.UseVisualStyleBackColor = false;
             this.butContinueSendToServer.Click += new System.EventHandler(this.butContinueSendToServer_Click);
             // 
             // lblSenderLocalOrServer
