@@ -79,11 +79,12 @@ namespace CSSPWQInputTool
         {
             lblChangeDateError.Text = "";
             panelAppInput.BringToFront();
-            butArchive.Enabled = true;
+            butHome.Enabled = true;
             CurrentPanel = panelAppInput;
         }
-        private void butCreateFile_Click(object sender, EventArgs e)
+        private void butCreateLabSheet_Click(object sender, EventArgs e)
         {
+            butCreateLabSheet.Enabled = false;
             checkBoxViewTotalColiformLabSheets.Checked = false;
             FileListViewTotalColiformLabSheets = false;
             FileInfo fi = new FileInfo(CurrentPath);
@@ -140,10 +141,11 @@ namespace CSSPWQInputTool
             lblApprovalDate.Text = "";
             SaveInfoOnLocalMachine(false);
             ReadFileFromLocalMachine();
-            butCreateFile.Visible = false;
+            butCreateLabSheet.Visible = false;
             NoUpdate = false;
             UpdatePanelApp();
             OpenedFileName = lblFilePath.Text;
+            butCreateLabSheet.Enabled = true;
         }
         private void butGetTides_Click(object sender, EventArgs e)
         {
@@ -253,14 +255,23 @@ namespace CSSPWQInputTool
         private void butSyncArchives_Click(object sender, EventArgs e)
         {
             TryToSyncArchive();
+            if (InternetConnection)
+            {
+                GetLabSheetsStatus();
+                SetupAppInputFiles();
+            }
+            else
+            {
+                lblStatus.Text = "Could not get lab sheets status. No internet connection.";
+            }
         }
-        private void butGetLabSheetsStatus_Click(object sender, EventArgs e)
-        {
-            butGetLabSheetsStatus.Text = "Working ...";
-            GetLabSheetsStatus();
-            butGetLabSheetsStatus.Text = "Get lab sheets status";
-            SetupAppInputFiles();
-        }
+        //private void butGetLabSheetsStatus_Click(object sender, EventArgs e)
+        //{
+        //    butGetLabSheetsStatus.Text = "Working ...";
+        //    GetLabSheetsStatus();
+        //    butGetLabSheetsStatus.Text = "Get lab sheets status";
+        //    SetupAppInputFiles();
+        //}
         private void butViewFCForm_Click(object sender, EventArgs e)
         {
             CreateWordDoc();
@@ -402,7 +413,7 @@ namespace CSSPWQInputTool
             else
             {
                 lblFilePath.Text = "";
-                butCreateFile.Visible = false;
+                butCreateLabSheet.Visible = false;
                 SetupAppInputFiles();
             }
         }
@@ -610,7 +621,7 @@ namespace CSSPWQInputTool
                 {
                     case 0:
                         {
-                            lblStatus.Text = "Read only. Provided by sampling plan file. Pressing F2 will also set daily duplicate. F3 will also set intertech duplicate. F4 will also set intertech read. F5 add another sample time for the site.";
+                            lblStatus.Text = "Read only. Provided by sampling plan file. F2 to add or remove daily duplicate. F3 to add or remove intertech duplicate. F4 to add or remove intertech read. F5 add another sample time for the site.";
                         }
                         break;
                     case 1:
@@ -689,7 +700,7 @@ namespace CSSPWQInputTool
                     {
                         case 0:
                             {
-                                lblStatus.Text = "Read only. Provided by sampling plan file. Pressing F2 will also set daily duplicate. F3 will also set intertech duplicate. F4 will also set intertech read. F5 add another sample time for the site.";
+                                lblStatus.Text = "Read only. Provided by sampling plan file. F2 to add or remove daily duplicate. F3 to add or remove intertech duplicate. F4 to add or remove intertech read. F5 add another sample time for the site.";
                             }
                             break;
                         case 1:
@@ -797,66 +808,24 @@ namespace CSSPWQInputTool
                                     }
                                     if (RowOfDuplicate == 0)
                                     {
-                                        dataGridViewCSSP.Rows.AddCopy(dataGridViewCSSP.CurrentCell.RowIndex);
-                                        RowOfDuplicate = dataGridViewCSSP.Rows.Count - 1;
-                                        for (int col = 0, count = dataGridViewCSSP.Rows[RowOfDuplicate].Cells.Count; col < count; col++)
-                                        {
-                                            if (col == SampleTypeIndex)
-                                            {
-                                                dataGridViewCSSP.Rows[RowOfDuplicate].Cells[col].Value = SampleTypeEnum.DailyDuplicate.ToString();
-                                            }
-                                            else
-                                            {
-                                                if (col == 0)
-                                                {
-                                                    dataGridViewCSSP.Rows[RowOfDuplicate].Cells[col].Value = ((string)dataGridViewCSSP.Rows[dataGridViewCSSP.CurrentCell.RowIndex].Cells[col].Value)
-                                                        .Replace(SampleTypeEnum.Infrastructure.ToString(), SampleTypeEnum.DailyDuplicate.ToString())
-                                                        .Replace(SampleTypeEnum.IntertechDuplicate.ToString(), SampleTypeEnum.DailyDuplicate.ToString())
-                                                        .Replace(SampleTypeEnum.IntertechRead.ToString(), SampleTypeEnum.DailyDuplicate.ToString())
-                                                        .Replace(SampleTypeEnum.RainCMPRoutine.ToString(), SampleTypeEnum.DailyDuplicate.ToString())
-                                                        .Replace(SampleTypeEnum.RainRun.ToString(), SampleTypeEnum.DailyDuplicate.ToString())
-                                                        .Replace(SampleTypeEnum.ReopeningEmergencyRain.ToString(), SampleTypeEnum.DailyDuplicate.ToString())
-                                                        .Replace(SampleTypeEnum.ReopeningSpill.ToString(), SampleTypeEnum.DailyDuplicate.ToString())
-                                                        .Replace(SampleTypeEnum.Routine.ToString(), SampleTypeEnum.DailyDuplicate.ToString())
-                                                        .Replace(SampleTypeEnum.Sanitary.ToString(), SampleTypeEnum.DailyDuplicate.ToString())
-                                                        .Replace(SampleTypeEnum.Study.ToString(), SampleTypeEnum.DailyDuplicate.ToString());
-
-
-                                                    while (((string)dataGridViewCSSP.Rows[RowOfDuplicate].Cells[col].Value).Contains("  "))
-                                                    {
-                                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[col].Value = ((string)dataGridViewCSSP.Rows[RowOfDuplicate].Cells[col].Value).Replace("  ", " ");
-                                                    }
-
-                                                    dataGridViewCSSP.Rows[RowOfDuplicate].Cells[col].Value = ((string)dataGridViewCSSP.Rows[RowOfDuplicate].Cells[col].Value).Replace(SampleTypeEnum.DailyDuplicate.ToString(), SampleTypeEnum.DailyDuplicate.ToString() + "             ");
-
-                                                }
-                                                else
-                                                {
-                                                    dataGridViewCSSP.Rows[RowOfDuplicate].Cells[col].Value = dataGridViewCSSP.Rows[dataGridViewCSSP.CurrentCell.RowIndex].Cells[col].Value;
-                                                }
-                                            }
-                                        }
-                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[2].Value = "";
-                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[3].Value = "";
-                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[4].Value = "";
-                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[5].Value = "";
-                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[6].Value = "";
-                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[7].Value = "";
-                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[8].Value = "";
-                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[9].Value = "";
-                                        dataGridViewCSSP.Rows[RowOfDuplicate].Cells[12].Value = "";
-                                        DoSave();
-                                        ReadFileFromLocalMachine();
-                                    }
-                                    else
-                                    {
-                                        string MWQMSiteOld = dataGridViewCSSP[StationIndex, RowOfDuplicate].Value.ToString();
                                         string MWQMSite = dataGridViewCSSP[StationIndex, dataGridViewCSSP.CurrentCell.RowIndex].Value.ToString().Trim();
                                         if (DialogResult.OK == MessageBox.Show("Create Daily Duplicate with " + MWQMSite, "Setting Daily Duplicate Site", MessageBoxButtons.OKCancel))
                                         {
-                                            dataGridViewCSSP[StationIndex, RowOfDuplicate].Value = MWQMSite;
-                                            dataGridViewCSSP[TextIndex, RowOfDuplicate].Value = dataGridViewCSSP[0, RowOfDuplicate].Value.ToString().Replace(MWQMSiteOld, MWQMSite);
-                                            dataGridViewCSSP[TVItemIDIndex, RowOfDuplicate].Value = dataGridViewCSSP[TVItemIDIndex, dataGridViewCSSP.CurrentCell.RowIndex].Value.ToString().Trim();
+                                            object[] row = { MWQMSite + " - " + SampleTypeEnum.DailyDuplicate.ToString() + "    " +
+                                                SpaceStr.Substring(0, SpaceStr.Length - 0) + "",
+                                                MWQMSite, "", "", "", "", "", "", "", "", SampleTypeEnum.DailyDuplicate.ToString(),
+                                                dataGridViewCSSP[TVItemIDIndex, dataGridViewCSSP.CurrentCell.RowIndex].Value.ToString(), ""};
+                                            dataGridViewCSSP.Rows.Add(row);
+                                            DoSave();
+                                            ReadFileFromLocalMachine();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (DialogResult.OK == MessageBox.Show("Remove Daily Duplicate", "Setting Daily Duplicate Site", MessageBoxButtons.OKCancel))
+                                        {
+                                            dataGridViewCSSP.Rows.RemoveAt(RowOfDuplicate);
+                                            SaveInfoOnLocalMachine(false);
                                             DoSave();
                                             ReadFileFromLocalMachine();
                                         }
@@ -1118,7 +1087,7 @@ namespace CSSPWQInputTool
                     lblStatus.Text = "You have to open a document before being able to change it's date.";
                     return;
                 }
-                if (!butSendToServer.Enabled)
+                if (!butSendToEnvironmentCanada.Enabled)
                 {
                     lblStatus.Text = "Please wait for the document to finished saving before changing the document date.";
                     return;
@@ -1659,7 +1628,7 @@ namespace CSSPWQInputTool
         }
         private void dateTimePickerRun_Enter(object sender, EventArgs e)
         {
-            lblStatus.Text = "Please select the date of the Run. Pressing F2 while having a lab sheet open will let you change the date of that particular lab sheet.";
+            lblStatus.Text = "Read only. Provided by sampling plan file. F2 to add or remove daily duplicate. F3 to add or remove intertech duplicate. F4 to add or remove intertech read. F5 add another sample time for the site.";
         }
         private void dateTimePickerSalinitiesReadDate_Enter(object sender, EventArgs e)
         {
@@ -2934,7 +2903,7 @@ namespace CSSPWQInputTool
             }
             else
             {
-                butCreateFile.Visible = false;
+                butCreateLabSheet.Visible = false;
             }
 
             butOpen.Enabled = true;
@@ -3051,7 +3020,7 @@ namespace CSSPWQInputTool
                 {
                     butViewFCForm.Visible = false;
                     butFail.Enabled = false;
-                    butSendToServer.Enabled = false;
+                    butSendToEnvironmentCanada.Enabled = false;
                 }
             }
             else
@@ -3080,11 +3049,11 @@ namespace CSSPWQInputTool
                 }
                 if (lblFilePath.Text.Substring(lblFilePath.Text.Length - 6) == "_C.txt")
                 {
-                    butSendToServer.Enabled = true;
+                    butSendToEnvironmentCanada.Enabled = true;
                 }
                 else
                 {
-                    butSendToServer.Enabled = false;
+                    butSendToEnvironmentCanada.Enabled = false;
                 }
             }
         }
@@ -4403,6 +4372,7 @@ namespace CSSPWQInputTool
                     return SampleTypeEnum.Error;
             }
         }
+
     }
 
 

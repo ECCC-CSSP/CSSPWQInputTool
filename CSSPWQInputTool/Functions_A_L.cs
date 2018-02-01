@@ -134,6 +134,11 @@ namespace CSSPWQInputTool
             float DailyDuplicateMPN = 0;
             for (int i = 0, count = dataGridViewCSSP.Rows.Count; i < count; i++)
             {
+                if (dataGridViewCSSP[SampleTypeColumn, i].Value == null)
+                {
+                    return;
+                }
+
                 if (dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString())
                 {
                     DailyDuplicateRow = i;
@@ -422,7 +427,7 @@ namespace CSSPWQInputTool
         private void CancelSendToServer()
         {
             panelSendToServerCompare.SendToBack();
-            butSendToServer.Enabled = true;
+            butSendToEnvironmentCanada.Enabled = true;
         }
         private void ContinueSendToServer()
         {
@@ -548,7 +553,7 @@ namespace CSSPWQInputTool
             dateTimePickerResultsReadDate.Value = dateTimePickerRun.Value.AddDays(1);
             dateTimePickerResultsRecordedDate.Value = dateTimePickerRun.Value.AddDays(1);
             panelAppInput.BringToFront();
-            butArchive.Enabled = true;
+            butHome.Enabled = true;
             CurrentPanel = panelAppInput;
         }
         private string CheckDestinationFilesDocx(FileInfo fi, FileInfo fiTo)
@@ -1136,20 +1141,14 @@ namespace CSSPWQInputTool
             {
                 if (panelAppInputIsVisible)
                 {
-                    butSendToServer.Text = "Send to Server";
-                    butSendToServer.Enabled = true;
-                    butGetLabSheetsStatus.Enabled = true;
-                    if (comboBoxSubsectorNames.SelectedIndex != 0)
-                    {
-                        butGetLabSheetsStatus.Enabled = true;
-                    }
+                    butSendToEnvironmentCanada.Text = "Send to Environment Canada";
+                    butSendToEnvironmentCanada.Enabled = true;
                 }
             }
             else
             {
-                butSendToServer.Text = "No Internet Connection";
-                butSendToServer.Enabled = false;
-                butGetLabSheetsStatus.Enabled = false;
+                butSendToEnvironmentCanada.Text = "No Internet Connection";
+                butSendToEnvironmentCanada.Enabled = false;
             }
             butViewFCForm.Enabled = true;
 
@@ -1163,7 +1162,7 @@ namespace CSSPWQInputTool
                 // Tides
                 if (textBoxTides.Text.Contains("--"))
                 {
-                    butSendToServer.Text = "Tide info required";
+                    butSendToEnvironmentCanada.Text = "Tide info required";
                     textBoxTides.BackColor = Color.Red;
                     return false;
                 }
@@ -1173,7 +1172,7 @@ namespace CSSPWQInputTool
                     // Initial Field Crew
                     if (string.IsNullOrWhiteSpace(textBoxSampleCrewInitials.Text))
                     {
-                        butSendToServer.Text = "Sample crew initial required";
+                        butSendToEnvironmentCanada.Text = "Sample crew initial required";
                         textBoxSampleCrewInitials.BackColor = Color.Red;
                         textBoxSampleCrewInitials.Focus();
                         return false;
@@ -1182,7 +1181,7 @@ namespace CSSPWQInputTool
                     // Incubation Start Time
                     if (string.IsNullOrWhiteSpace(textBoxIncubationBath1StartTime.Text))
                     {
-                        butSendToServer.Text = "Incubation start time required";
+                        butSendToEnvironmentCanada.Text = "Incubation start time required";
                         textBoxIncubationBath1StartTime.BackColor = Color.Red;
                         textBoxIncubationBath1StartTime.Focus();
                         return false;
@@ -1191,7 +1190,7 @@ namespace CSSPWQInputTool
                     // Incubation End Time
                     if (string.IsNullOrWhiteSpace(textBoxIncubationBath1EndTime.Text))
                     {
-                        butSendToServer.Text = "Incubation end time required";
+                        butSendToEnvironmentCanada.Text = "Incubation end time required";
                         textBoxIncubationBath1EndTime.BackColor = Color.Red;
                         textBoxIncubationBath1EndTime.Focus();
                         return false;
@@ -1200,7 +1199,7 @@ namespace CSSPWQInputTool
                     // Water Bath Number
                     if (string.IsNullOrWhiteSpace(textBoxWaterBath1Number.Text))
                     {
-                        butSendToServer.Text = "Water bath number required";
+                        butSendToEnvironmentCanada.Text = "Water bath number required";
                         textBoxWaterBath1Number.BackColor = Color.Red;
                         textBoxWaterBath1Number.Focus();
                         return false;
@@ -1211,7 +1210,7 @@ namespace CSSPWQInputTool
                         // Incubation Start Time
                         if (string.IsNullOrWhiteSpace(textBoxIncubationBath2StartTime.Text))
                         {
-                            butSendToServer.Text = "Incubation start time required";
+                            butSendToEnvironmentCanada.Text = "Incubation start time required";
                             textBoxIncubationBath2StartTime.BackColor = Color.Red;
                             textBoxIncubationBath2StartTime.Focus();
                             return false;
@@ -1220,7 +1219,7 @@ namespace CSSPWQInputTool
                         // Incubation End Time
                         if (string.IsNullOrWhiteSpace(textBoxIncubationBath2EndTime.Text))
                         {
-                            butSendToServer.Text = "Incubation end time required";
+                            butSendToEnvironmentCanada.Text = "Incubation end time required";
                             textBoxIncubationBath2EndTime.BackColor = Color.Red;
                             textBoxIncubationBath2EndTime.Focus();
                             return false;
@@ -1229,7 +1228,7 @@ namespace CSSPWQInputTool
                         // Water Bath Number
                         if (string.IsNullOrWhiteSpace(textBoxWaterBath2Number.Text))
                         {
-                            butSendToServer.Text = "Water bath number required";
+                            butSendToEnvironmentCanada.Text = "Water bath number required";
                             textBoxWaterBath2Number.BackColor = Color.Red;
                             textBoxWaterBath2Number.Focus();
                             return false;
@@ -1241,7 +1240,7 @@ namespace CSSPWQInputTool
                         // Incubation Start Time
                         if (string.IsNullOrWhiteSpace(textBoxIncubationBath3StartTime.Text))
                         {
-                            butSendToServer.Text = "Incubation start time required";
+                            butSendToEnvironmentCanada.Text = "Incubation start time required";
                             textBoxIncubationBath3StartTime.BackColor = Color.Red;
                             textBoxIncubationBath3StartTime.Focus();
                             return false;
@@ -1250,7 +1249,7 @@ namespace CSSPWQInputTool
                         // Incubation End Time
                         if (string.IsNullOrWhiteSpace(textBoxIncubationBath3EndTime.Text))
                         {
-                            butSendToServer.Text = "Incubation end time required";
+                            butSendToEnvironmentCanada.Text = "Incubation end time required";
                             textBoxIncubationBath3EndTime.BackColor = Color.Red;
                             textBoxIncubationBath3EndTime.Focus();
                             return false;
@@ -1259,7 +1258,7 @@ namespace CSSPWQInputTool
                         // Water Bath Number
                         if (string.IsNullOrWhiteSpace(textBoxWaterBath3Number.Text))
                         {
-                            butSendToServer.Text = "Water bath number required";
+                            butSendToEnvironmentCanada.Text = "Water bath number required";
                             textBoxWaterBath3Number.BackColor = Color.Red;
                             textBoxWaterBath3Number.Focus();
                             return false;
@@ -1272,7 +1271,7 @@ namespace CSSPWQInputTool
                         float temp = 0.0f;
                         if (!float.TryParse(textBoxTCField1.Text, out temp))
                         {
-                            butSendToServer.Text = "TC Field #1 (number or empty)";
+                            butSendToEnvironmentCanada.Text = "TC Field #1 (number or empty)";
                             lblStatus.Text = "Temperature control field #1 should be a number or empty";
                             textBoxTCField1.BackColor = Color.Red;
                             textBoxTCField1.ForeColor = Color.Black;
@@ -1290,7 +1289,7 @@ namespace CSSPWQInputTool
                         float temp = 0.0f;
                         if (!float.TryParse(textBoxTCLab1.Text, out temp))
                         {
-                            butSendToServer.Text = "TC Lab #1 (number or empty)";
+                            butSendToEnvironmentCanada.Text = "TC Lab #1 (number or empty)";
                             lblStatus.Text = "Temperature control Lab #1 should be a number or empty";
                             textBoxTCLab1.BackColor = Color.Red;
                             textBoxTCLab1.ForeColor = Color.Black;
@@ -1310,7 +1309,7 @@ namespace CSSPWQInputTool
                             float temp = 0.0f;
                             if (!float.TryParse(textBoxTCField2.Text, out temp))
                             {
-                                butSendToServer.Text = "TC Field #2 (number or empty)";
+                                butSendToEnvironmentCanada.Text = "TC Field #2 (number or empty)";
                                 lblStatus.Text = "Temperature control field #2 should be a number or empty";
                                 textBoxTCField2.BackColor = Color.Red;
                                 textBoxTCField2.ForeColor = Color.Black;
@@ -1328,7 +1327,7 @@ namespace CSSPWQInputTool
                             float temp = 0.0f;
                             if (!float.TryParse(textBoxTCLab2.Text, out temp))
                             {
-                                butSendToServer.Text = "TC Lab #2 (number or empty)";
+                                butSendToEnvironmentCanada.Text = "TC Lab #2 (number or empty)";
                                 lblStatus.Text = "Temperature control Lab #2 should be a number or empty";
                                 textBoxTCLab2.BackColor = Color.Red;
                                 textBoxTCLab2.ForeColor = Color.Black;
@@ -1344,7 +1343,7 @@ namespace CSSPWQInputTool
                     // Control Lot
                     if (string.IsNullOrWhiteSpace(textBoxControlLot.Text))
                     {
-                        butSendToServer.Text = "Control lot required";
+                        butSendToEnvironmentCanada.Text = "Control lot required";
                         textBoxControlLot.BackColor = Color.Red;
                         textBoxControlLot.Focus();
                         return false;
@@ -1353,7 +1352,7 @@ namespace CSSPWQInputTool
                     // Positive35
                     if (string.IsNullOrWhiteSpace(textBoxControlPositive35.Text))
                     {
-                        butSendToServer.Text = "Control Positive 35ºC required";
+                        butSendToEnvironmentCanada.Text = "Control Positive 35ºC required";
                         textBoxControlPositive35.BackColor = Color.Red;
                         textBoxControlPositive35.Focus();
                         return false;
@@ -1362,7 +1361,7 @@ namespace CSSPWQInputTool
                     // NonTarget 35
                     if (string.IsNullOrWhiteSpace(textBoxControlNonTarget35.Text))
                     {
-                        butSendToServer.Text = "Control NonTarget 35ºC required";
+                        butSendToEnvironmentCanada.Text = "Control NonTarget 35ºC required";
                         textBoxControlNonTarget35.BackColor = Color.Red;
                         textBoxControlNonTarget35.Focus();
                         return false;
@@ -1371,7 +1370,7 @@ namespace CSSPWQInputTool
                     // Negative 35
                     if (string.IsNullOrWhiteSpace(textBoxControlNegative35.Text))
                     {
-                        butSendToServer.Text = "Control Negative 35ºC required";
+                        butSendToEnvironmentCanada.Text = "Control Negative 35ºC required";
                         textBoxControlNegative35.BackColor = Color.Red;
                         textBoxControlNegative35.Focus();
                         return false;
@@ -1380,7 +1379,7 @@ namespace CSSPWQInputTool
                     // Positive 44.5
                     if (string.IsNullOrWhiteSpace(textBoxControlBath1Positive44_5.Text))
                     {
-                        butSendToServer.Text = "Control Positive 44.5ºC required";
+                        butSendToEnvironmentCanada.Text = "Control Positive 44.5ºC required";
                         textBoxControlBath1Positive44_5.BackColor = Color.Red;
                         textBoxControlBath1Positive44_5.Focus();
                         return false;
@@ -1389,7 +1388,7 @@ namespace CSSPWQInputTool
                     // NonTarget 44.5
                     if (string.IsNullOrWhiteSpace(textBoxControlBath1NonTarget44_5.Text))
                     {
-                        butSendToServer.Text = "Control NonTarget 44.5ºC required";
+                        butSendToEnvironmentCanada.Text = "Control NonTarget 44.5ºC required";
                         textBoxControlBath1NonTarget44_5.BackColor = Color.Red;
                         textBoxControlBath1NonTarget44_5.Focus();
                         return false;
@@ -1398,7 +1397,7 @@ namespace CSSPWQInputTool
                     // Negative 44.5
                     if (string.IsNullOrWhiteSpace(textBoxControlBath1Negative44_5.Text))
                     {
-                        butSendToServer.Text = "Control Negative 44.5ºC required";
+                        butSendToEnvironmentCanada.Text = "Control Negative 44.5ºC required";
                         textBoxControlBath1Negative44_5.BackColor = Color.Red;
                         textBoxControlBath1Negative44_5.Focus();
                         return false;
@@ -1407,7 +1406,7 @@ namespace CSSPWQInputTool
                     // Blank 
                     if (string.IsNullOrWhiteSpace(textBoxControlBlank35.Text))
                     {
-                        butSendToServer.Text = "Control blank 35ºC required";
+                        butSendToEnvironmentCanada.Text = "Control blank 35ºC required";
                         textBoxControlBlank35.BackColor = Color.Red;
                         textBoxControlBlank35.Focus();
                         return false;
@@ -1416,7 +1415,7 @@ namespace CSSPWQInputTool
                     // Lot 35
                     if (string.IsNullOrWhiteSpace(textBoxLot35.Text))
                     {
-                        butSendToServer.Text = "Media lot 1X required";
+                        butSendToEnvironmentCanada.Text = "Media lot 1X required";
                         textBoxLot35.BackColor = Color.Red;
                         textBoxLot35.Focus();
                         return false;
@@ -1425,7 +1424,7 @@ namespace CSSPWQInputTool
                     // Lot 44.5
                     if (string.IsNullOrWhiteSpace(textBoxLot44_5.Text))
                     {
-                        butSendToServer.Text = "Media lot 2X required";
+                        butSendToEnvironmentCanada.Text = "Media lot 2X required";
                         textBoxLot44_5.BackColor = Color.Red;
                         textBoxLot44_5.Focus();
                         return false;
@@ -1433,7 +1432,7 @@ namespace CSSPWQInputTool
 
                     if (textBoxLot35.Text.Trim().ToUpper() == textBoxLot44_5.Text.Trim().ToUpper())
                     {
-                        butSendToServer.Text = "Media lots should not be equal";
+                        butSendToEnvironmentCanada.Text = "Media lots should not be equal";
                         textBoxLot35.ForeColor = Color.Black;
                         textBoxLot44_5.ForeColor = Color.Black;
                         textBoxLot35.BackColor = Color.Red;
@@ -1463,7 +1462,7 @@ namespace CSSPWQInputTool
                     // Daily Duplicate Precision Criteria
                     if (string.IsNullOrWhiteSpace(textBoxDailyDuplicatePrecisionCriteria.Text))
                     {
-                        butSendToServer.Text = "Daily Duplicate precision criteria required";
+                        butSendToEnvironmentCanada.Text = "Daily Duplicate precision criteria required";
                         textBoxDailyDuplicatePrecisionCriteria.BackColor = Color.Red;
                         textBoxDailyDuplicatePrecisionCriteria.Focus();
                         return false;
@@ -1472,7 +1471,7 @@ namespace CSSPWQInputTool
                     // Intertech Duplicate Precision Criteria
                     if (string.IsNullOrWhiteSpace(textBoxIntertechDuplicatePrecisionCriteria.Text))
                     {
-                        butSendToServer.Text = "Intertech Duplicate precision criteria required";
+                        butSendToEnvironmentCanada.Text = "Intertech Duplicate precision criteria required";
                         textBoxIntertechDuplicatePrecisionCriteria.BackColor = Color.Red;
                         textBoxIntertechDuplicatePrecisionCriteria.Focus();
                         return false;
@@ -1481,7 +1480,7 @@ namespace CSSPWQInputTool
                     // Sample Bottle Lot Number
                     if (string.IsNullOrWhiteSpace(textBoxSampleBottleLotNumber.Text))
                     {
-                        butSendToServer.Text = "Sample bottle lot number required";
+                        butSendToEnvironmentCanada.Text = "Sample bottle lot number required";
                         textBoxSampleBottleLotNumber.BackColor = Color.Red;
                         textBoxSampleBottleLotNumber.Focus();
                         return false;
@@ -1490,7 +1489,7 @@ namespace CSSPWQInputTool
                     // Salinities read by
                     if (string.IsNullOrWhiteSpace(textBoxSalinitiesReadBy.Text))
                     {
-                        butSendToServer.Text = "Salinities read by required";
+                        butSendToEnvironmentCanada.Text = "Salinities read by required";
                         textBoxSalinitiesReadBy.BackColor = Color.Red;
                         textBoxSalinitiesReadBy.Focus();
                         return false;
@@ -1499,7 +1498,7 @@ namespace CSSPWQInputTool
                     // Results read by
                     if (string.IsNullOrWhiteSpace(textBoxResultsReadBy.Text))
                     {
-                        butSendToServer.Text = "Results read by required";
+                        butSendToEnvironmentCanada.Text = "Results read by required";
                         textBoxResultsReadBy.BackColor = Color.Red;
                         textBoxResultsReadBy.Focus();
                         return false;
@@ -1508,7 +1507,7 @@ namespace CSSPWQInputTool
                     // Results recorded by
                     if (string.IsNullOrWhiteSpace(textBoxResultsRecordedBy.Text))
                     {
-                        butSendToServer.Text = "Results recorded by required";
+                        butSendToEnvironmentCanada.Text = "Results recorded by required";
                         textBoxResultsRecordedBy.BackColor = Color.Red;
                         textBoxResultsRecordedBy.Focus();
                         return false;
@@ -1572,7 +1571,7 @@ namespace CSSPWQInputTool
                     }
                     if (CellEmpty)
                     {
-                        butSendToServer.Text = "Data missing in grid";
+                        butSendToEnvironmentCanada.Text = "Data missing in grid";
                         DialogResult dialogResult = MessageBox.Show("Please correct before sending lab sheet to server.\r\n\r\n" + ErrorMessage, "Data missing in grid.", MessageBoxButtons.OK);
                         return false;
                     }
@@ -1613,7 +1612,7 @@ namespace CSSPWQInputTool
                     }
                     if (InvalidTubeCombination)
                     {
-                        butSendToServer.Text = "Invalid tube combination";
+                        butSendToEnvironmentCanada.Text = "Invalid tube combination";
                         DialogResult dialogResult = MessageBox.Show("Please correct before sending lab sheet to server.\r\n\r\n" + ErrorMessage, "Invalid tube combination.", MessageBoxButtons.OK);
                         return false;
                     }
@@ -1644,7 +1643,7 @@ namespace CSSPWQInputTool
                     }
                     if (SalOrTempIsMissing)
                     {
-                        butSendToServer.Text = "Salinity and/or temperature missing";
+                        butSendToEnvironmentCanada.Text = "Salinity and/or temperature missing";
                         DialogResult dialogResult = MessageBox.Show(ErrorMessage + "\r\nDo you still want to send the lab sheet to server?", "Salinity and/or temperature missing.", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.No)
                         {
@@ -1678,7 +1677,7 @@ namespace CSSPWQInputTool
                     }
                     if (UnusualTubeCombination)
                     {
-                        butSendToServer.Text = "Unusual tube combination";
+                        butSendToEnvironmentCanada.Text = "Unusual tube combination";
                         DialogResult dialogResult = MessageBox.Show(ErrorMessage + "\r\nDo you still want to send the lab sheet to server?", "Unusual tube combination.", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.No)
                         {
@@ -1899,11 +1898,7 @@ namespace CSSPWQInputTool
                     InternetConnection = true;
                     if (panelAppInputIsVisible)
                     {
-                        butSendToServer.Enabled = true;
-                        if (comboBoxSubsectorNames.SelectedIndex != 0)
-                        {
-                            butGetLabSheetsStatus.Enabled = true;
-                        }
+                        butSendToEnvironmentCanada.Enabled = true;
                     }
                 }
             }
@@ -1911,8 +1906,7 @@ namespace CSSPWQInputTool
             {
                 this.Text = FormTitle + " (No internet connection)";
                 InternetConnection = false;
-                butSendToServer.Enabled = false;
-                butGetLabSheetsStatus.Enabled = false;
+                butSendToEnvironmentCanada.Enabled = false;
                 butGetTides.Enabled = false;
                 return "Error";
             }
@@ -2613,7 +2607,6 @@ namespace CSSPWQInputTool
             foreach (FileInfo fi in fileListAll)
             {
                 count += 1;
-                butGetLabSheetsStatus.Text = "Doing ... " + count + "/" + countFile;
                 lblStatus.Text = "Checking status of LabSheet loaded [" + fi.Name + "] Doing ... " + count + "/" + countFile;
                 lblStatus.Refresh();
                 Application.DoEvents();
@@ -2993,7 +2986,12 @@ namespace CSSPWQInputTool
                 {
                     if (OldSubsector != SubsectorName)
                     {
+                        if (OldSubsector != "")
+                        {
+                            listBoxFiles.Items.Add(new FileItemList("", ""));
+                        }
                         listBoxFiles.Items.Add(new FileItemList(SubsectorName, ""));
+                        listBoxFiles.Items.Add(new FileItemList("-----------------------------------------------------------------------------------------------------------", ""));
                         OldSubsector = SubsectorName;
                     }
                 }

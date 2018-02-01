@@ -53,13 +53,12 @@
             this.dateTimePickerArchiveFilterTo = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerArchiveFilterFrom = new System.Windows.Forms.DateTimePicker();
             this.lblSharedArchived = new System.Windows.Forms.Label();
-            this.butSyncArchives = new System.Windows.Forms.Button();
+            this.butUpdateDataset = new System.Windows.Forms.Button();
             this.textBoxSharedArchivedDirectory = new System.Windows.Forms.TextBox();
             this.butOpen = new System.Windows.Forms.Button();
             this.comboBoxFileSubsector = new System.Windows.Forms.ComboBox();
             this.lblFileSubsector = new System.Windows.Forms.Label();
             this.lblAnd = new System.Windows.Forms.Label();
-            this.lblFileBetween = new System.Windows.Forms.Label();
             this.richTextBoxFile = new System.Windows.Forms.RichTextBox();
             this.panelAppInput = new System.Windows.Forms.Panel();
             this.panelAddInputMiddle = new System.Windows.Forms.Panel();
@@ -191,7 +190,7 @@
             this.panelAppTop = new System.Windows.Forms.Panel();
             this.comboBoxRunNumber = new System.Windows.Forms.ComboBox();
             this.lblFilePath = new System.Windows.Forms.Label();
-            this.butCreateFile = new System.Windows.Forms.Button();
+            this.butCreateLabSheet = new System.Windows.Forms.Button();
             this.comboBoxSubsectorNames = new System.Windows.Forms.ComboBox();
             this.dateTimePickerRun = new System.Windows.Forms.DateTimePicker();
             this.panelChangeDateOfCurrentDoc = new System.Windows.Forms.Panel();
@@ -212,9 +211,8 @@
             this.lblSampleType = new System.Windows.Forms.Label();
             this.lblSamplingPlanType = new System.Windows.Forms.Label();
             this.butFail = new System.Windows.Forms.Button();
-            this.butSendToServer = new System.Windows.Forms.Button();
-            this.butGetLabSheetsStatus = new System.Windows.Forms.Button();
-            this.butArchive = new System.Windows.Forms.Button();
+            this.butSendToEnvironmentCanada = new System.Windows.Forms.Button();
+            this.butHome = new System.Windows.Forms.Button();
             this.butLogoff = new System.Windows.Forms.Button();
             this.timerSave = new System.Windows.Forms.Timer(this.components);
             this.openFileDialogCSSP = new System.Windows.Forms.OpenFileDialog();
@@ -239,6 +237,8 @@
             this.lblReceiverLocalOrServer = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSendingFileName = new System.Windows.Forms.Label();
+            this.lblBetween = new System.Windows.Forms.Label();
+            this.groupBoxFilterByDate = new System.Windows.Forms.GroupBox();
             this.panelPassword.SuspendLayout();
             this.panelPasswordCenter.SuspendLayout();
             this.panelAccessCode.SuspendLayout();
@@ -274,6 +274,7 @@
             this.panelSenderTop.SuspendLayout();
             this.panelReceiverTop.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBoxFilterByDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelPassword
@@ -398,18 +399,15 @@
             // 
             // panelAppInputFilesTop
             // 
+            this.panelAppInputFilesTop.Controls.Add(this.groupBoxFilterByDate);
             this.panelAppInputFilesTop.Controls.Add(this.checkBoxViewTotalColiformLabSheets);
             this.panelAppInputFilesTop.Controls.Add(this.checkBoxOnlyChangedAndRejected);
-            this.panelAppInputFilesTop.Controls.Add(this.dateTimePickerArchiveFilterTo);
-            this.panelAppInputFilesTop.Controls.Add(this.dateTimePickerArchiveFilterFrom);
             this.panelAppInputFilesTop.Controls.Add(this.lblSharedArchived);
-            this.panelAppInputFilesTop.Controls.Add(this.butSyncArchives);
+            this.panelAppInputFilesTop.Controls.Add(this.butUpdateDataset);
             this.panelAppInputFilesTop.Controls.Add(this.textBoxSharedArchivedDirectory);
             this.panelAppInputFilesTop.Controls.Add(this.butOpen);
             this.panelAppInputFilesTop.Controls.Add(this.comboBoxFileSubsector);
             this.panelAppInputFilesTop.Controls.Add(this.lblFileSubsector);
-            this.panelAppInputFilesTop.Controls.Add(this.lblAnd);
-            this.panelAppInputFilesTop.Controls.Add(this.lblFileBetween);
             resources.ApplyResources(this.panelAppInputFilesTop, "panelAppInputFilesTop");
             this.panelAppInputFilesTop.Name = "panelAppInputFilesTop";
             // 
@@ -446,12 +444,12 @@
             resources.ApplyResources(this.lblSharedArchived, "lblSharedArchived");
             this.lblSharedArchived.Name = "lblSharedArchived";
             // 
-            // butSyncArchives
+            // butUpdateDataset
             // 
-            resources.ApplyResources(this.butSyncArchives, "butSyncArchives");
-            this.butSyncArchives.Name = "butSyncArchives";
-            this.butSyncArchives.UseVisualStyleBackColor = true;
-            this.butSyncArchives.Click += new System.EventHandler(this.butSyncArchives_Click);
+            resources.ApplyResources(this.butUpdateDataset, "butUpdateDataset");
+            this.butUpdateDataset.Name = "butUpdateDataset";
+            this.butUpdateDataset.UseVisualStyleBackColor = true;
+            this.butUpdateDataset.Click += new System.EventHandler(this.butSyncArchives_Click);
             // 
             // textBoxSharedArchivedDirectory
             // 
@@ -481,11 +479,6 @@
             // 
             resources.ApplyResources(this.lblAnd, "lblAnd");
             this.lblAnd.Name = "lblAnd";
-            // 
-            // lblFileBetween
-            // 
-            resources.ApplyResources(this.lblFileBetween, "lblFileBetween");
-            this.lblFileBetween.Name = "lblFileBetween";
             // 
             // richTextBoxFile
             // 
@@ -1485,7 +1478,7 @@
             // 
             this.panelAppTop.Controls.Add(this.comboBoxRunNumber);
             this.panelAppTop.Controls.Add(this.lblFilePath);
-            this.panelAppTop.Controls.Add(this.butCreateFile);
+            this.panelAppTop.Controls.Add(this.butCreateLabSheet);
             this.panelAppTop.Controls.Add(this.comboBoxSubsectorNames);
             this.panelAppTop.Controls.Add(this.dateTimePickerRun);
             resources.ApplyResources(this.panelAppTop, "panelAppTop");
@@ -1506,12 +1499,12 @@
             this.lblFilePath.Name = "lblFilePath";
             this.lblFilePath.TextChanged += new System.EventHandler(this.lblFilePath_TextChanged);
             // 
-            // butCreateFile
+            // butCreateLabSheet
             // 
-            resources.ApplyResources(this.butCreateFile, "butCreateFile");
-            this.butCreateFile.Name = "butCreateFile";
-            this.butCreateFile.UseVisualStyleBackColor = true;
-            this.butCreateFile.Click += new System.EventHandler(this.butCreateFile_Click);
+            resources.ApplyResources(this.butCreateLabSheet, "butCreateLabSheet");
+            this.butCreateLabSheet.Name = "butCreateLabSheet";
+            this.butCreateLabSheet.UseVisualStyleBackColor = true;
+            this.butCreateLabSheet.Click += new System.EventHandler(this.butCreateLabSheet_Click);
             // 
             // comboBoxSubsectorNames
             // 
@@ -1625,9 +1618,8 @@
             this.panelButtonBar.Controls.Add(this.lblSampleType);
             this.panelButtonBar.Controls.Add(this.lblSamplingPlanType);
             this.panelButtonBar.Controls.Add(this.butFail);
-            this.panelButtonBar.Controls.Add(this.butSendToServer);
-            this.panelButtonBar.Controls.Add(this.butGetLabSheetsStatus);
-            this.panelButtonBar.Controls.Add(this.butArchive);
+            this.panelButtonBar.Controls.Add(this.butSendToEnvironmentCanada);
+            this.panelButtonBar.Controls.Add(this.butHome);
             this.panelButtonBar.Controls.Add(this.butLogoff);
             resources.ApplyResources(this.panelButtonBar, "panelButtonBar");
             this.panelButtonBar.Name = "panelButtonBar";
@@ -1654,26 +1646,19 @@
             this.butFail.UseVisualStyleBackColor = true;
             this.butFail.Click += new System.EventHandler(this.butFail_Click);
             // 
-            // butSendToServer
+            // butSendToEnvironmentCanada
             // 
-            resources.ApplyResources(this.butSendToServer, "butSendToServer");
-            this.butSendToServer.Name = "butSendToServer";
-            this.butSendToServer.UseVisualStyleBackColor = true;
-            this.butSendToServer.Click += new System.EventHandler(this.butSendToServer_Click);
+            resources.ApplyResources(this.butSendToEnvironmentCanada, "butSendToEnvironmentCanada");
+            this.butSendToEnvironmentCanada.Name = "butSendToEnvironmentCanada";
+            this.butSendToEnvironmentCanada.UseVisualStyleBackColor = true;
+            this.butSendToEnvironmentCanada.Click += new System.EventHandler(this.butSendToServer_Click);
             // 
-            // butGetLabSheetsStatus
+            // butHome
             // 
-            resources.ApplyResources(this.butGetLabSheetsStatus, "butGetLabSheetsStatus");
-            this.butGetLabSheetsStatus.Name = "butGetLabSheetsStatus";
-            this.butGetLabSheetsStatus.UseVisualStyleBackColor = true;
-            this.butGetLabSheetsStatus.Click += new System.EventHandler(this.butGetLabSheetsStatus_Click);
-            // 
-            // butArchive
-            // 
-            resources.ApplyResources(this.butArchive, "butArchive");
-            this.butArchive.Name = "butArchive";
-            this.butArchive.UseVisualStyleBackColor = true;
-            this.butArchive.Click += new System.EventHandler(this.butArchive_Click);
+            resources.ApplyResources(this.butHome, "butHome");
+            this.butHome.Name = "butHome";
+            this.butHome.UseVisualStyleBackColor = true;
+            this.butHome.Click += new System.EventHandler(this.butArchive_Click);
             // 
             // butLogoff
             // 
@@ -1842,6 +1827,21 @@
             resources.ApplyResources(this.lblSendingFileName, "lblSendingFileName");
             this.lblSendingFileName.Name = "lblSendingFileName";
             // 
+            // lblBetween
+            // 
+            resources.ApplyResources(this.lblBetween, "lblBetween");
+            this.lblBetween.Name = "lblBetween";
+            // 
+            // groupBoxFilterByDate
+            // 
+            this.groupBoxFilterByDate.Controls.Add(this.dateTimePickerArchiveFilterFrom);
+            this.groupBoxFilterByDate.Controls.Add(this.lblBetween);
+            this.groupBoxFilterByDate.Controls.Add(this.lblAnd);
+            this.groupBoxFilterByDate.Controls.Add(this.dateTimePickerArchiveFilterTo);
+            resources.ApplyResources(this.groupBoxFilterByDate, "groupBoxFilterByDate");
+            this.groupBoxFilterByDate.Name = "groupBoxFilterByDate";
+            this.groupBoxFilterByDate.TabStop = false;
+            // 
             // CSSPWQInputToolForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1907,6 +1907,8 @@
             this.panelReceiverTop.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBoxFilterByDate.ResumeLayout(false);
+            this.groupBoxFilterByDate.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1919,7 +1921,7 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblStatusTxt;
         private System.Windows.Forms.Panel panelButtonBar;
-        private System.Windows.Forms.Button butSendToServer;
+        private System.Windows.Forms.Button butSendToEnvironmentCanada;
         private System.Windows.Forms.Button butLogoff;
         private System.Windows.Forms.Label lblEnterAccessCodeTxt;
         private System.Windows.Forms.TextBox textBoxAccessCode;
@@ -1927,7 +1929,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerRun;
         private System.Windows.Forms.ComboBox comboBoxSubsectorNames;
         private System.Windows.Forms.Panel panelAppTop;
-        private System.Windows.Forms.Button butCreateFile;
+        private System.Windows.Forms.Button butCreateLabSheet;
         private System.Windows.Forms.Panel panelAppInput;
         private System.Windows.Forms.Label lblFilePath;
         private System.Windows.Forms.Panel panelAppInputTop;
@@ -2000,7 +2002,6 @@
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.ListBox listBoxFiles;
         private System.Windows.Forms.Panel panelAppInputFilesTop;
-        private System.Windows.Forms.Label lblFileBetween;
         private System.Windows.Forms.RichTextBox richTextBoxFile;
         private System.Windows.Forms.ComboBox comboBoxFileSubsector;
         private System.Windows.Forms.Label lblFileSubsector;
@@ -2011,7 +2012,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerResultsRecordedDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerSalinitiesReadDate;
         private System.Windows.Forms.Button butViewFCForm;
-        private System.Windows.Forms.Button butArchive;
+        private System.Windows.Forms.Button butHome;
         private System.Windows.Forms.Button butOpen;
         private System.Diagnostics.Process processCSSP;
         private System.Windows.Forms.Button butGetTides;
@@ -2036,9 +2037,8 @@
         private System.Windows.Forms.Label lblEnterInitialsBeforeCodeText;
         private System.Windows.Forms.Label lblInitials;
         private System.Windows.Forms.TextBox textBoxInitials;
-        private System.Windows.Forms.Button butGetLabSheetsStatus;
         private System.Windows.Forms.Label lblSharedArchived;
-        private System.Windows.Forms.Button butSyncArchives;
+        private System.Windows.Forms.Button butUpdateDataset;
         private System.Windows.Forms.TextBox textBoxSharedArchivedDirectory;
         private System.Windows.Forms.DateTimePicker dateTimePickerArchiveFilterFrom;
         private System.Windows.Forms.Label lblAnd;
@@ -2122,6 +2122,8 @@
         private System.Windows.Forms.Label lblSupervisorOnly;
         private System.Windows.Forms.Label lblApprovalDate;
         private System.Windows.Forms.Label lblTideTextExample;
+        private System.Windows.Forms.GroupBox groupBoxFilterByDate;
+        private System.Windows.Forms.Label lblBetween;
     }
 }
 

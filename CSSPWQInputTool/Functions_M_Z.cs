@@ -75,9 +75,8 @@ namespace CSSPWQInputTool
                 return;
           
             lblStatus.Text = "Modified";
-            butSendToServer.Text = "Saving ...";
-            butSendToServer.Enabled = false;
-            butGetLabSheetsStatus.Enabled = false;
+            butSendToEnvironmentCanada.Text = "Saving ...";
+            butSendToEnvironmentCanada.Enabled = false;
             butGetTides.Enabled = false;
             butViewFCForm.Enabled = false;
             if (!timerSave.Enabled)
@@ -768,23 +767,23 @@ namespace CSSPWQInputTool
 
             if (fi.FullName.EndsWith("_S.txt"))
             {
-                butSendToServer.Text = "Already saved on server";
-                butSendToServer.Enabled = false;
+                butSendToEnvironmentCanada.Text = "Already saved on server";
+                butSendToEnvironmentCanada.Enabled = false;
             }
             else if (fi.FullName.EndsWith("_R.txt"))
             {
-                butSendToServer.Text = "Rejected on server";
-                butSendToServer.Enabled = true;
+                butSendToEnvironmentCanada.Text = "Rejected on server";
+                butSendToEnvironmentCanada.Enabled = true;
             }
             else if (fi.FullName.EndsWith("_A.txt"))
             {
-                butSendToServer.Text = "Accepted on server";
-                butSendToServer.Enabled = false;
+                butSendToEnvironmentCanada.Text = "Accepted on server";
+                butSendToEnvironmentCanada.Enabled = false;
             }
             else
             {
-                butSendToServer.Text = "Send to Server";
-                butSendToServer.Enabled = true;
+                butSendToEnvironmentCanada.Text = "Send to Environment Canada";
+                butSendToEnvironmentCanada.Enabled = true;
             }
 
             butViewFCForm.Enabled = true;
@@ -1426,9 +1425,8 @@ namespace CSSPWQInputTool
             FillInternetConnectionVariable();
             if (!InternetConnection)
             {
-                butSendToServer.Text = "No Internet Connection";
-                butSendToServer.Enabled = false;
-                butGetLabSheetsStatus.Enabled = false;
+                butSendToEnvironmentCanada.Text = "No Internet Connection";
+                butSendToEnvironmentCanada.Enabled = false;
                 MessageBox.Show("No internet connection", "Internet connection");
                 return;
             }
@@ -1437,22 +1435,16 @@ namespace CSSPWQInputTool
             {
                 return;
             }
-            butSendToServer.Text = "Working ...";
-            butSendToServer.Enabled = false;
-            butGetLabSheetsStatus.Enabled = false;
+            butSendToEnvironmentCanada.Text = "Working ...";
+            butSendToEnvironmentCanada.Enabled = false;
             lblStatus.Text = "Sending lab sheet to server ... Working ...";
             lblStatus.Refresh();
             Application.DoEvents();
             string retStr = PostLabSheet();
             if (string.IsNullOrWhiteSpace(retStr))
             {
-                butSendToServer.Text = "Lab sheet sent ok";
-                butSendToServer.Enabled = false;
-                butGetLabSheetsStatus.Enabled = true;
-                //if (comboBoxSubsectorNames.SelectedIndex != 0)
-                //{
-                //    butGetLabSheetsStatus.Enabled = true;
-                //}
+                butSendToEnvironmentCanada.Text = "Lab sheet sent ok";
+                butSendToEnvironmentCanada.Enabled = false;
                 lblStatus.Text = "Lab sheet sent ok";
 
                 File.Copy(lblFilePath.Text, lblFilePath.Text.Replace("_C.txt", "_S.txt"));
@@ -1462,15 +1454,10 @@ namespace CSSPWQInputTool
             }
             else
             {
-                butSendToServer.Text = "Error sending lab sheet";
+                butSendToEnvironmentCanada.Text = "Error sending lab sheet";
                 if (InternetConnection)
                 {
-                    butSendToServer.Enabled = true;
-                    butGetLabSheetsStatus.Enabled = true;
-                    //if (comboBoxSubsectorNames.SelectedIndex != 0)
-                    //{
-                    //    butGetLabSheetsStatus.Enabled = true;
-                    //}
+                    butSendToEnvironmentCanada.Enabled = true;
                 }
                 lblStatus.Text = retStr;
             }
@@ -1499,7 +1486,7 @@ namespace CSSPWQInputTool
         {
             listBoxFiles.Focus();
             panelAppInputFiles.BringToFront();
-            butArchive.Enabled = false;
+            butHome.Enabled = false;
             panelSendToServerCompare.SendToBack();
             comboBoxFileSubsector.Items.Clear();
 
@@ -1522,11 +1509,7 @@ namespace CSSPWQInputTool
 
             CurrentPanel = panelAppInputFiles;
             panelAppInputIsVisible = false;
-            butSendToServer.Enabled = false;
-            if (InternetConnection)
-            {
-                butGetLabSheetsStatus.Enabled = true;
-            }
+            butSendToEnvironmentCanada.Enabled = false;
         }
         private void SetupCSSPWQInputTool()
         {
@@ -1537,7 +1520,7 @@ namespace CSSPWQInputTool
             panelButtonBar.Visible = true;
             FillInternetConnectionVariable();
             lblFilePath.Text = "";
-            butCreateFile.Visible = false;
+            butCreateLabSheet.Visible = false;
             FillComboboxes();
             dataGridViewCellStyleEdit.BackColor = Color.White;
             dataGridViewCellStyleEdit.ForeColor = Color.Green;
@@ -2287,7 +2270,7 @@ namespace CSSPWQInputTool
             lblLocalFileDateTime.Text = "";
             butContinueSendToServer.Visible = true;
             butCancelSendToServer.Visible = true;
-            butSendToServer.Enabled = false;
+            butSendToEnvironmentCanada.Enabled = false;
             butFileArchiveSkip.Visible = false;
             butFileArchiveCopy.Visible = false;
             butFileArchiveCancel.Visible = false;
@@ -2755,57 +2738,53 @@ namespace CSSPWQInputTool
                 if (!ReadFileFromLocalMachine())
                     return;
                 panelAppInput.BringToFront();
-                butArchive.Enabled = true;
+                butHome.Enabled = true;
                 CurrentPanel = panelAppInput;
                 panelAppInputIsVisible = true;
-                butSendToServer.Enabled = false;
+                butSendToEnvironmentCanada.Enabled = false;
 
                 if (fi.FullName.EndsWith("_S.txt"))
                 {
-                    butSendToServer.Text = "Already saved on server";
-                    butSendToServer.Enabled = false;
+                    butSendToEnvironmentCanada.Text = "Already saved on server";
+                    butSendToEnvironmentCanada.Enabled = false;
                 }
                 else if (fi.FullName.EndsWith("_R.txt"))
                 {
-                    butSendToServer.Text = "Rejected on server";
-                    butSendToServer.Enabled = false;
+                    butSendToEnvironmentCanada.Text = "Rejected on server";
+                    butSendToEnvironmentCanada.Enabled = false;
                 }
                 else if (fi.FullName.EndsWith("_A.txt"))
                 {
-                    butSendToServer.Text = "Accepted on server";
-                    butSendToServer.Enabled = false;
+                    butSendToEnvironmentCanada.Text = "Accepted on server";
+                    butSendToEnvironmentCanada.Enabled = false;
                 }
                 else if (fi.FullName.EndsWith("_E.txt"))
                 {
-                    butSendToServer.Text = "Error no server action";
-                    butSendToServer.Enabled = false;
+                    butSendToEnvironmentCanada.Text = "Error no server action";
+                    butSendToEnvironmentCanada.Enabled = false;
                 }
                 else if (fi.FullName.EndsWith("_F.txt"))
                 {
-                    butSendToServer.Text = "Fail no server action";
-                    butSendToServer.Enabled = false;
+                    butSendToEnvironmentCanada.Text = "Fail no server action";
+                    butSendToEnvironmentCanada.Enabled = false;
                 }
                 else
                 {
-                    butSendToServer.Text = "Send to Server";
-                    butSendToServer.Enabled = true;
+                    butSendToEnvironmentCanada.Text = "Send to Environment Canada";
+                    butSendToEnvironmentCanada.Enabled = true;
                 }
 
                 lblStatus.Text = "";
-                butCreateFile.Visible = false;
+                butCreateLabSheet.Visible = false;
             }
             else
             {
                 SetupDataGridViewCSSP();
-                butCreateFile.Visible = true;
+                butCreateLabSheet.Visible = true;
                 SetupAppInputFiles();
             }
 
             InLoadingFile = false;
-            if (InternetConnection)
-            {
-                butGetLabSheetsStatus.Enabled = true;
-            }
         }
         private void ValidateCellA1(int ColumnIndex, int RowIndex)
         {
@@ -3004,13 +2983,11 @@ namespace CSSPWQInputTool
                             if (labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Tube10 != TempInt)
                             {
                                 labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Tube10 = TempInt;
-                                //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() + " - " + " [Tube 10] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                             }
                         }
                         else
                         {
                             labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Tube10 = null;
-                            //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() + " - " + " [Tube 10] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                         }
                     }
                     break;
@@ -3023,13 +3000,11 @@ namespace CSSPWQInputTool
                             if (labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Tube1_0 != TempInt)
                             {
                                 labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Tube1_0 = TempInt;
-                                //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() + " - " + " [Tube 1] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                             }
                         }
                         else
                         {
                             labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Tube1_0 = null;
-                            //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() + " - " + " [Tube 10] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                         }
                     }
                     break;
@@ -3042,13 +3017,11 @@ namespace CSSPWQInputTool
                             if (labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Tube0_1 != TempInt)
                             {
                                 labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Tube0_1 = TempInt;
-                                //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() + " - " + " [Tube 0.1] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                             }
                         }
                         else
                         {
                             labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Tube0_1 = null;
-                            //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + " " + dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() + " - " + " [Tube 10] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                         }
                     }
                     break;
@@ -3107,13 +3080,11 @@ namespace CSSPWQInputTool
                 if (labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Salinity != TempFloat)
                 {
                     labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Salinity = TempFloat;
-                    //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() == "Duplicate" ? " Dupliate" : "") + " - " + " [Salinity] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
                 }
             }
             else
             {
                 labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Salinity = null;
-                //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() == "Duplicate" ? " Dupliate" : "") + " - " + " [Salinity] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
             }
 
         }
@@ -3308,7 +3279,6 @@ namespace CSSPWQInputTool
                 }
             }
 
-            //AddLog("CSSP Grid(" + ColumnIndex + "," + RowIndex + ") " + dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString() + (dataGridViewCSSP[SampleTypeColumn, RowIndex].Value.ToString() == "Duplicate" ? " Dupliate" : "") + " - " + " [Time] ", dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString());
         }
 
 
