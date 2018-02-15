@@ -1119,6 +1119,27 @@ namespace CSSPWQInputTool
                     break;
                 }
             }
+
+            int SampleTypeColNumber = 10;
+            for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
+            {
+                for (int col = 0, countCol = dataGridViewCSSP.Columns.Count - 1; col < countCol; col++)
+                {
+                    if (dataGridViewCSSP[SampleTypeColNumber, row].Value != null
+                                   && (dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
+                                   || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
+                                   || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
+                    {
+                        if (col == 2 || col == 7 || col == 8)
+                        {
+                            DataGridViewCell dataGridViewCell = dataGridViewCSSP[col, row];
+                            dataGridViewCell.Style.ForeColor = Color.Black;
+                            dataGridViewCell.Style.BackColor = Color.Gray;
+                            dataGridViewCell.ReadOnly = true;
+                        }
+                    }
+                }
+            }
         }
         private void DoSave()
         {
@@ -1964,7 +1985,7 @@ namespace CSSPWQInputTool
             csspMPNTableList.Add(new CSSPMPNTable() { Tube10 = 1, Tube1_0 = 2, Tube0_1 = 1, MPN = 8 });
             csspMPNTableList.Add(new CSSPMPNTable() { Tube10 = 1, Tube1_0 = 3, Tube0_1 = 0, MPN = 8 });
             csspMPNTableList.Add(new CSSPMPNTable() { Tube10 = 1, Tube1_0 = 3, Tube0_1 = 1, MPN = 10 });
-            csspMPNTableList.Add(new CSSPMPNTable() { Tube10 = 1, Tube1_0 = 4, Tube0_1 = 0, MPN = 10 });
+            csspMPNTableList.Add(new CSSPMPNTable() { Tube10 = 1, Tube1_0 = 4, Tube0_1 = 0, MPN = 11 });
             csspMPNTableList.Add(new CSSPMPNTable() { Tube10 = 2, Tube1_0 = 0, Tube0_1 = 0, MPN = 4 });
             csspMPNTableList.Add(new CSSPMPNTable() { Tube10 = 2, Tube1_0 = 0, Tube0_1 = 1, MPN = 7 });
             csspMPNTableList.Add(new CSSPMPNTable() { Tube10 = 2, Tube1_0 = 0, Tube0_1 = 2, MPN = 9 });
@@ -2994,21 +3015,25 @@ namespace CSSPWQInputTool
                         listBoxFiles.Items.Add(new FileItemList("-----------------------------------------------------------------------------------------------------------", ""));
                         OldSubsector = SubsectorName;
                     }
+                    string RunText = fi.Name.Substring(fi.Name.IndexOf("_R") + 1);
+                    RunText = RunText.Substring(0, RunText.IndexOf("_"));
+                    listBoxFiles.Items.Add(new FileItemList(LabSheetDate.ToString("\tyyyy MMMMM dd") + "\t" + RunText + "\t" + fileStatus.ToString(), fi.FullName));
                 }
                 else
                 {
-                    if (fi.FullName.Contains(".txt") && fi.FullName.Contains(Subsector))
+                    if (fi.FullName.Contains(".txt") && fi.FullName.Contains(Subsector.Substring(0, Subsector.IndexOf(" "))))
                     {
                         if (OldSubsector != SubsectorName)
                         {
                             listBoxFiles.Items.Add(new FileItemList(SubsectorName, ""));
+                            listBoxFiles.Items.Add(new FileItemList("-----------------------------------------------------------------------------------------------------------", ""));
                             OldSubsector = SubsectorName;
                         }
+                        string RunText = fi.Name.Substring(fi.Name.IndexOf("_R") + 1);
+                        RunText = RunText.Substring(0, RunText.IndexOf("_"));
+                        listBoxFiles.Items.Add(new FileItemList(LabSheetDate.ToString("\tyyyy MMMMM dd") + "\t" + RunText + "\t" + fileStatus.ToString(), fi.FullName));
                     }
                 }
-                string RunText = fi.Name.Substring(fi.Name.IndexOf("_R") + 1);
-                RunText = RunText.Substring(0, RunText.IndexOf("_"));
-                listBoxFiles.Items.Add(new FileItemList(LabSheetDate.ToString("\tyyyy MMMMM dd") + "\t" + RunText + "\t" + fileStatus.ToString(), fi.FullName));
             }
 
             if (listBoxFiles.Items.Count > 0)
@@ -3172,7 +3197,7 @@ namespace CSSPWQInputTool
 
             if (StartControlBath1Negative44_5 != textBoxControlBath1Negative44_5.Text)
             {
-                AddLog("Bath1 Negative 44.5", textBoxControlBath1Negative44_5.Text);
+                AddLog("Bath 1 Negative 44.5", textBoxControlBath1Negative44_5.Text);
             }
 
             if (StartControlBath1Blank44_5 != textBoxControlBath1Blank44_5.Text)
@@ -3195,7 +3220,7 @@ namespace CSSPWQInputTool
 
                 if (StartControlBath2Negative44_5 != textBoxControlBath2Negative44_5.Text)
                 {
-                    AddLog("Bath2 Negative 44.5", textBoxControlBath2Negative44_5.Text);
+                    AddLog("Bath 2 Negative 44.5", textBoxControlBath2Negative44_5.Text);
                 }
 
                 if (StartControlBath2Blank44_5 != textBoxControlBath2Blank44_5.Text)
@@ -3219,7 +3244,7 @@ namespace CSSPWQInputTool
 
                 if (StartControlBath3Negative44_5 != textBoxControlBath3Negative44_5.Text)
                 {
-                    AddLog("Bath3 Negative 44.5", textBoxControlBath3Negative44_5.Text);
+                    AddLog("Bath 3 Negative 44.5", textBoxControlBath3Negative44_5.Text);
                 }
 
                 if (StartControlBath3Blank44_5 != textBoxControlBath3Blank44_5.Text)
@@ -3300,6 +3325,10 @@ namespace CSSPWQInputTool
 
             for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
             {
+                if (StartGridCellText.Count < dataGridViewCSSP.Rows.Count)
+                {
+                    StartGridCellText.Add(new List<string>() { "", "", "", "", "", "", "", "", "", "", "", "", "" });
+                }
                 for (int col = 0, countCol = dataGridViewCSSP.Columns.Count; col < countCol; col++)
                 {
                     switch (col)

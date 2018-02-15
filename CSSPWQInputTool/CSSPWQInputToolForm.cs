@@ -481,6 +481,7 @@ namespace CSSPWQInputTool
         }
         private void dataGridViewCSSP_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+
             //if (checkBox2Coolers.Checked.ToString().ToLower() != Start2Coolers)
             //{
             //    if (PreModifying())
@@ -661,7 +662,7 @@ namespace CSSPWQInputTool
                         break;
                     case 8:
                         {
-                            lblStatus.Text = "Temperature (degree Celcius). Allowable number from 0 to 35";
+                            lblStatus.Text = "Temperature (degree Celcius). Allowable number from -12 to 35";
                         }
                         break;
                     case 9:
@@ -692,6 +693,7 @@ namespace CSSPWQInputTool
         }
         private void dataGridViewCSSP_KeyDown(object sender, KeyEventArgs e)
         {
+            int rowIndex = dataGridViewCSSP.CurrentCell.RowIndex;
             if (e.KeyCode == Keys.F1)
             {
                 if (csspWQInputSheetType == CSSPWQInputSheetTypeEnum.A1)
@@ -740,7 +742,7 @@ namespace CSSPWQInputTool
                             break;
                         case 8:
                             {
-                                lblStatus.Text = "Temperature (degree Celcius). Allowable number from 0 to 35";
+                                lblStatus.Text = "Temperature (degree Celcius). Allowable number from -12 to 35";
                             }
                             break;
                         case 9:
@@ -817,7 +819,18 @@ namespace CSSPWQInputTool
                                                 dataGridViewCSSP[TVItemIDIndex, dataGridViewCSSP.CurrentCell.RowIndex].Value.ToString(), ""};
                                             dataGridViewCSSP.Rows.Add(row);
                                             DoSave();
+                                            LogAll();
                                             ReadFileFromLocalMachine();
+                                            dataGridViewCSSP.Focus();
+                                            dataGridViewCSSP[2, dataGridViewCSSP.Rows.Count - 1].Value = dataGridViewCSSP[2, rowIndex].Value;
+                                            dataGridViewCSSP[7, dataGridViewCSSP.Rows.Count - 1].Value = dataGridViewCSSP[7, rowIndex].Value;
+                                            dataGridViewCSSP[8, dataGridViewCSSP.Rows.Count - 1].Value = dataGridViewCSSP[8, rowIndex].Value;
+                                            DataGridViewCell dataGridViewCell = dataGridViewCSSP[2, dataGridViewCSSP.Rows.Count - 1];
+                                            dataGridViewCell.Style.ForeColor = Color.Black;
+                                            dataGridViewCell = dataGridViewCSSP[7, dataGridViewCSSP.Rows.Count - 1];
+                                            dataGridViewCell.Style.ForeColor = Color.Black;
+                                            dataGridViewCell = dataGridViewCSSP[8, dataGridViewCSSP.Rows.Count - 1];
+                                            dataGridViewCell.Style.ForeColor = Color.Black;
                                         }
                                     }
                                     else
@@ -827,7 +840,9 @@ namespace CSSPWQInputTool
                                             dataGridViewCSSP.Rows.RemoveAt(RowOfDuplicate);
                                             SaveInfoOnLocalMachine(false);
                                             DoSave();
+                                            LogAll();
                                             ReadFileFromLocalMachine();
+                                            dataGridViewCSSP.Focus();
                                         }
                                     }
                                 }
@@ -885,7 +900,18 @@ namespace CSSPWQInputTool
                                             dataGridViewCSSP[TVItemIDIndex, dataGridViewCSSP.CurrentCell.RowIndex].Value.ToString(), ""};
                                             dataGridViewCSSP.Rows.Add(row);
                                             DoSave();
+                                            LogAll();
                                             ReadFileFromLocalMachine();
+                                            dataGridViewCSSP.Focus();
+                                            dataGridViewCSSP[2, dataGridViewCSSP.Rows.Count - 1].Value = dataGridViewCSSP[2, rowIndex].Value;
+                                            dataGridViewCSSP[7, dataGridViewCSSP.Rows.Count - 1].Value = dataGridViewCSSP[7, rowIndex].Value;
+                                            dataGridViewCSSP[8, dataGridViewCSSP.Rows.Count - 1].Value = dataGridViewCSSP[8, rowIndex].Value;
+                                            DataGridViewCell dataGridViewCell = dataGridViewCSSP[2, dataGridViewCSSP.Rows.Count - 1];
+                                            dataGridViewCell.Style.ForeColor = Color.Black;
+                                            dataGridViewCell = dataGridViewCSSP[7, dataGridViewCSSP.Rows.Count - 1];
+                                            dataGridViewCell.Style.ForeColor = Color.Black;
+                                            dataGridViewCell = dataGridViewCSSP[8, dataGridViewCSSP.Rows.Count - 1];
+                                            dataGridViewCell.Style.ForeColor = Color.Black;
                                         }
                                     }
                                     else
@@ -895,7 +921,9 @@ namespace CSSPWQInputTool
                                             dataGridViewCSSP.Rows.RemoveAt(RowOfIntertechDuplicate);
                                             SaveInfoOnLocalMachine(false);
                                             DoSave();
+                                            LogAll();
                                             ReadFileFromLocalMachine();
+                                            dataGridViewCSSP.Focus();
                                         }
                                     }
                                 }
@@ -953,7 +981,18 @@ namespace CSSPWQInputTool
                                             dataGridViewCSSP[TVItemIDIndex, dataGridViewCSSP.CurrentCell.RowIndex].Value.ToString(), ""};
                                             dataGridViewCSSP.Rows.Add(row);
                                             DoSave();
+                                            LogAll();
                                             ReadFileFromLocalMachine();
+                                            dataGridViewCSSP.Focus();
+                                            dataGridViewCSSP[2, dataGridViewCSSP.Rows.Count - 1].Value = dataGridViewCSSP[2, rowIndex].Value;
+                                            dataGridViewCSSP[7, dataGridViewCSSP.Rows.Count - 1].Value = dataGridViewCSSP[7, rowIndex].Value;
+                                            dataGridViewCSSP[8, dataGridViewCSSP.Rows.Count - 1].Value = dataGridViewCSSP[8, rowIndex].Value;
+                                            DataGridViewCell dataGridViewCell = dataGridViewCSSP[2, dataGridViewCSSP.Rows.Count - 1];
+                                            dataGridViewCell.Style.ForeColor = Color.Black;
+                                            dataGridViewCell = dataGridViewCSSP[7, dataGridViewCSSP.Rows.Count - 1];
+                                            dataGridViewCell.Style.ForeColor = Color.Black;
+                                            dataGridViewCell = dataGridViewCSSP[8, dataGridViewCSSP.Rows.Count - 1];
+                                            dataGridViewCell.Style.ForeColor = Color.Black;
                                         }
                                     }
                                     else
@@ -962,7 +1001,9 @@ namespace CSSPWQInputTool
                                         {
                                             dataGridViewCSSP.Rows.RemoveAt(RowOfIntertechRead);
                                             DoSave();
+                                            LogAll();
                                             ReadFileFromLocalMachine();
+                                            dataGridViewCSSP.Focus();
                                         }
                                     }
                                 }
@@ -1022,7 +1063,9 @@ namespace CSSPWQInputTool
                                             dataGridViewCSSP[TVItemIDIndex, dataGridViewCSSP.CurrentCell.RowIndex].Value.ToString(), ""};
                                             dataGridViewCSSP.Rows.Add(row);
                                             DoSave();
+                                            LogAll();
                                             ReadFileFromLocalMachine();
+                                            dataGridViewCSSP.Focus();
                                         }
                                     }
                                     else
@@ -1043,7 +1086,9 @@ namespace CSSPWQInputTool
                                         {
                                             dataGridViewCSSP.Rows.RemoveAt(RowOfAnotherSample);
                                             DoSave();
+                                            LogAll();
                                             ReadFileFromLocalMachine();
+                                            dataGridViewCSSP.Focus();
                                         }
                                     }
                                 }
@@ -1185,6 +1230,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBlank35_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBlank35.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-" || c.ToString() == "N")
+                {
+                }
+                else
+                {
+                    textBoxControlBlank35.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Blank35 != textBoxControlBlank35.Text)
             {
                 labSheetA1Sheet.Blank35 = textBoxControlBlank35.Text;
@@ -1192,6 +1249,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath1Blank44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath1Blank44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-" || c.ToString() == "N")
+                {
+                }
+                else
+                {
+                    textBoxControlBath1Blank44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath1Blank44_5 != textBoxControlBath1Blank44_5.Text)
             {
                 labSheetA1Sheet.Bath1Blank44_5 = textBoxControlBath1Blank44_5.Text;
@@ -1199,6 +1268,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath2Blank44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath2Blank44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-" || c.ToString() == "N")
+                {
+                }
+                else
+                {
+                    textBoxControlBath2Blank44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath2Blank44_5 != textBoxControlBath2Blank44_5.Text)
             {
                 labSheetA1Sheet.Bath2Blank44_5 = textBoxControlBath2Blank44_5.Text;
@@ -1206,6 +1287,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath3Blank44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath3Blank44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-" || c.ToString() == "N")
+                {
+                }
+                else
+                {
+                    textBoxControlBath3Blank44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath3Blank44_5 != textBoxControlBath3Blank44_5.Text)
             {
                 labSheetA1Sheet.Bath3Blank44_5 = textBoxControlBath3Blank44_5.Text;
@@ -1220,6 +1313,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlNegative35_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlNegative35.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-")
+                {
+                }
+                else
+                {
+                    textBoxControlNegative35.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Negative35 != textBoxControlNegative35.Text)
             {
                 labSheetA1Sheet.Negative35 = textBoxControlNegative35.Text;
@@ -1227,6 +1332,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath1Negative44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath1Negative44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-")
+                {
+                }
+                else
+                {
+                    textBoxControlBath1Negative44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath1Negative44_5 != textBoxControlBath1Negative44_5.Text)
             {
                 labSheetA1Sheet.Bath1Negative44_5 = textBoxControlBath1Negative44_5.Text;
@@ -1234,6 +1351,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath2Negative44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath2Negative44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-")
+                {
+                }
+                else
+                {
+                    textBoxControlBath2Negative44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath2Negative44_5 != textBoxControlBath2Negative44_5.Text)
             {
                 labSheetA1Sheet.Bath2Negative44_5 = textBoxControlBath2Negative44_5.Text;
@@ -1241,6 +1370,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath3Negative44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath3Negative44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-")
+                {
+                }
+                else
+                {
+                    textBoxControlBath3Negative44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath3Negative44_5 != textBoxControlBath3Negative44_5.Text)
             {
                 labSheetA1Sheet.Bath3Negative44_5 = textBoxControlBath3Negative44_5.Text;
@@ -1248,6 +1389,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlNonTarget35_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlNonTarget35.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-" || c.ToString() == "N")
+                {
+                }
+                else
+                {
+                    textBoxControlNonTarget35.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.NonTarget35 != textBoxControlNonTarget35.Text)
             {
                 labSheetA1Sheet.NonTarget35 = textBoxControlNonTarget35.Text;
@@ -1255,6 +1408,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath1NonTarget44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath1NonTarget44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-" || c.ToString() == "N")
+                {
+                }
+                else
+                {
+                    textBoxControlBath1NonTarget44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath1NonTarget44_5 != textBoxControlBath1NonTarget44_5.Text)
             {
                 labSheetA1Sheet.Bath1NonTarget44_5 = textBoxControlBath1NonTarget44_5.Text;
@@ -1262,6 +1427,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath2NonTarget44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath2NonTarget44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-" || c.ToString() == "N")
+                {
+                }
+                else
+                {
+                    textBoxControlBath2NonTarget44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath2NonTarget44_5 != textBoxControlBath2NonTarget44_5.Text)
             {
                 labSheetA1Sheet.Bath2NonTarget44_5 = textBoxControlBath2NonTarget44_5.Text;
@@ -1269,6 +1446,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath3NonTarget44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath3NonTarget44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-" || c.ToString() == "N")
+                {
+                }
+                else
+                {
+                    textBoxControlBath3NonTarget44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath3NonTarget44_5 != textBoxControlBath3NonTarget44_5.Text)
             {
                 labSheetA1Sheet.Bath3NonTarget44_5 = textBoxControlBath3NonTarget44_5.Text;
@@ -1276,6 +1465,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlPositive35_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlPositive35.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-")
+                {
+                }
+                else
+                {
+                    textBoxControlPositive35.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Positive35 != textBoxControlPositive35.Text)
             {
                 labSheetA1Sheet.Positive35 = textBoxControlPositive35.Text;
@@ -1283,6 +1484,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath1Positive44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath1Positive44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-")
+                {
+                }
+                else
+                {
+                    textBoxControlBath1Positive44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath1Positive44_5 != textBoxControlBath1Positive44_5.Text)
             {
                 labSheetA1Sheet.Bath1Positive44_5 = textBoxControlBath1Positive44_5.Text;
@@ -1290,6 +1503,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath2Positive44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath2Positive44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-")
+                {
+                }
+                else
+                {
+                    textBoxControlBath2Positive44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath2Positive44_5 != textBoxControlBath2Positive44_5.Text)
             {
                 labSheetA1Sheet.Bath2Positive44_5 = textBoxControlBath2Positive44_5.Text;
@@ -1297,6 +1522,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxControlBath3Positive44_5_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxControlBath3Positive44_5.Text)
+            {
+                if (c.ToString() == "+" || c.ToString() == "-")
+                {
+                }
+                else
+                {
+                    textBoxControlBath3Positive44_5.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.Bath3Positive44_5 != textBoxControlBath3Positive44_5.Text)
             {
                 labSheetA1Sheet.Bath3Positive44_5 = textBoxControlBath3Positive44_5.Text;
@@ -1311,6 +1548,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxIncubationBath1StartTime_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxIncubationBath1StartTime.Text)
+            {
+                if (char.IsDigit(c) || c.ToString() == ":")
+                {
+                }
+                else
+                {
+                    textBoxIncubationBath1StartTime.Focus();
+                    return;
+                }
+            }
+
             textBoxIncubationBath1StartTime.ForeColor = Color.Black;
             if (!CheckTimeInTextBox(textBoxIncubationBath1StartTime))
             {
@@ -1333,6 +1582,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxIncubationBath2StartTime_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxIncubationBath2StartTime.Text)
+            {
+                if (char.IsDigit(c) || c.ToString() == ":")
+                {
+                }
+                else
+                {
+                    textBoxIncubationBath2StartTime.Focus();
+                    return;
+                }
+            }
+
             textBoxIncubationBath2StartTime.ForeColor = Color.Black;
             if (!CheckTimeInTextBox(textBoxIncubationBath2StartTime))
             {
@@ -1355,6 +1616,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxIncubationBath3StartTime_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxIncubationBath3StartTime.Text)
+            {
+                if (char.IsDigit(c) || c.ToString() == ":")
+                {
+                }
+                else
+                {
+                    textBoxIncubationBath3StartTime.Focus();
+                    return;
+                }
+            }
+
             textBoxIncubationBath3StartTime.ForeColor = Color.Black;
             if (!CheckTimeInTextBox(textBoxIncubationBath3StartTime))
             {
@@ -1377,6 +1650,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxIncubationBath1EndTime_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxIncubationBath1EndTime.Text)
+            {
+                if (char.IsDigit(c) || c.ToString() == ":")
+                {
+                }
+                else
+                {
+                    textBoxIncubationBath1EndTime.Focus();
+                    return;
+                }
+            }
+
             textBoxIncubationBath1EndTime.ForeColor = Color.Black;
             if (!CheckTimeInTextBox(textBoxIncubationBath1EndTime))
             {
@@ -1399,6 +1684,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxIncubationBath2EndTime_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxIncubationBath2EndTime.Text)
+            {
+                if (char.IsDigit(c) || c.ToString() == ":")
+                {
+                }
+                else
+                {
+                    textBoxIncubationBath2EndTime.Focus();
+                    return;
+                }
+            }
+
             textBoxIncubationBath2EndTime.ForeColor = Color.Black;
             if (!CheckTimeInTextBox(textBoxIncubationBath2EndTime))
             {
@@ -1421,6 +1718,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxIncubationBath3EndTime_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxIncubationBath3EndTime.Text)
+            {
+                if (char.IsDigit(c) || c.ToString() == ":")
+                {
+                }
+                else
+                {
+                    textBoxIncubationBath3EndTime.Focus();
+                    return;
+                }
+            }
+
             textBoxIncubationBath3EndTime.ForeColor = Color.Black;
             if (!CheckTimeInTextBox(textBoxIncubationBath3EndTime))
             {
@@ -1481,6 +1790,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxResultsReadBy_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxResultsReadBy.Text)
+            {
+                if (char.IsLetter(c))
+                {
+                }
+                else
+                {
+                    textBoxResultsReadBy.Focus();
+                    return;
+                }
+            }
+
             textBoxResultsReadBy.Text = textBoxResultsReadBy.Text.ToUpper();
 
             if (labSheetA1Sheet.ResultsReadBy != textBoxResultsReadBy.Text)
@@ -1490,6 +1811,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxResultsRecordedBy_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxResultsRecordedBy.Text)
+            {
+                if (char.IsLetter(c))
+                {
+                }
+                else
+                {
+                    textBoxResultsRecordedBy.Focus();
+                    return;
+                }
+            }
+
             textBoxResultsRecordedBy.Text = textBoxResultsRecordedBy.Text.ToUpper();
 
             if (labSheetA1Sheet.ResultsRecordedBy != textBoxResultsRecordedBy.Text)
@@ -1499,6 +1832,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxSalinitiesReadBy_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxSalinitiesReadBy.Text)
+            {
+                if (char.IsLetter(c))
+                {
+                }
+                else
+                {
+                    textBoxSalinitiesReadBy.Focus();
+                    return;
+                }
+            }
+
             textBoxSalinitiesReadBy.Text = textBoxSalinitiesReadBy.Text.ToUpper();
 
             if (labSheetA1Sheet.SalinitiesReadBy != textBoxSalinitiesReadBy.Text)
@@ -1515,6 +1860,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxSampleCrewInitials_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxSampleCrewInitials.Text)
+            {
+                if (char.IsLetter(c) || char.IsPunctuation(c) || char.IsWhiteSpace(c))
+                {
+                }
+                else
+                {
+                    textBoxSampleCrewInitials.Focus();
+                    return;
+                }
+            }
+
             textBoxSampleCrewInitials.Text = textBoxSampleCrewInitials.Text.ToUpper();
 
             if (labSheetA1Sheet.SampleCrewInitials != textBoxSampleCrewInitials.Text)
@@ -1524,6 +1881,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxTCField1_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxTCField1.Text)
+            {
+                if (char.IsDigit(c) || char.IsPunctuation(c) || char.IsWhiteSpace(c))
+                {
+                }
+                else
+                {
+                    textBoxTCField1.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.TCField1 != textBoxTCField1.Text)
             {
                 labSheetA1Sheet.TCField1 = textBoxTCField1.Text;
@@ -1531,6 +1900,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxTCField2_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxTCField2.Text)
+            {
+                if (char.IsDigit(c) || char.IsPunctuation(c) || char.IsWhiteSpace(c))
+                {
+                }
+                else
+                {
+                    textBoxTCField2.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.TCField2 != textBoxTCField2.Text)
             {
                 labSheetA1Sheet.TCField2 = textBoxTCField2.Text;
@@ -1538,6 +1919,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxTCLab1_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxTCLab1.Text)
+            {
+                if (char.IsDigit(c) || char.IsPunctuation(c) || char.IsWhiteSpace(c))
+                {
+                }
+                else
+                {
+                    textBoxTCLab1.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.TCLab1 != textBoxTCLab1.Text)
             {
                 labSheetA1Sheet.TCLab1 = textBoxTCLab1.Text;
@@ -1545,6 +1938,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxTCLab2_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxTCLab2.Text)
+            {
+                if (char.IsDigit(c) || char.IsPunctuation(c) || char.IsWhiteSpace(c))
+                {
+                }
+                else
+                {
+                    textBoxTCLab2.Focus();
+                    return;
+                }
+            }
+
             if (labSheetA1Sheet.TCLab2 != textBoxTCLab2.Text)
             {
                 labSheetA1Sheet.TCLab2 = textBoxTCLab2.Text;
@@ -1563,6 +1968,7 @@ namespace CSSPWQInputTool
             {
                 textBoxTides.ForeColor = Color.Red;
                 lblStatus.Text = "Tides text should contain exactly 7 characters. Ex: [HT / HT].";
+                textBoxTides.Focus();
                 return;
             }
             List<string> strList = textBoxTides.Text.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -1572,6 +1978,7 @@ namespace CSSPWQInputTool
                 {
                     textBoxTides.ForeColor = Color.Red;
                     lblStatus.Text = "Text for tides has to be of the form [HT / HT]. With allowables [HR, HT, HF, MR, MT, MF, LR, LT, LF]";
+                    textBoxTides.Focus();
                     return;
                 }
             }
@@ -1583,6 +1990,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxWaterBath1Number_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxWaterBath1Number.Text)
+            {
+                if (char.IsLetterOrDigit(c))
+                {
+                }
+                else
+                {
+                    textBoxWaterBath1Number.Focus();
+                    return;
+                }
+            }
+
             textBoxWaterBath1Number.Text = textBoxWaterBath1Number.Text.ToUpper();
 
             if (labSheetA1Sheet.WaterBath1 != textBoxWaterBath1Number.Text)
@@ -1592,6 +2011,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxWaterBath2Number_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxWaterBath2Number.Text)
+            {
+                if (char.IsLetterOrDigit(c))
+                {
+                }
+                else
+                {
+                    textBoxWaterBath2Number.Focus();
+                    return;
+                }
+            }
+
             textBoxWaterBath2Number.Text = textBoxWaterBath2Number.Text.ToUpper();
 
             if (labSheetA1Sheet.WaterBath2 != textBoxWaterBath2Number.Text)
@@ -1601,6 +2032,18 @@ namespace CSSPWQInputTool
         }
         private void textBoxWaterBath3Number_Leave(object sender, EventArgs e)
         {
+            foreach (char c in textBoxWaterBath3Number.Text)
+            {
+                if (char.IsLetterOrDigit(c))
+                {
+                }
+                else
+                {
+                    textBoxWaterBath3Number.Focus();
+                    return;
+                }
+            }
+
             textBoxWaterBath3Number.Text = textBoxWaterBath3Number.Text.ToUpper();
 
             if (labSheetA1Sheet.WaterBath3 != textBoxWaterBath3Number.Text)
@@ -1628,7 +2071,7 @@ namespace CSSPWQInputTool
         }
         private void dateTimePickerRun_Enter(object sender, EventArgs e)
         {
-            lblStatus.Text = "Read only. Provided by sampling plan file. F2 to add or remove daily duplicate. F3 to add or remove intertech duplicate. F4 to add or remove intertech read. F5 add another sample time for the site.";
+            lblStatus.Text = "F2 to change the date of the current lab sheet. Only available if the current lab sheet ends with _C.txt (changed)";
         }
         private void dateTimePickerSalinitiesReadDate_Enter(object sender, EventArgs e)
         {
@@ -1772,7 +2215,7 @@ namespace CSSPWQInputTool
         }
         private void richTextBoxRunWeatherComment_Enter(object sender, EventArgs e)
         {
-            lblStatus.Text = "Anything related to the RunWeatherComment during the sampling";
+            lblStatus.Text = "Anything related to the run weather comment during the sampling";
         }
         private void textBoxSalinitiesReadBy_Enter(object sender, EventArgs e)
         {
@@ -3001,17 +3444,6 @@ namespace CSSPWQInputTool
             while (IsSaving == true)
             {
                 Application.DoEvents();
-            }
-
-            if (OpenedFileName != "")
-            {
-                if (OpenedFileName != lblFilePath.Text)
-                {
-                    if (OpenedFileName.EndsWith("_C.txt"))
-                    {
-                        LogAll();
-                    }
-                }
             }
 
             if (lblFilePath.Text.Length == 0)
@@ -4372,10 +4804,7 @@ namespace CSSPWQInputTool
                     return SampleTypeEnum.Error;
             }
         }
-
     }
-
-
 }
 
 

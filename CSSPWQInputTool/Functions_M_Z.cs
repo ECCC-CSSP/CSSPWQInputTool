@@ -73,7 +73,7 @@ namespace CSSPWQInputTool
         {
             if (InLoadingFile)
                 return;
-          
+
             lblStatus.Text = "Modified";
             butSendToEnvironmentCanada.Text = "Saving ...";
             butSendToEnvironmentCanada.Enabled = false;
@@ -1513,6 +1513,7 @@ namespace CSSPWQInputTool
         }
         private void SetupCSSPWQInputTool()
         {
+            panelAddInputBottomLeftDuplicate.Visible = false;
             CreateCSSPSamplingPlanFilePath();
             textBoxAccessCode.Text = "";
             panelApp.BringToFront();
@@ -1750,7 +1751,7 @@ namespace CSSPWQInputTool
             }
 
             StartGridCellText = new List<List<string>>();
-
+            int SampleTypeColNumber = 10;
             for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
             {
                 List<string> gridCellTextList = new List<string>();
@@ -1771,6 +1772,14 @@ namespace CSSPWQInputTool
                             break;
                         case 2:
                             {
+                                if (dataGridViewCSSP[SampleTypeColNumber, row].Value != null
+                                    && (dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
+                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
+                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
+                                {
+                                    dataGridViewCSSP[col, row].Style.BackColor = Color.Gray;
+                                    dataGridViewCSSP[col, row].ReadOnly = true;
+                                }
                                 gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
@@ -1796,16 +1805,40 @@ namespace CSSPWQInputTool
                             break;
                         case 7:
                             {
+                                if (dataGridViewCSSP[SampleTypeColNumber, row].Value != null
+                                    && (dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
+                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
+                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
+                                {
+                                    dataGridViewCSSP[col, row].Style.BackColor = Color.Gray;
+                                    dataGridViewCSSP[col, row].ReadOnly = true;
+                                }
                                 gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 8:
                             {
+                                if (dataGridViewCSSP[SampleTypeColNumber, row].Value != null
+                                    && (dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
+                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
+                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
+                                {
+                                    dataGridViewCSSP[col, row].Style.BackColor = Color.Gray;
+                                    dataGridViewCSSP[col, row].ReadOnly = true;
+                                }
                                 gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
                         case 9:
                             {
+                                if (dataGridViewCSSP[SampleTypeColNumber, row].Value != null
+                                    && (dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
+                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
+                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
+                                {
+                                    dataGridViewCSSP[col, row].Style.BackColor = Color.Gray;
+                                    dataGridViewCSSP[col, row].ReadOnly = true;
+                                }
                                 gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;
@@ -2847,6 +2880,18 @@ namespace CSSPWQInputTool
                     break;
                 case 9: // Processed by
                     {
+                        if (dataGridViewCSSP[ColumnIndex, RowIndex].Value != null)
+                        {
+                            foreach (char c in dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString())
+                            {
+                                if (!(char.IsLetter(c)))
+                                {
+                                    dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
+                                    return;
+                                }
+                            }
+                        }
+
                         int SiteColumn = 1;
                         //int SampleTypeColumn = 10;
                         if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null || string.IsNullOrWhiteSpace(dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString()))
@@ -2906,6 +2951,34 @@ namespace CSSPWQInputTool
         }
         private void ValidatePositiveTubeCell(int ColumnIndex, int RowIndex)
         {
+            if (dataGridViewCSSP[ColumnIndex, RowIndex].Value != null)
+            {
+                if (dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString().Length != 1)
+                {
+                    dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
+                    return;
+                }
+
+                foreach (char c in dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString())
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
+                        return;
+                    }
+                }
+
+                int theVal = -1;
+                if (int.TryParse(dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString(), out theVal))
+                {
+                    if (!(theVal >= 0 && theVal <= 5))
+                    {
+                        dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
+                        return;
+                    }
+                }
+            }
+
             int MPNColumn = 3;
             //int SiteColumn = 1;
             //int SampleTypeColumn = 10;
@@ -2927,7 +3000,7 @@ namespace CSSPWQInputTool
             {
                 dataGridViewCSSP[ColumnIndex, RowIndex].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString().Trim();
 
-                if (string.IsNullOrWhiteSpace(dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString()))
+                if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null || string.IsNullOrWhiteSpace(dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString()))
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Value = null;
                 }
@@ -3032,8 +3105,30 @@ namespace CSSPWQInputTool
         }
         private void ValidateSalinityCell(int ColumnIndex, int RowIndex)
         {
+            if (dataGridViewCSSP[ColumnIndex, RowIndex].Value != null)
+            {
+                foreach (char c in dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString())
+                {
+                    if (!(char.IsDigit(c) || char.IsPunctuation(c)))
+                    {
+                        dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
+                        return;
+                    }
+                }
+
+                float theVal = -99;
+                if (float.TryParse(dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString(), out theVal))
+                {
+                    if (!(theVal >= 0.0f && theVal <= 36.0f))
+                    {
+                        dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
+                        return;
+                    }
+                }
+            }
+
             int SiteColumn = 1;
-            //int SampleTypeColumn = 10;
+            int SampleTypeColumn = 10;
             dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Black;
 
             if (dataGridViewCSSP[ColumnIndex, RowIndex].Value != null)
@@ -3067,10 +3162,10 @@ namespace CSSPWQInputTool
             string SiteName = dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString();
             for (int i = RowIndex + 1, countRow = dataGridViewCSSP.Rows.Count; i < countRow; i++)
             {
-                //if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
-                //{
-                //    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
-                //}
+                if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
+                {
+                    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                }
             }
 
             float TempFloat = -1;
@@ -3090,6 +3185,28 @@ namespace CSSPWQInputTool
         }
         private void ValidateTemperatureCell(int ColumnIndex, int RowIndex)
         {
+            if (dataGridViewCSSP[ColumnIndex, RowIndex].Value != null)
+            {
+                foreach (char c in dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString())
+                {
+                    if (!(char.IsDigit(c) || char.IsPunctuation(c)))
+                    {
+                        dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
+                        return;
+                    }
+                }
+
+                float theVal = -99;
+                if (float.TryParse(dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString(), out theVal))
+                {
+                    if (!(theVal >= -12.0f && theVal <= 36.0f))
+                    {
+                        dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
+                        return;
+                    }
+                }
+            }
+
             int SiteColumn = 1;
             //int SampleTypeColumn = 10;
             dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Black;
@@ -3099,12 +3216,10 @@ namespace CSSPWQInputTool
                 dataGridViewCSSP[ColumnIndex, RowIndex].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString().Trim();
             }
 
-
-            //if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null)
-            //{
-            //    CalculateTCFirstAndAverage();
-            //    return;
-            //}
+            if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null)
+            {
+                return;
+            }
 
             string val = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
             foreach (char c in val)
@@ -3112,30 +3227,26 @@ namespace CSSPWQInputTool
                 if (!(char.IsNumber(c) || c.ToString() == "." || c.ToString() == "-"))
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
-                    //CalculateTCFirstAndAverage();
                     return;
                 }
             }
 
             float valFloat = -1.0f;
             float.TryParse(val, out valFloat);
-            if (valFloat > 36 || valFloat.ToString() != val)
+            if (valFloat > 36 || valFloat.ToString() != val || valFloat < -12)
             {
                 dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
-                //CalculateTCFirstAndAverage();
                 return;
             }
 
             string SiteName = dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString();
             for (int i = RowIndex + 1, countRow = dataGridViewCSSP.Rows.Count; i < countRow; i++)
             {
-                //if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
-                //{
-                //    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
-                //}
+                if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
+                {
+                    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                }
             }
-
-            //CalculateTCFirstAndAverage();
 
             float TempFloat = -1;
             if (!string.IsNullOrWhiteSpace(dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString()))
@@ -3163,14 +3274,12 @@ namespace CSSPWQInputTool
             {
                 dataGridViewCSSP[ColumnIndex, RowIndex].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString().Trim();
             }
+            else
+            {
+                return;
+            }
 
             dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Black;
-
-            //if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null)
-            //{
-            //    CalculateTCFirstAndAverage();
-            //    return;
-            //}
 
             string val = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
             foreach (char c in val)
@@ -3181,7 +3290,7 @@ namespace CSSPWQInputTool
                 else
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
-                    //CalculateTCFirstAndAverage();
+                    dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
                     return;
                 }
             }
@@ -3194,7 +3303,7 @@ namespace CSSPWQInputTool
                 else
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
-                    //CalculateTCFirstAndAverage();
+                    dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
                     return;
                 }
             }
@@ -3206,56 +3315,61 @@ namespace CSSPWQInputTool
                 if (!val.Contains(":"))
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
+                    dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
                     return;
                 }
                 if (!int.TryParse(val.Substring(0, 2), out intVal))
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
+                    dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
                     return;
                 }
                 if (!int.TryParse(val.Substring(3, 2), out intVal))
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
+                    dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
                     return;
                 }
                 if (!(int.Parse(val.Substring(0, 2)) >= 0) || !(int.Parse(val.Substring(0, 2)) <= 23))
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
+                    dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
                     return;
                 }
                 if (!(int.Parse(val.Substring(3, 2)) >= 0) || !(int.Parse(val.Substring(3, 2)) <= 59))
                 {
                     dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
+                    dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
                     return;
                 }
             }
             if (val.Length < 4)
             {
                 dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Red;
+                dataGridViewCSSP[ColumnIndex, RowIndex].Value = "";
                 return;
             }
-            //CalculateTCFirstAndAverage();
 
             string SiteName = dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString();
             for (int i = RowIndex + 1, countRow = dataGridViewCSSP.Rows.Count; i < countRow; i++)
             {
-                //if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
-                //{
-                //    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
-                //    int Hour = 0;
-                //    int Minute = 0;
+                if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
+                {
+                    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                    int Hour = 0;
+                    int Minute = 0;
 
-                //    if (dataGridViewCSSP[ColumnIndex, i].Value.ToString().Length > 2)
-                //    {
-                //        int.TryParse(dataGridViewCSSP[ColumnIndex, i].Value.ToString().Substring(0, 2), out Hour);
-                //    }
-                //    if (dataGridViewCSSP[ColumnIndex, i].Value.ToString().Length > 4)
-                //    {
-                //        int.TryParse(dataGridViewCSSP[ColumnIndex, i].Value.ToString().Substring(3, 2), out Minute);
-                //    }
+                    if (dataGridViewCSSP[ColumnIndex, i].Value.ToString().Length > 2)
+                    {
+                        int.TryParse(dataGridViewCSSP[ColumnIndex, i].Value.ToString().Substring(0, 2), out Hour);
+                    }
+                    if (dataGridViewCSSP[ColumnIndex, i].Value.ToString().Length > 4)
+                    {
+                        int.TryParse(dataGridViewCSSP[ColumnIndex, i].Value.ToString().Substring(3, 2), out Minute);
+                    }
 
-                //    labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Time = new DateTime(int.Parse(labSheetA1Sheet.RunYear), int.Parse(labSheetA1Sheet.RunMonth), int.Parse(labSheetA1Sheet.RunDay), Hour, Minute, 0);
-                //}
+                    labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].Time = new DateTime(int.Parse(labSheetA1Sheet.RunYear), int.Parse(labSheetA1Sheet.RunMonth), int.Parse(labSheetA1Sheet.RunDay), Hour, Minute, 0);
+                }
             }
 
             SetButGetTidesEnabledOrNot();

@@ -48,17 +48,19 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.listBoxFiles = new System.Windows.Forms.ListBox();
             this.panelAppInputFilesTop = new System.Windows.Forms.Panel();
+            this.groupBoxFilterByDate = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerArchiveFilterFrom = new System.Windows.Forms.DateTimePicker();
+            this.lblBetween = new System.Windows.Forms.Label();
+            this.lblAnd = new System.Windows.Forms.Label();
+            this.dateTimePickerArchiveFilterTo = new System.Windows.Forms.DateTimePicker();
             this.checkBoxViewTotalColiformLabSheets = new System.Windows.Forms.CheckBox();
             this.checkBoxOnlyChangedAndRejected = new System.Windows.Forms.CheckBox();
-            this.dateTimePickerArchiveFilterTo = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerArchiveFilterFrom = new System.Windows.Forms.DateTimePicker();
             this.lblSharedArchived = new System.Windows.Forms.Label();
             this.butUpdateDataset = new System.Windows.Forms.Button();
             this.textBoxSharedArchivedDirectory = new System.Windows.Forms.TextBox();
             this.butOpen = new System.Windows.Forms.Button();
             this.comboBoxFileSubsector = new System.Windows.Forms.ComboBox();
             this.lblFileSubsector = new System.Windows.Forms.Label();
-            this.lblAnd = new System.Windows.Forms.Label();
             this.richTextBoxFile = new System.Windows.Forms.RichTextBox();
             this.panelAppInput = new System.Windows.Forms.Panel();
             this.panelAddInputMiddle = new System.Windows.Forms.Panel();
@@ -237,8 +239,6 @@
             this.lblReceiverLocalOrServer = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSendingFileName = new System.Windows.Forms.Label();
-            this.lblBetween = new System.Windows.Forms.Label();
-            this.groupBoxFilterByDate = new System.Windows.Forms.GroupBox();
             this.panelPassword.SuspendLayout();
             this.panelPasswordCenter.SuspendLayout();
             this.panelAccessCode.SuspendLayout();
@@ -249,6 +249,7 @@
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.panelAppInputFilesTop.SuspendLayout();
+            this.groupBoxFilterByDate.SuspendLayout();
             this.panelAppInput.SuspendLayout();
             this.panelAddInputMiddle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCSSP)).BeginInit();
@@ -274,7 +275,6 @@
             this.panelSenderTop.SuspendLayout();
             this.panelReceiverTop.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBoxFilterByDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelPassword
@@ -411,6 +411,40 @@
             resources.ApplyResources(this.panelAppInputFilesTop, "panelAppInputFilesTop");
             this.panelAppInputFilesTop.Name = "panelAppInputFilesTop";
             // 
+            // groupBoxFilterByDate
+            // 
+            this.groupBoxFilterByDate.Controls.Add(this.dateTimePickerArchiveFilterFrom);
+            this.groupBoxFilterByDate.Controls.Add(this.lblBetween);
+            this.groupBoxFilterByDate.Controls.Add(this.lblAnd);
+            this.groupBoxFilterByDate.Controls.Add(this.dateTimePickerArchiveFilterTo);
+            resources.ApplyResources(this.groupBoxFilterByDate, "groupBoxFilterByDate");
+            this.groupBoxFilterByDate.Name = "groupBoxFilterByDate";
+            this.groupBoxFilterByDate.TabStop = false;
+            // 
+            // dateTimePickerArchiveFilterFrom
+            // 
+            resources.ApplyResources(this.dateTimePickerArchiveFilterFrom, "dateTimePickerArchiveFilterFrom");
+            this.dateTimePickerArchiveFilterFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerArchiveFilterFrom.Name = "dateTimePickerArchiveFilterFrom";
+            this.dateTimePickerArchiveFilterFrom.ValueChanged += new System.EventHandler(this.dateTimePickerArchiveFilterFrom_ValueChanged);
+            // 
+            // lblBetween
+            // 
+            resources.ApplyResources(this.lblBetween, "lblBetween");
+            this.lblBetween.Name = "lblBetween";
+            // 
+            // lblAnd
+            // 
+            resources.ApplyResources(this.lblAnd, "lblAnd");
+            this.lblAnd.Name = "lblAnd";
+            // 
+            // dateTimePickerArchiveFilterTo
+            // 
+            resources.ApplyResources(this.dateTimePickerArchiveFilterTo, "dateTimePickerArchiveFilterTo");
+            this.dateTimePickerArchiveFilterTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerArchiveFilterTo.Name = "dateTimePickerArchiveFilterTo";
+            this.dateTimePickerArchiveFilterTo.ValueChanged += new System.EventHandler(this.dateTimePickerArchiveFilterTo_ValueChanged);
+            // 
             // checkBoxViewTotalColiformLabSheets
             // 
             resources.ApplyResources(this.checkBoxViewTotalColiformLabSheets, "checkBoxViewTotalColiformLabSheets");
@@ -424,20 +458,6 @@
             this.checkBoxOnlyChangedAndRejected.Name = "checkBoxOnlyChangedAndRejected";
             this.checkBoxOnlyChangedAndRejected.UseVisualStyleBackColor = true;
             this.checkBoxOnlyChangedAndRejected.CheckedChanged += new System.EventHandler(this.checkBoxOnlyChangedAndRejected_CheckedChanged);
-            // 
-            // dateTimePickerArchiveFilterTo
-            // 
-            resources.ApplyResources(this.dateTimePickerArchiveFilterTo, "dateTimePickerArchiveFilterTo");
-            this.dateTimePickerArchiveFilterTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerArchiveFilterTo.Name = "dateTimePickerArchiveFilterTo";
-            this.dateTimePickerArchiveFilterTo.ValueChanged += new System.EventHandler(this.dateTimePickerArchiveFilterTo_ValueChanged);
-            // 
-            // dateTimePickerArchiveFilterFrom
-            // 
-            resources.ApplyResources(this.dateTimePickerArchiveFilterFrom, "dateTimePickerArchiveFilterFrom");
-            this.dateTimePickerArchiveFilterFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerArchiveFilterFrom.Name = "dateTimePickerArchiveFilterFrom";
-            this.dateTimePickerArchiveFilterFrom.ValueChanged += new System.EventHandler(this.dateTimePickerArchiveFilterFrom_ValueChanged);
             // 
             // lblSharedArchived
             // 
@@ -474,11 +494,6 @@
             // 
             resources.ApplyResources(this.lblFileSubsector, "lblFileSubsector");
             this.lblFileSubsector.Name = "lblFileSubsector";
-            // 
-            // lblAnd
-            // 
-            resources.ApplyResources(this.lblAnd, "lblAnd");
-            this.lblAnd.Name = "lblAnd";
             // 
             // richTextBoxFile
             // 
@@ -1827,21 +1842,6 @@
             resources.ApplyResources(this.lblSendingFileName, "lblSendingFileName");
             this.lblSendingFileName.Name = "lblSendingFileName";
             // 
-            // lblBetween
-            // 
-            resources.ApplyResources(this.lblBetween, "lblBetween");
-            this.lblBetween.Name = "lblBetween";
-            // 
-            // groupBoxFilterByDate
-            // 
-            this.groupBoxFilterByDate.Controls.Add(this.dateTimePickerArchiveFilterFrom);
-            this.groupBoxFilterByDate.Controls.Add(this.lblBetween);
-            this.groupBoxFilterByDate.Controls.Add(this.lblAnd);
-            this.groupBoxFilterByDate.Controls.Add(this.dateTimePickerArchiveFilterTo);
-            resources.ApplyResources(this.groupBoxFilterByDate, "groupBoxFilterByDate");
-            this.groupBoxFilterByDate.Name = "groupBoxFilterByDate";
-            this.groupBoxFilterByDate.TabStop = false;
-            // 
             // CSSPWQInputToolForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1867,6 +1867,8 @@
             this.splitContainer3.ResumeLayout(false);
             this.panelAppInputFilesTop.ResumeLayout(false);
             this.panelAppInputFilesTop.PerformLayout();
+            this.groupBoxFilterByDate.ResumeLayout(false);
+            this.groupBoxFilterByDate.PerformLayout();
             this.panelAppInput.ResumeLayout(false);
             this.panelAddInputMiddle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCSSP)).EndInit();
@@ -1907,8 +1909,6 @@
             this.panelReceiverTop.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBoxFilterByDate.ResumeLayout(false);
-            this.groupBoxFilterByDate.PerformLayout();
             this.ResumeLayout(false);
 
         }
