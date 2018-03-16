@@ -633,6 +633,12 @@ namespace CSSPWQInputTool
                             csspWQInputApp.ApprovalCode = GetCodeString(LineTxt.Substring(pos2 + 1)).Trim();
                         }
                         break;
+                    case "Backup Directory":
+                        {
+                            BackupDirectory = LineTxt.Substring("Backup Directory\t".Length).Trim();
+                            textBoxSharedArchivedDirectory.Text = BackupDirectory;
+                        }
+                        break;
                     default:
                         {
                             lblStatus.Text = "First item in line " + LineNumb + " not recognized [" + LineTxt.Substring(0, LineTxt.IndexOf("\t")) + "]";
@@ -1831,14 +1837,14 @@ namespace CSSPWQInputTool
                             break;
                         case 9:
                             {
-                                if (dataGridViewCSSP[SampleTypeColNumber, row].Value != null
-                                    && (dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
-                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
-                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
-                                {
-                                    dataGridViewCSSP[col, row].Style.BackColor = Color.Gray;
-                                    dataGridViewCSSP[col, row].ReadOnly = true;
-                                }
+                                //if (dataGridViewCSSP[SampleTypeColNumber, row].Value != null
+                                //    && (dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
+                                //    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
+                                //    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
+                                //{
+                                //    dataGridViewCSSP[col, row].Style.BackColor = Color.Gray;
+                                //    dataGridViewCSSP[col, row].ReadOnly = true;
+                                //}
                                 gridCellTextList.Add(dataGridViewCSSP[col, row].Value == null ? "" : dataGridViewCSSP[col, row].Value.ToString());
                             }
                             break;

@@ -4577,7 +4577,7 @@ namespace CSSPWQInputTool
                 textBoxTCLab1.ForeColor = Color.Red;
                 return;
             }
-            if (TCLab < 0 || TCLab > 8.50f)
+            if (TCLab < 0 || TCLab > 10.50f)
             {
                 textBoxTCLab1.ForeColor = Color.Red;
                 return;
@@ -4622,7 +4622,7 @@ namespace CSSPWQInputTool
                 textBoxTCLab2.ForeColor = Color.Red;
                 return;
             }
-            if (TCLab < 0 || TCLab > 8.50f)
+            if (TCLab < 0 || TCLab > 10.50f)
             {
                 textBoxTCLab2.ForeColor = Color.Red;
                 return;

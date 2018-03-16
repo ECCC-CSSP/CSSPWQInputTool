@@ -61,6 +61,7 @@ namespace CSSPWQInputTool
         private string LabSheetType = "";
         private string SamplingPlanType = "";
         private string SampleType = "";
+        private string BackupDirectory = "";
         private int VersionOfResultFile = 1;
         private Panel CurrentPanel = null;
         private string Initials = "";
