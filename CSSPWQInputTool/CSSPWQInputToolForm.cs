@@ -147,6 +147,10 @@ namespace CSSPWQInputTool
             OpenedFileName = lblFilePath.Text;
             butCreateLabSheet.Enabled = true;
         }
+        private void butDeleteLabSheet_Click(object sender, EventArgs e)
+        {
+            DeleteLabSheet();
+        }
         private void butGetTides_Click(object sender, EventArgs e)
         {
             if (!InLoadingFile)
@@ -3336,6 +3340,7 @@ namespace CSSPWQInputTool
         {
             lblFilePath.Text = "";
             butOpen.Enabled = false;
+            butDeleteLabSheet.Enabled = false;
             butViewFCForm.Enabled = false;
 
             string FileName = ((FileItemList)listBoxFiles.SelectedItem).FileName;
@@ -3350,6 +3355,7 @@ namespace CSSPWQInputTool
             }
 
             butOpen.Enabled = true;
+            butDeleteLabSheet.Enabled = true;
             lblFilePath.Text = "";
             lblFilePath.Text = FileName;
 
@@ -4804,6 +4810,8 @@ namespace CSSPWQInputTool
                     return SampleTypeEnum.Error;
             }
         }
+
+
     }
 }
 

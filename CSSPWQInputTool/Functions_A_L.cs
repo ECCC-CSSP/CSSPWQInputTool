@@ -845,6 +845,192 @@ namespace CSSPWQInputTool
             }
             butViewFCForm.Enabled = true;
         }
+        private void DeleteLabSheet()
+        {
+            if (listBoxFiles.SelectedItem == null)
+            {
+                return;
+            }
+
+            string FileName = ((FileItemList)listBoxFiles.SelectedItem).FileName;
+            string Text = ((FileItemList)listBoxFiles.SelectedItem).Text;
+            Text = Text.Substring(1);
+            Text = Text.Substring(0, Text.IndexOf("\t"));
+            if (!string.IsNullOrWhiteSpace(FileName))
+            {
+               DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete [" + Text + "]?", "Deleting LabSheet", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // marking the local file as Deleted_
+
+                    FileInfo fi = new FileInfo(FileName);
+                    if (!fi.Exists)
+                    {
+                        return;
+                    }
+
+                    string LastPartOfFileName = fi.FullName;
+                    bool found = true;
+                    while (found)
+                    {
+                        int countSlash = (from c in LastPartOfFileName
+                                          where c.ToString() == @"\"
+                                          select c).Count();
+                        if (countSlash > 1)
+                        {
+                            LastPartOfFileName = LastPartOfFileName.Substring(LastPartOfFileName.IndexOf(@"\") + 1);
+                        }
+                        else
+                        {
+                            found = false;
+                        }
+                    }
+
+                    FileInfo fiNew = null;
+                    bool Found = true;
+                    int count = 0;
+                    while (Found)
+                    {
+                        if (count == 0)
+                        {
+                            fiNew = new FileInfo(FileName.Replace(fi.Name, "Deleted_" + fi.Name));
+                        }
+                        else
+                        {
+                            fiNew = new FileInfo(FileName.Replace(fi.Name, "Deleted_" + count.ToString() + "_" + fi.Name));
+                        }
+
+                        if (!fiNew.Exists)
+                        {
+                            Found = false;
+                        }
+                        else
+                        {
+                            count += 1;
+                        }
+                    }
+
+                    try
+                    {
+                        File.Copy(fi.FullName, fiNew.FullName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " InnerException: " + (ex.InnerException != null ? ex.InnerException.Message : ""), "Error While Copying", MessageBoxButtons.OK);
+                        return;
+                    }
+
+                    fiNew = new FileInfo(fiNew.FullName);
+
+                    if (!fiNew.Exists)
+                    {
+                        MessageBox.Show("File does not exist [" + fiNew.FullName + "]", "Error While Verifying If File Exist", MessageBoxButtons.OK);
+                        return;
+                    }
+
+                    try
+                    {
+                        fi.Delete();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " InnerException: " + (ex.InnerException != null ? ex.InnerException.Message : ""), "Error While Deleting", MessageBoxButtons.OK);
+                        return;
+                    }
+
+                    // marking the backup file as Deleted_
+
+                    FileInfo fiSamplingPlan = new FileInfo(SamplingPlanName);
+
+                    if (!fiSamplingPlan.Exists)
+                    {
+                        richTextBoxLabSheetSender.AppendText("Could not find file [" + fiSamplingPlan.FullName + "]\r\n");
+                        return;
+                    }
+
+                    lblSendingFileName.Text = fiSamplingPlan.Name;
+                    panelReceiverTop.BackColor = Color.LightGreen;
+                    panelSenderTop.BackColor = Color.LightBlue;
+
+                    lblSendingFileName.Refresh();
+                    Application.DoEvents();
+
+                    string ArchiveFileName = textBoxSharedArchivedDirectory.Text + fiSamplingPlan.FullName.Replace(RootCurrentPath, "");
+
+                    ArchiveFileName = ArchiveFileName.Replace(".txt", "");
+                    ArchiveFileName = ArchiveFileName + @"\" + LastPartOfFileName;
+
+                    fi = new FileInfo(ArchiveFileName);
+
+                    if (!fi.Exists)
+                    {
+                        return;
+                    }
+
+                    fiNew = null;
+                    Found = true;
+                    count = 0;
+                    while (Found)
+                    {
+                        if (count == 0)
+                        {
+                            fiNew = new FileInfo(fi.FullName.Replace(fi.Name, "Deleted_" + fi.Name));
+                        }
+                        else
+                        {
+                            fiNew = new FileInfo(fi.FullName.Replace(fi.Name, "Deleted_" + count.ToString() + "_" + fi.Name));
+                        }
+
+                        if (!fiNew.Exists)
+                        {
+                            Found = false;
+                        }
+                        else
+                        {
+                            count += 1;
+                        }
+                    }
+
+                    try
+                    {
+                        File.Copy(fi.FullName, fiNew.FullName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " InnerException: " + (ex.InnerException != null ? ex.InnerException.Message : ""), "Error While Copying", MessageBoxButtons.OK);
+                        return;
+                    }
+
+                    fiNew = new FileInfo(fiNew.FullName);
+
+                    if (!fiNew.Exists)
+                    {
+                        MessageBox.Show("File does not exist [" + fiNew.FullName + "]", "Error While Verifying If File Exist", MessageBoxButtons.OK);
+                        return;
+                    }
+
+                    try
+                    {
+                        fi.Delete();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " InnerException: " + (ex.InnerException != null ? ex.InnerException.Message : ""), "Error While Deleting", MessageBoxButtons.OK);
+                        return;
+                    }
+
+                    SetupAppInputFiles();
+
+                    return;
+                }
+            }
+
+        }
         private void DoLogCheckColorField(string WithinBars)
         {
             if (WithinBars == "Tides	")

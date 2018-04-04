@@ -597,108 +597,6 @@
   <data name="&gt;&gt;lblSamplingPlanFileName.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;panelAppInputFiles.Name" xml:space="preserve">
-    <value>panelAppInputFiles</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFiles.Parent" xml:space="preserve">
-    <value>panelApp</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFiles.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelAppInput.Name" xml:space="preserve">
-    <value>panelAppInput</value>
-  </data>
-  <data name="&gt;&gt;panelAppInput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAppInput.Parent" xml:space="preserve">
-    <value>panelApp</value>
-  </data>
-  <data name="&gt;&gt;panelAppInput.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelAppTop.Name" xml:space="preserve">
-    <value>panelAppTop</value>
-  </data>
-  <data name="&gt;&gt;panelAppTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAppTop.Parent" xml:space="preserve">
-    <value>panelApp</value>
-  </data>
-  <data name="&gt;&gt;panelAppTop.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.Name" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.Parent" xml:space="preserve">
-    <value>panelApp</value>
-  </data>
-  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="panelApp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 58</value>
-  </data>
-  <data name="panelApp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>938, 588</value>
-  </data>
-  <data name="panelApp.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;panelApp.Name" xml:space="preserve">
-    <value>panelApp</value>
-  </data>
-  <data name="&gt;&gt;panelApp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelApp.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelApp.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Name" xml:space="preserve">
-    <value>splitContainer3</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Parent" xml:space="preserve">
-    <value>panelAppInputFiles</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panelAppInputFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-243, 174</value>
-  </data>
-  <data name="panelAppInputFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>834, 548</value>
-  </data>
-  <data name="panelAppInputFiles.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFiles.Name" xml:space="preserve">
-    <value>panelAppInputFiles</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFiles.Parent" xml:space="preserve">
-    <value>panelApp</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFiles.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="splitContainer3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -721,7 +619,7 @@
     <value>0, 105</value>
   </data>
   <data name="listBoxFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>830, 240</value>
+    <value>950, 240</value>
   </data>
   <data name="listBoxFiles.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -738,214 +636,31 @@
   <data name="&gt;&gt;listBoxFiles.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBoxFilterByDate.Name" xml:space="preserve">
-    <value>groupBoxFilterByDate</value>
+  <data name="butDeleteLabSheet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;groupBoxFilterByDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="butDeleteLabSheet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>824, 43</value>
   </data>
-  <data name="&gt;&gt;groupBoxFilterByDate.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
+  <data name="butDeleteLabSheet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 32</value>
   </data>
-  <data name="&gt;&gt;groupBoxFilterByDate.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="butDeleteLabSheet.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
-  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.Name" xml:space="preserve">
-    <value>checkBoxViewTotalColiformLabSheets</value>
+  <data name="butDeleteLabSheet.Text" xml:space="preserve">
+    <value>Delete Labsheet</value>
   </data>
-  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;butDeleteLabSheet.Name" xml:space="preserve">
+    <value>butDeleteLabSheet</value>
   </data>
-  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.Name" xml:space="preserve">
-    <value>checkBoxOnlyChangedAndRejected</value>
-  </data>
-  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblSharedArchived.Name" xml:space="preserve">
-    <value>lblSharedArchived</value>
-  </data>
-  <data name="&gt;&gt;lblSharedArchived.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSharedArchived.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;lblSharedArchived.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;butUpdateDataset.Name" xml:space="preserve">
-    <value>butUpdateDataset</value>
-  </data>
-  <data name="&gt;&gt;butUpdateDataset.Type" xml:space="preserve">
+  <data name="&gt;&gt;butDeleteLabSheet.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;butUpdateDataset.Parent" xml:space="preserve">
+  <data name="&gt;&gt;butDeleteLabSheet.Parent" xml:space="preserve">
     <value>panelAppInputFilesTop</value>
   </data>
-  <data name="&gt;&gt;butUpdateDataset.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;textBoxSharedArchivedDirectory.Name" xml:space="preserve">
-    <value>textBoxSharedArchivedDirectory</value>
-  </data>
-  <data name="&gt;&gt;textBoxSharedArchivedDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxSharedArchivedDirectory.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;textBoxSharedArchivedDirectory.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;butOpen.Name" xml:space="preserve">
-    <value>butOpen</value>
-  </data>
-  <data name="&gt;&gt;butOpen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;butOpen.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;butOpen.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileSubsector.Name" xml:space="preserve">
-    <value>comboBoxFileSubsector</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileSubsector.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileSubsector.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileSubsector.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lblFileSubsector.Name" xml:space="preserve">
-    <value>lblFileSubsector</value>
-  </data>
-  <data name="&gt;&gt;lblFileSubsector.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblFileSubsector.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;lblFileSubsector.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="panelAppInputFilesTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panelAppInputFilesTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelAppInputFilesTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>830, 105</value>
-  </data>
-  <data name="panelAppInputFilesTop.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFilesTop.Name" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFilesTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFilesTop.Parent" xml:space="preserve">
-    <value>splitContainer3.Panel1</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputFilesTop.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Panel1.Name" xml:space="preserve">
-    <value>splitContainer3.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Panel1.Parent" xml:space="preserve">
-    <value>splitContainer3</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="richTextBoxFile.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="richTextBoxFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Courier New, 8.25pt</value>
-  </data>
-  <data name="richTextBoxFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="richTextBoxFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>830, 195</value>
-  </data>
-  <data name="richTextBoxFile.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="richTextBoxFile.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="richTextBoxFile.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;richTextBoxFile.Name" xml:space="preserve">
-    <value>richTextBoxFile</value>
-  </data>
-  <data name="&gt;&gt;richTextBoxFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;richTextBoxFile.Parent" xml:space="preserve">
-    <value>splitContainer3.Panel2</value>
-  </data>
-  <data name="&gt;&gt;richTextBoxFile.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Panel2.Name" xml:space="preserve">
-    <value>splitContainer3.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer3</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitContainer3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>830, 544</value>
-  </data>
-  <data name="splitContainer3.SplitterDistance" type="System.Int32, mscorlib">
-    <value>345</value>
-  </data>
-  <data name="splitContainer3.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Name" xml:space="preserve">
-    <value>splitContainer3</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.Parent" xml:space="preserve">
-    <value>panelAppInputFiles</value>
-  </data>
-  <data name="&gt;&gt;splitContainer3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;butDeleteLabSheet.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;dateTimePickerArchiveFilterFrom.Name" xml:space="preserve">
@@ -1018,7 +733,622 @@
     <value>panelAppInputFilesTop</value>
   </data>
   <data name="&gt;&gt;groupBoxFilterByDate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkBoxViewTotalColiformLabSheets.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxViewTotalColiformLabSheets.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxViewTotalColiformLabSheets.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 40</value>
+  </data>
+  <data name="checkBoxViewTotalColiformLabSheets.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 17</value>
+  </data>
+  <data name="checkBoxViewTotalColiformLabSheets.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="checkBoxViewTotalColiformLabSheets.Text" xml:space="preserve">
+    <value>View Total Coliform Lab Sheets</value>
+  </data>
+  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.Name" xml:space="preserve">
+    <value>checkBoxViewTotalColiformLabSheets</value>
+  </data>
+  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.Parent" xml:space="preserve">
+    <value>panelAppInputFilesTop</value>
+  </data>
+  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="checkBoxOnlyChangedAndRejected.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxOnlyChangedAndRejected.Location" type="System.Drawing.Point, System.Drawing">
+    <value>173, 40</value>
+  </data>
+  <data name="checkBoxOnlyChangedAndRejected.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 17</value>
+  </data>
+  <data name="checkBoxOnlyChangedAndRejected.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="checkBoxOnlyChangedAndRejected.Text" xml:space="preserve">
+    <value>Only changed and rejected</value>
+  </data>
+  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.Name" xml:space="preserve">
+    <value>checkBoxOnlyChangedAndRejected</value>
+  </data>
+  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.Parent" xml:space="preserve">
+    <value>panelAppInputFilesTop</value>
+  </data>
+  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblSharedArchived.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSharedArchived.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSharedArchived.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 74</value>
+  </data>
+  <data name="lblSharedArchived.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
+  </data>
+  <data name="lblSharedArchived.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblSharedArchived.Text" xml:space="preserve">
+    <value>Backup:</value>
+  </data>
+  <data name="&gt;&gt;lblSharedArchived.Name" xml:space="preserve">
+    <value>lblSharedArchived</value>
+  </data>
+  <data name="&gt;&gt;lblSharedArchived.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSharedArchived.Parent" xml:space="preserve">
+    <value>panelAppInputFilesTop</value>
+  </data>
+  <data name="&gt;&gt;lblSharedArchived.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="butUpdateDataset.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="butUpdateDataset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 6</value>
+  </data>
+  <data name="butUpdateDataset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 53</value>
+  </data>
+  <data name="butUpdateDataset.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="butUpdateDataset.Text" xml:space="preserve">
+    <value>Update Dataset</value>
+  </data>
+  <data name="&gt;&gt;butUpdateDataset.Name" xml:space="preserve">
+    <value>butUpdateDataset</value>
+  </data>
+  <data name="&gt;&gt;butUpdateDataset.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butUpdateDataset.Parent" xml:space="preserve">
+    <value>panelAppInputFilesTop</value>
+  </data>
+  <data name="&gt;&gt;butUpdateDataset.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="textBoxSharedArchivedDirectory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 70</value>
+  </data>
+  <data name="textBoxSharedArchivedDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 20</value>
+  </data>
+  <data name="textBoxSharedArchivedDirectory.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="textBoxSharedArchivedDirectory.Text" xml:space="preserve">
+    <value>\\Atlantic.int.ec.gc.ca\shares\Branches\EPB\ShellFish\CSSPTools\CSSPLabSheets\</value>
+  </data>
+  <data name="&gt;&gt;textBoxSharedArchivedDirectory.Name" xml:space="preserve">
+    <value>textBoxSharedArchivedDirectory</value>
+  </data>
+  <data name="&gt;&gt;textBoxSharedArchivedDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxSharedArchivedDirectory.Parent" xml:space="preserve">
+    <value>panelAppInputFilesTop</value>
+  </data>
+  <data name="&gt;&gt;textBoxSharedArchivedDirectory.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="butOpen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 70</value>
+  </data>
+  <data name="butOpen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 26</value>
+  </data>
+  <data name="butOpen.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="butOpen.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="&gt;&gt;butOpen.Name" xml:space="preserve">
+    <value>butOpen</value>
+  </data>
+  <data name="&gt;&gt;butOpen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butOpen.Parent" xml:space="preserve">
+    <value>panelAppInputFilesTop</value>
+  </data>
+  <data name="&gt;&gt;butOpen.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="comboBoxFileSubsector.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 9</value>
+  </data>
+  <data name="comboBoxFileSubsector.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 21</value>
+  </data>
+  <data name="comboBoxFileSubsector.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;comboBoxFileSubsector.Name" xml:space="preserve">
+    <value>comboBoxFileSubsector</value>
+  </data>
+  <data name="&gt;&gt;comboBoxFileSubsector.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxFileSubsector.Parent" xml:space="preserve">
+    <value>panelAppInputFilesTop</value>
+  </data>
+  <data name="&gt;&gt;comboBoxFileSubsector.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblFileSubsector.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFileSubsector.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblFileSubsector.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 12</value>
+  </data>
+  <data name="lblFileSubsector.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="lblFileSubsector.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblFileSubsector.Text" xml:space="preserve">
+    <value>Subsector:</value>
+  </data>
+  <data name="&gt;&gt;lblFileSubsector.Name" xml:space="preserve">
+    <value>lblFileSubsector</value>
+  </data>
+  <data name="&gt;&gt;lblFileSubsector.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFileSubsector.Parent" xml:space="preserve">
+    <value>panelAppInputFilesTop</value>
+  </data>
+  <data name="&gt;&gt;lblFileSubsector.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="panelAppInputFilesTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelAppInputFilesTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelAppInputFilesTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>950, 105</value>
+  </data>
+  <data name="panelAppInputFilesTop.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputFilesTop.Name" xml:space="preserve">
+    <value>panelAppInputFilesTop</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputFilesTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputFilesTop.Parent" xml:space="preserve">
+    <value>splitContainer3.Panel1</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputFilesTop.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Panel1.Name" xml:space="preserve">
+    <value>splitContainer3.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Panel1.Parent" xml:space="preserve">
+    <value>splitContainer3</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="richTextBoxFile.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="richTextBoxFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 8.25pt</value>
+  </data>
+  <data name="richTextBoxFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="richTextBoxFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>950, 195</value>
+  </data>
+  <data name="richTextBoxFile.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="richTextBoxFile.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="richTextBoxFile.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;richTextBoxFile.Name" xml:space="preserve">
+    <value>richTextBoxFile</value>
+  </data>
+  <data name="&gt;&gt;richTextBoxFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;richTextBoxFile.Parent" xml:space="preserve">
+    <value>splitContainer3.Panel2</value>
+  </data>
+  <data name="&gt;&gt;richTextBoxFile.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Panel2.Name" xml:space="preserve">
+    <value>splitContainer3.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer3</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainer3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>950, 544</value>
+  </data>
+  <data name="splitContainer3.SplitterDistance" type="System.Int32, mscorlib">
+    <value>345</value>
+  </data>
+  <data name="splitContainer3.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Name" xml:space="preserve">
+    <value>splitContainer3</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.Parent" xml:space="preserve">
+    <value>panelAppInputFiles</value>
+  </data>
+  <data name="&gt;&gt;splitContainer3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelAppInputFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-88, 174</value>
+  </data>
+  <data name="panelAppInputFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>954, 548</value>
+  </data>
+  <data name="panelAppInputFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputFiles.Name" xml:space="preserve">
+    <value>panelAppInputFiles</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputFiles.Parent" xml:space="preserve">
+    <value>panelApp</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputFiles.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelAddInputMiddle.Name" xml:space="preserve">
+    <value>panelAddInputMiddle</value>
+  </data>
+  <data name="&gt;&gt;panelAddInputMiddle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAddInputMiddle.Parent" xml:space="preserve">
+    <value>panelAppInput</value>
+  </data>
+  <data name="&gt;&gt;panelAddInputMiddle.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputTop.Name" xml:space="preserve">
+    <value>panelAppInputTop</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputTop.Parent" xml:space="preserve">
+    <value>panelAppInput</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputTop.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputBottom.Name" xml:space="preserve">
+    <value>panelAppInputBottom</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputBottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputBottom.Parent" xml:space="preserve">
+    <value>panelAppInput</value>
+  </data>
+  <data name="&gt;&gt;panelAppInputBottom.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panelAppInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 38</value>
+  </data>
+  <data name="panelAppInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>941, 510</value>
+  </data>
+  <data name="panelAppInput.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;panelAppInput.Name" xml:space="preserve">
+    <value>panelAppInput</value>
+  </data>
+  <data name="&gt;&gt;panelAppInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAppInput.Parent" xml:space="preserve">
+    <value>panelApp</value>
+  </data>
+  <data name="&gt;&gt;panelAppInput.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;comboBoxRunNumber.Name" xml:space="preserve">
+    <value>comboBoxRunNumber</value>
+  </data>
+  <data name="&gt;&gt;comboBoxRunNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxRunNumber.Parent" xml:space="preserve">
+    <value>panelAppTop</value>
+  </data>
+  <data name="&gt;&gt;comboBoxRunNumber.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblFilePath.Name" xml:space="preserve">
+    <value>lblFilePath</value>
+  </data>
+  <data name="&gt;&gt;lblFilePath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFilePath.Parent" xml:space="preserve">
+    <value>panelAppTop</value>
+  </data>
+  <data name="&gt;&gt;lblFilePath.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;butCreateLabSheet.Name" xml:space="preserve">
+    <value>butCreateLabSheet</value>
+  </data>
+  <data name="&gt;&gt;butCreateLabSheet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butCreateLabSheet.Parent" xml:space="preserve">
+    <value>panelAppTop</value>
+  </data>
+  <data name="&gt;&gt;butCreateLabSheet.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;comboBoxSubsectorNames.Name" xml:space="preserve">
+    <value>comboBoxSubsectorNames</value>
+  </data>
+  <data name="&gt;&gt;comboBoxSubsectorNames.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxSubsectorNames.Parent" xml:space="preserve">
+    <value>panelAppTop</value>
+  </data>
+  <data name="&gt;&gt;comboBoxSubsectorNames.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerRun.Name" xml:space="preserve">
+    <value>dateTimePickerRun</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerRun.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerRun.Parent" xml:space="preserve">
+    <value>panelAppTop</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerRun.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="panelAppTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelAppTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelAppTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>938, 32</value>
+  </data>
+  <data name="panelAppTop.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panelAppTop.Name" xml:space="preserve">
+    <value>panelAppTop</value>
+  </data>
+  <data name="&gt;&gt;panelAppTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAppTop.Parent" xml:space="preserve">
+    <value>panelApp</value>
+  </data>
+  <data name="&gt;&gt;panelAppTop.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;butChangeDateCancel.Name" xml:space="preserve">
+    <value>butChangeDateCancel</value>
+  </data>
+  <data name="&gt;&gt;butChangeDateCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butChangeDateCancel.Parent" xml:space="preserve">
+    <value>panelChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;butChangeDateCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;butChangeDate.Name" xml:space="preserve">
+    <value>butChangeDate</value>
+  </data>
+  <data name="&gt;&gt;butChangeDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butChangeDate.Parent" xml:space="preserve">
+    <value>panelChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;butChangeDate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblOldDateText.Name" xml:space="preserve">
+    <value>lblOldDateText</value>
+  </data>
+  <data name="&gt;&gt;lblOldDateText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblOldDateText.Parent" xml:space="preserve">
+    <value>panelChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;lblOldDateText.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblNewDate.Name" xml:space="preserve">
+    <value>lblNewDate</value>
+  </data>
+  <data name="&gt;&gt;lblNewDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNewDate.Parent" xml:space="preserve">
+    <value>panelChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;lblNewDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblChangeDateError.Name" xml:space="preserve">
+    <value>lblChangeDateError</value>
+  </data>
+  <data name="&gt;&gt;lblChangeDateError.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblChangeDateError.Parent" xml:space="preserve">
+    <value>panelChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;lblChangeDateError.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lblOldDate.Name" xml:space="preserve">
+    <value>lblOldDate</value>
+  </data>
+  <data name="&gt;&gt;lblOldDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblOldDate.Parent" xml:space="preserve">
+    <value>panelChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;lblOldDate.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;llbChangeDateOfCurrentDoc.Name" xml:space="preserve">
+    <value>llbChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;llbChangeDateOfCurrentDoc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;llbChangeDateOfCurrentDoc.Parent" xml:space="preserve">
+    <value>panelChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;llbChangeDateOfCurrentDoc.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerChangeDate.Name" xml:space="preserve">
+    <value>dateTimePickerChangeDate</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerChangeDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerChangeDate.Parent" xml:space="preserve">
+    <value>panelChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerChangeDate.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="panelChangeDateOfCurrentDoc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>264, 48</value>
+  </data>
+  <data name="panelChangeDateOfCurrentDoc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 410</value>
+  </data>
+  <data name="panelChangeDateOfCurrentDoc.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.Name" xml:space="preserve">
+    <value>panelChangeDateOfCurrentDoc</value>
+  </data>
+  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.Parent" xml:space="preserve">
+    <value>panelApp</value>
+  </data>
+  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="panelApp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 58</value>
+  </data>
+  <data name="panelApp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>938, 588</value>
+  </data>
+  <data name="panelApp.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;panelApp.Name" xml:space="preserve">
+    <value>panelApp</value>
+  </data>
+  <data name="&gt;&gt;panelApp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelApp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelApp.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="dateTimePickerArchiveFilterFrom.CustomFormat" xml:space="preserve">
     <value>yyyy MMMM dd</value>
@@ -1127,276 +1457,6 @@
   </data>
   <data name="&gt;&gt;dateTimePickerArchiveFilterTo.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="checkBoxViewTotalColiformLabSheets.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxViewTotalColiformLabSheets.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxViewTotalColiformLabSheets.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 40</value>
-  </data>
-  <data name="checkBoxViewTotalColiformLabSheets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 17</value>
-  </data>
-  <data name="checkBoxViewTotalColiformLabSheets.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="checkBoxViewTotalColiformLabSheets.Text" xml:space="preserve">
-    <value>View Total Coliform Lab Sheets</value>
-  </data>
-  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.Name" xml:space="preserve">
-    <value>checkBoxViewTotalColiformLabSheets</value>
-  </data>
-  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;checkBoxViewTotalColiformLabSheets.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="checkBoxOnlyChangedAndRejected.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxOnlyChangedAndRejected.Location" type="System.Drawing.Point, System.Drawing">
-    <value>173, 40</value>
-  </data>
-  <data name="checkBoxOnlyChangedAndRejected.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 17</value>
-  </data>
-  <data name="checkBoxOnlyChangedAndRejected.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="checkBoxOnlyChangedAndRejected.Text" xml:space="preserve">
-    <value>Only changed and rejected</value>
-  </data>
-  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.Name" xml:space="preserve">
-    <value>checkBoxOnlyChangedAndRejected</value>
-  </data>
-  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;checkBoxOnlyChangedAndRejected.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblSharedArchived.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSharedArchived.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblSharedArchived.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 74</value>
-  </data>
-  <data name="lblSharedArchived.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
-  </data>
-  <data name="lblSharedArchived.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lblSharedArchived.Text" xml:space="preserve">
-    <value>Backup:</value>
-  </data>
-  <data name="&gt;&gt;lblSharedArchived.Name" xml:space="preserve">
-    <value>lblSharedArchived</value>
-  </data>
-  <data name="&gt;&gt;lblSharedArchived.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSharedArchived.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;lblSharedArchived.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="butUpdateDataset.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="butUpdateDataset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 6</value>
-  </data>
-  <data name="butUpdateDataset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 53</value>
-  </data>
-  <data name="butUpdateDataset.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="butUpdateDataset.Text" xml:space="preserve">
-    <value>Update Dataset</value>
-  </data>
-  <data name="&gt;&gt;butUpdateDataset.Name" xml:space="preserve">
-    <value>butUpdateDataset</value>
-  </data>
-  <data name="&gt;&gt;butUpdateDataset.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;butUpdateDataset.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;butUpdateDataset.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="textBoxSharedArchivedDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 70</value>
-  </data>
-  <data name="textBoxSharedArchivedDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 20</value>
-  </data>
-  <data name="textBoxSharedArchivedDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="textBoxSharedArchivedDirectory.Text" xml:space="preserve">
-    <value>\\Atlantic.int.ec.gc.ca\shares\Branches\EPB\ShellFish\CSSPTools\CSSPLabSheets\</value>
-  </data>
-  <data name="&gt;&gt;textBoxSharedArchivedDirectory.Name" xml:space="preserve">
-    <value>textBoxSharedArchivedDirectory</value>
-  </data>
-  <data name="&gt;&gt;textBoxSharedArchivedDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxSharedArchivedDirectory.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;textBoxSharedArchivedDirectory.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="butOpen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 70</value>
-  </data>
-  <data name="butOpen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 26</value>
-  </data>
-  <data name="butOpen.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="butOpen.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <data name="&gt;&gt;butOpen.Name" xml:space="preserve">
-    <value>butOpen</value>
-  </data>
-  <data name="&gt;&gt;butOpen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;butOpen.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;butOpen.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="comboBoxFileSubsector.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 9</value>
-  </data>
-  <data name="comboBoxFileSubsector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 21</value>
-  </data>
-  <data name="comboBoxFileSubsector.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileSubsector.Name" xml:space="preserve">
-    <value>comboBoxFileSubsector</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileSubsector.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileSubsector.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileSubsector.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lblFileSubsector.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblFileSubsector.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblFileSubsector.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 12</value>
-  </data>
-  <data name="lblFileSubsector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
-  </data>
-  <data name="lblFileSubsector.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblFileSubsector.Text" xml:space="preserve">
-    <value>Subsector:</value>
-  </data>
-  <data name="&gt;&gt;lblFileSubsector.Name" xml:space="preserve">
-    <value>lblFileSubsector</value>
-  </data>
-  <data name="&gt;&gt;lblFileSubsector.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblFileSubsector.Parent" xml:space="preserve">
-    <value>panelAppInputFilesTop</value>
-  </data>
-  <data name="&gt;&gt;lblFileSubsector.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;panelAddInputMiddle.Name" xml:space="preserve">
-    <value>panelAddInputMiddle</value>
-  </data>
-  <data name="&gt;&gt;panelAddInputMiddle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAddInputMiddle.Parent" xml:space="preserve">
-    <value>panelAppInput</value>
-  </data>
-  <data name="&gt;&gt;panelAddInputMiddle.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputTop.Name" xml:space="preserve">
-    <value>panelAppInputTop</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputTop.Parent" xml:space="preserve">
-    <value>panelAppInput</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputTop.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputBottom.Name" xml:space="preserve">
-    <value>panelAppInputBottom</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputBottom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputBottom.Parent" xml:space="preserve">
-    <value>panelAppInput</value>
-  </data>
-  <data name="&gt;&gt;panelAppInputBottom.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="panelAppInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 38</value>
-  </data>
-  <data name="panelAppInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>941, 510</value>
-  </data>
-  <data name="panelAppInput.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;panelAppInput.Name" xml:space="preserve">
-    <value>panelAppInput</value>
-  </data>
-  <data name="&gt;&gt;panelAppInput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAppInput.Parent" xml:space="preserve">
-    <value>panelApp</value>
-  </data>
-  <data name="&gt;&gt;panelAppInput.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;dataGridViewCSSP.Name" xml:space="preserve">
     <value>dataGridViewCSSP</value>
@@ -6300,90 +6360,6 @@
   <data name="&gt;&gt;lblDailyDuplicateRLog.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;comboBoxRunNumber.Name" xml:space="preserve">
-    <value>comboBoxRunNumber</value>
-  </data>
-  <data name="&gt;&gt;comboBoxRunNumber.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxRunNumber.Parent" xml:space="preserve">
-    <value>panelAppTop</value>
-  </data>
-  <data name="&gt;&gt;comboBoxRunNumber.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblFilePath.Name" xml:space="preserve">
-    <value>lblFilePath</value>
-  </data>
-  <data name="&gt;&gt;lblFilePath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblFilePath.Parent" xml:space="preserve">
-    <value>panelAppTop</value>
-  </data>
-  <data name="&gt;&gt;lblFilePath.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;butCreateLabSheet.Name" xml:space="preserve">
-    <value>butCreateLabSheet</value>
-  </data>
-  <data name="&gt;&gt;butCreateLabSheet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;butCreateLabSheet.Parent" xml:space="preserve">
-    <value>panelAppTop</value>
-  </data>
-  <data name="&gt;&gt;butCreateLabSheet.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;comboBoxSubsectorNames.Name" xml:space="preserve">
-    <value>comboBoxSubsectorNames</value>
-  </data>
-  <data name="&gt;&gt;comboBoxSubsectorNames.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxSubsectorNames.Parent" xml:space="preserve">
-    <value>panelAppTop</value>
-  </data>
-  <data name="&gt;&gt;comboBoxSubsectorNames.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerRun.Name" xml:space="preserve">
-    <value>dateTimePickerRun</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerRun.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerRun.Parent" xml:space="preserve">
-    <value>panelAppTop</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerRun.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="panelAppTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panelAppTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelAppTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>938, 32</value>
-  </data>
-  <data name="panelAppTop.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelAppTop.Name" xml:space="preserve">
-    <value>panelAppTop</value>
-  </data>
-  <data name="&gt;&gt;panelAppTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAppTop.Parent" xml:space="preserve">
-    <value>panelApp</value>
-  </data>
-  <data name="&gt;&gt;panelAppTop.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="comboBoxRunNumber.Location" type="System.Drawing.Point, System.Drawing">
     <value>267, 5</value>
   </data>
@@ -6503,123 +6479,6 @@
   </data>
   <data name="&gt;&gt;dateTimePickerRun.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="&gt;&gt;butChangeDateCancel.Name" xml:space="preserve">
-    <value>butChangeDateCancel</value>
-  </data>
-  <data name="&gt;&gt;butChangeDateCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;butChangeDateCancel.Parent" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;butChangeDateCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;butChangeDate.Name" xml:space="preserve">
-    <value>butChangeDate</value>
-  </data>
-  <data name="&gt;&gt;butChangeDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;butChangeDate.Parent" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;butChangeDate.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblOldDateText.Name" xml:space="preserve">
-    <value>lblOldDateText</value>
-  </data>
-  <data name="&gt;&gt;lblOldDateText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOldDateText.Parent" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;lblOldDateText.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblNewDate.Name" xml:space="preserve">
-    <value>lblNewDate</value>
-  </data>
-  <data name="&gt;&gt;lblNewDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNewDate.Parent" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;lblNewDate.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lblChangeDateError.Name" xml:space="preserve">
-    <value>lblChangeDateError</value>
-  </data>
-  <data name="&gt;&gt;lblChangeDateError.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblChangeDateError.Parent" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;lblChangeDateError.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lblOldDate.Name" xml:space="preserve">
-    <value>lblOldDate</value>
-  </data>
-  <data name="&gt;&gt;lblOldDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOldDate.Parent" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;lblOldDate.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;llbChangeDateOfCurrentDoc.Name" xml:space="preserve">
-    <value>llbChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;llbChangeDateOfCurrentDoc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;llbChangeDateOfCurrentDoc.Parent" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;llbChangeDateOfCurrentDoc.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerChangeDate.Name" xml:space="preserve">
-    <value>dateTimePickerChangeDate</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerChangeDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerChangeDate.Parent" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerChangeDate.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="panelChangeDateOfCurrentDoc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>264, 48</value>
-  </data>
-  <data name="panelChangeDateOfCurrentDoc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 410</value>
-  </data>
-  <data name="panelChangeDateOfCurrentDoc.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.Name" xml:space="preserve">
-    <value>panelChangeDateOfCurrentDoc</value>
-  </data>
-  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.Parent" xml:space="preserve">
-    <value>panelApp</value>
-  </data>
-  <data name="&gt;&gt;panelChangeDateOfCurrentDoc.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="butChangeDateCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -6978,6 +6837,114 @@
   <data name="&gt;&gt;lblStatusTxt.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;lblLabSheetType.Name" xml:space="preserve">
+    <value>lblLabSheetType</value>
+  </data>
+  <data name="&gt;&gt;lblLabSheetType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLabSheetType.Parent" xml:space="preserve">
+    <value>panelButtonBar</value>
+  </data>
+  <data name="&gt;&gt;lblLabSheetType.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblSampleType.Name" xml:space="preserve">
+    <value>lblSampleType</value>
+  </data>
+  <data name="&gt;&gt;lblSampleType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSampleType.Parent" xml:space="preserve">
+    <value>panelButtonBar</value>
+  </data>
+  <data name="&gt;&gt;lblSampleType.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblSamplingPlanType.Name" xml:space="preserve">
+    <value>lblSamplingPlanType</value>
+  </data>
+  <data name="&gt;&gt;lblSamplingPlanType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSamplingPlanType.Parent" xml:space="preserve">
+    <value>panelButtonBar</value>
+  </data>
+  <data name="&gt;&gt;lblSamplingPlanType.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;butFail.Name" xml:space="preserve">
+    <value>butFail</value>
+  </data>
+  <data name="&gt;&gt;butFail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butFail.Parent" xml:space="preserve">
+    <value>panelButtonBar</value>
+  </data>
+  <data name="&gt;&gt;butFail.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;butSendToEnvironmentCanada.Name" xml:space="preserve">
+    <value>butSendToEnvironmentCanada</value>
+  </data>
+  <data name="&gt;&gt;butSendToEnvironmentCanada.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butSendToEnvironmentCanada.Parent" xml:space="preserve">
+    <value>panelButtonBar</value>
+  </data>
+  <data name="&gt;&gt;butSendToEnvironmentCanada.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;butHome.Name" xml:space="preserve">
+    <value>butHome</value>
+  </data>
+  <data name="&gt;&gt;butHome.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butHome.Parent" xml:space="preserve">
+    <value>panelButtonBar</value>
+  </data>
+  <data name="&gt;&gt;butHome.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;butLogoff.Name" xml:space="preserve">
+    <value>butLogoff</value>
+  </data>
+  <data name="&gt;&gt;butLogoff.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;butLogoff.Parent" xml:space="preserve">
+    <value>panelButtonBar</value>
+  </data>
+  <data name="&gt;&gt;butLogoff.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="panelButtonBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelButtonBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelButtonBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>995, 36</value>
+  </data>
+  <data name="panelButtonBar.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;panelButtonBar.Name" xml:space="preserve">
+    <value>panelButtonBar</value>
+  </data>
+  <data name="&gt;&gt;panelButtonBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelButtonBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelButtonBar.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="lblLabSheetType.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -7169,30 +7136,6 @@
   </data>
   <data name="&gt;&gt;butLogoff.ZOrder" xml:space="preserve">
     <value>7</value>
-  </data>
-  <data name="panelButtonBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panelButtonBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelButtonBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>995, 36</value>
-  </data>
-  <data name="panelButtonBar.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;panelButtonBar.Name" xml:space="preserve">
-    <value>panelButtonBar</value>
-  </data>
-  <data name="&gt;&gt;panelButtonBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelButtonBar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelButtonBar.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <metadata name="timerSave.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

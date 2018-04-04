@@ -199,6 +199,7 @@ namespace CSSPWQInputTool
                 richTextBoxFile.Text = "Select a date";
                 butViewFCForm.Visible = false;
                 butOpen.Enabled = false;
+                butDeleteLabSheet.Enabled = false;
                 return;
             }
 
@@ -2773,6 +2774,7 @@ namespace CSSPWQInputTool
             if (fi.Exists)
             {
                 butOpen.Enabled = true;
+                butDeleteLabSheet.Enabled = true;
                 lblFilePath.Text = fi.FullName;
                 if (!ReadFileFromLocalMachine())
                     return;

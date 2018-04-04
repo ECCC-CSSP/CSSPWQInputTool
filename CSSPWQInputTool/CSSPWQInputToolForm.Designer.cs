@@ -239,6 +239,7 @@
             this.lblReceiverLocalOrServer = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSendingFileName = new System.Windows.Forms.Label();
+            this.butDeleteLabSheet = new System.Windows.Forms.Button();
             this.panelPassword.SuspendLayout();
             this.panelPasswordCenter.SuspendLayout();
             this.panelAccessCode.SuspendLayout();
@@ -399,6 +400,7 @@
             // 
             // panelAppInputFilesTop
             // 
+            this.panelAppInputFilesTop.Controls.Add(this.butDeleteLabSheet);
             this.panelAppInputFilesTop.Controls.Add(this.groupBoxFilterByDate);
             this.panelAppInputFilesTop.Controls.Add(this.checkBoxViewTotalColiformLabSheets);
             this.panelAppInputFilesTop.Controls.Add(this.checkBoxOnlyChangedAndRejected);
@@ -1842,6 +1844,13 @@
             resources.ApplyResources(this.lblSendingFileName, "lblSendingFileName");
             this.lblSendingFileName.Name = "lblSendingFileName";
             // 
+            // butDeleteLabSheet
+            // 
+            resources.ApplyResources(this.butDeleteLabSheet, "butDeleteLabSheet");
+            this.butDeleteLabSheet.Name = "butDeleteLabSheet";
+            this.butDeleteLabSheet.UseVisualStyleBackColor = true;
+            this.butDeleteLabSheet.Click += new System.EventHandler(this.butDeleteLabSheet_Click);
+            // 
             // CSSPWQInputToolForm
             // 
             resources.ApplyResources(this, "$this");
@@ -2124,6 +2133,7 @@
         private System.Windows.Forms.Label lblTideTextExample;
         private System.Windows.Forms.GroupBox groupBoxFilterByDate;
         private System.Windows.Forms.Label lblBetween;
+        private System.Windows.Forms.Button butDeleteLabSheet;
     }
 }
 
