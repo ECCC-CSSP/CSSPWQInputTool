@@ -921,6 +921,7 @@ namespace CSSPWQInputTool
                     }
                     catch (Exception ex)
                     {
+                        SetupAppInputFiles();
                         MessageBox.Show(ex.Message + " InnerException: " + (ex.InnerException != null ? ex.InnerException.Message : ""), "Error While Copying", MessageBoxButtons.OK);
                         return;
                     }
@@ -929,6 +930,7 @@ namespace CSSPWQInputTool
 
                     if (!fiNew.Exists)
                     {
+                        SetupAppInputFiles();
                         MessageBox.Show("File does not exist [" + fiNew.FullName + "]", "Error While Verifying If File Exist", MessageBoxButtons.OK);
                         return;
                     }
@@ -939,6 +941,7 @@ namespace CSSPWQInputTool
                     }
                     catch (Exception ex)
                     {
+                        SetupAppInputFiles();
                         MessageBox.Show(ex.Message + " InnerException: " + (ex.InnerException != null ? ex.InnerException.Message : ""), "Error While Deleting", MessageBoxButtons.OK);
                         return;
                     }
@@ -949,6 +952,7 @@ namespace CSSPWQInputTool
 
                     if (!fiSamplingPlan.Exists)
                     {
+                        SetupAppInputFiles();
                         richTextBoxLabSheetSender.AppendText("Could not find file [" + fiSamplingPlan.FullName + "]\r\n");
                         return;
                     }
@@ -969,6 +973,7 @@ namespace CSSPWQInputTool
 
                     if (!fi.Exists)
                     {
+                        SetupAppInputFiles();
                         return;
                     }
 
@@ -1002,6 +1007,7 @@ namespace CSSPWQInputTool
                     }
                     catch (Exception ex)
                     {
+                        SetupAppInputFiles();
                         MessageBox.Show(ex.Message + " InnerException: " + (ex.InnerException != null ? ex.InnerException.Message : ""), "Error While Copying", MessageBoxButtons.OK);
                         return;
                     }
@@ -1010,6 +1016,7 @@ namespace CSSPWQInputTool
 
                     if (!fiNew.Exists)
                     {
+                        SetupAppInputFiles();
                         MessageBox.Show("File does not exist [" + fiNew.FullName + "]", "Error While Verifying If File Exist", MessageBoxButtons.OK);
                         return;
                     }
@@ -1020,6 +1027,7 @@ namespace CSSPWQInputTool
                     }
                     catch (Exception ex)
                     {
+                        SetupAppInputFiles();
                         MessageBox.Show(ex.Message + " InnerException: " + (ex.InnerException != null ? ex.InnerException.Message : ""), "Error While Deleting", MessageBoxButtons.OK);
                         return;
                     }
@@ -1317,6 +1325,13 @@ namespace CSSPWQInputTool
                                    || dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
                     {
                         if (col == 2 || col == 7 || col == 8)
+                        {
+                            DataGridViewCell dataGridViewCell = dataGridViewCSSP[col, row];
+                            dataGridViewCell.Style.ForeColor = Color.Black;
+                            dataGridViewCell.Style.BackColor = Color.Gray;
+                            dataGridViewCell.ReadOnly = true;
+                        }
+                        if (col == 9 && dataGridViewCSSP[SampleTypeColNumber, row].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString())
                         {
                             DataGridViewCell dataGridViewCell = dataGridViewCSSP[col, row];
                             dataGridViewCell.Style.ForeColor = Color.Black;

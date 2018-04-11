@@ -2901,7 +2901,7 @@ namespace CSSPWQInputTool
                         }
 
                         int SiteColumn = 1;
-                        //int SampleTypeColumn = 10;
+                        int SampleTypeColumn = 10;
                         if (dataGridViewCSSP[ColumnIndex, RowIndex].Value == null || string.IsNullOrWhiteSpace(dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString()))
                             return;
 
@@ -2910,10 +2910,13 @@ namespace CSSPWQInputTool
                         string SiteName = dataGridViewCSSP[SiteColumn, RowIndex].Value.ToString();
                         for (int i = RowIndex + 1, countRow = dataGridViewCSSP.Rows.Count; i < countRow; i++)
                         {
-                            //if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
-                            //{
-                            //    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
-                            //}
+                            if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
+                            {
+                                if (dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString())
+                                {
+                                    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                                }
+                            }
                         }
 
                         if (labSheetA1Sheet.LabSheetA1MeasurementList[RowIndex].ProcessedBy != dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString())
@@ -3172,7 +3175,12 @@ namespace CSSPWQInputTool
             {
                 if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
                 {
-                    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                    if (dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
+                        || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
+                        || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechRead.ToString())
+                    {
+                        dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                    }
                 }
             }
 
@@ -3216,7 +3224,7 @@ namespace CSSPWQInputTool
             }
 
             int SiteColumn = 1;
-            //int SampleTypeColumn = 10;
+            int SampleTypeColumn = 10;
             dataGridViewCSSP[ColumnIndex, RowIndex].Style.ForeColor = Color.Black;
 
             if (dataGridViewCSSP[ColumnIndex, RowIndex].Value != null)
@@ -3252,7 +3260,12 @@ namespace CSSPWQInputTool
             {
                 if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
                 {
-                    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                    if (dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
+                         || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
+                         || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechRead.ToString())
+                    {
+                        dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                    }
                 }
             }
 
@@ -3274,7 +3287,7 @@ namespace CSSPWQInputTool
         private void ValidateTimeCell(int ColumnIndex, int RowIndex)
         {
             int SiteColumn = 1;
-            //int SampleTypeColumn = 10;
+            int SampleTypeColumn = 10;
 
             textBoxTides.Text = "-- / --";
 
@@ -3363,7 +3376,13 @@ namespace CSSPWQInputTool
             {
                 if (dataGridViewCSSP[SiteColumn, i].Value.ToString() == SiteName)
                 {
-                    dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                    if (dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.DailyDuplicate.ToString()
+                       || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
+                       || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechRead.ToString())
+                    {
+                        dataGridViewCSSP[ColumnIndex, i].Value = dataGridViewCSSP[ColumnIndex, RowIndex].Value.ToString();
+                    }
+
                     int Hour = 0;
                     int Minute = 0;
 
