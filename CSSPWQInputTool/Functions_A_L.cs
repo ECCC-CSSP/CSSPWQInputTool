@@ -2722,11 +2722,18 @@ namespace CSSPWQInputTool
                     }
 
                     Rest = fi.FullName.Replace(CurrentPath, "");
+
                     int Pos = Rest.IndexOf(@"\");
                     if (Pos > 0)
                     {
                         Rest = Rest.Substring(Pos + 1);
                     }
+
+                    if (Rest.StartsWith("Delete"))
+                    {
+                        return retStr;
+                    }
+
                     string Subsector = Rest.Substring(0, Rest.IndexOf("_"));
                     Rest = Rest.Substring(Subsector.Length + 1);
                     int Year = 0;
@@ -2833,6 +2840,11 @@ namespace CSSPWQInputTool
                 lblStatus.Refresh();
                 Application.DoEvents();
                 string retStr = GetLabSheetExist(fi);
+                if (string.IsNullOrWhiteSpace(retStr))
+                {
+                    continue;
+                }
+
                 if (retStr.Substring(0, 1) == "[")
                 {
                     int TempInt = -10;
