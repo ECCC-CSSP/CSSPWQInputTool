@@ -1389,6 +1389,25 @@ namespace CSSPWQInputTool
                     return false;
                 }
 
+                if (textBoxTides.Text.Length < 7 || textBoxTides.Text.Length > 7)
+                {
+                    textBoxTides.ForeColor = Color.Red;
+                    lblStatus.Text = "Tides text should contain exactly 7 characters. Ex: [HT / HT].";
+                    textBoxTides.Focus();
+                    return false;
+                }
+                List<string> strList = textBoxTides.Text.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+                foreach (string s in strList)
+                {
+                    if (!AllowableTideString.Contains(s))
+                    {
+                        textBoxTides.ForeColor = Color.Red;
+                        lblStatus.Text = "Text for tides has to be of the form [HT / HT]. With allowables [HR, HT, HF, MR, MT, MF, LR, LT, LF]";
+                        textBoxTides.Focus();
+                        return false;
+                    }
+                }
+
                 if (csspWQInputApp.IncludeLaboratoryQAQC)
                 {
                     // Initial Field Crew
