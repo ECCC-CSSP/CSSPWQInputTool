@@ -1926,7 +1926,7 @@ namespace CSSPWQInputTool
 
 
         }
-        private void SyncArchives(DirectoryInfo di, DirectoryInfo diShared)
+        private string SyncArchives(DirectoryInfo di, DirectoryInfo diShared)
         {
             lblStatus.Text = "Doing local To Shared Archived Directory";
             richTextBoxLabSheetSender.AppendText("Doing local To Shared Archived Directory \r\n");
@@ -1936,7 +1936,7 @@ namespace CSSPWQInputTool
 
             string retStr = SyncArchiveFromLocal(di, diShared);
             if (!string.IsNullOrWhiteSpace(retStr))
-                return;
+                return retStr;
 
             lblStatus.Text = "Doing Shared Archived Directory To local";
             richTextBoxLabSheetSender.AppendText("Doing Shared Archived Directory To local \r\n");
@@ -1946,9 +1946,11 @@ namespace CSSPWQInputTool
 
             retStr = SyncArchiveFromSharedArchives(di, diShared);
             if (!string.IsNullOrWhiteSpace(retStr))
-                return;
+                return retStr;
 
             SetupAppInputFiles();
+
+            return "";
         }
         private string SyncArchiveFromLocal(DirectoryInfo di, DirectoryInfo diShared)
         {
@@ -1959,6 +1961,7 @@ namespace CSSPWQInputTool
             {
                 lblStatus.Text = "Could not find directory [" + di.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Could not find directory [" + di.FullName + "]\r\n");
+                MessageBox.Show(lblStatus.Text, "Error");
                 return lblStatus.Text;
             }
 
@@ -1966,6 +1969,7 @@ namespace CSSPWQInputTool
             {
                 lblStatus.Text = "Could not find directory [" + diShared.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Could not find directory [" + diShared.FullName + "]\r\n");
+                MessageBox.Show(lblStatus.Text, "Error");
                 return lblStatus.Text;
             }
 
@@ -1996,6 +2000,7 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error: Lab Sheet File for specific date, subsector and sampling plan file should be unique. More than one was found " + retStr;
                         richTextBoxLabSheetSender.AppendText(lblStatus.Text + "\r\n");
+                        MessageBox.Show(lblStatus.Text, "Error");
                         return lblStatus.Text;
                     }
 
@@ -2004,6 +2009,7 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error: Lab Sheet File for specific date, subsector and sampling plan file should be unique. More than one was found " + retStr;
                         richTextBoxLabSheetSender.AppendText(lblStatus.Text + "\r\n");
+                        MessageBox.Show(lblStatus.Text, "Error");
                         return lblStatus.Text;
                     }
 
@@ -2016,6 +2022,7 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error: FC Form for Lab Sheet File for specific date, subsector and sampling plan file should be unique. More than one was found " + retStr;
                         richTextBoxLabSheetSender.AppendText(lblStatus.Text + "\r\n");
+                        MessageBox.Show(lblStatus.Text, "Error");
                         return lblStatus.Text;
                     }
 
@@ -2024,6 +2031,7 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error: FC Form for Lab Sheet File for specific date, subsector and sampling plan file should be unique. More than one was found " + retStr;
                         richTextBoxLabSheetSender.AppendText(lblStatus.Text + "\r\n");
+                        MessageBox.Show(lblStatus.Text, "Error");
                         return lblStatus.Text;
                     }
 
@@ -2044,6 +2052,7 @@ namespace CSSPWQInputTool
                         {
                             lblStatus.Text = "Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
                             richTextBoxLabSheetSender.AppendText("Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "") + "\r\n");
+                            MessageBox.Show(lblStatus.Text, "Error");
                             return "Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
                         }
                         lblStatus.Text = "Copied - " + fi.FullName + "\r\n to " + fiArchive.FullName;
@@ -2057,7 +2066,9 @@ namespace CSSPWQInputTool
                             bool FromLocal = true;
                             ReplaceFileFromTo(fi, fiArchive, FromLocal);
                             if (UserActionFileArchiveCancel)
+                            {
                                 return "Cancelling ... ";
+                            }
                         }
                     }
                     fiArchive = new FileInfo(ArchiveFileName);
@@ -2065,6 +2076,7 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Did not copy file [" + diShared.FullName + "]";
                         richTextBoxLabSheetSender.AppendText("Did not copy file [" + diShared.FullName + "]");
+                        MessageBox.Show(lblStatus.Text, "Error");
                         return lblStatus.Text;
                     }
                 }
@@ -2086,14 +2098,18 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
                         richTextBoxLabSheetSender.AppendText("Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "") + "\r\n");
-                        return "Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
+                        MessageBox.Show(lblStatus.Text, "Error");
+                        return lblStatus.Text;
                     }
                 }
 
                 string retStr = SyncArchiveFromLocal(diNext, diArchive);
                 if (!string.IsNullOrWhiteSpace(retStr))
                 {
-                    return "Error";
+                    lblStatus.Text = "Error:" + retStr;
+                    richTextBoxLabSheetSender.AppendText(lblStatus.Text + "\r\n");
+                    MessageBox.Show(lblStatus.Text, "Error");
+                    return lblStatus.Text;
                 }
             }
 
@@ -2108,6 +2124,7 @@ namespace CSSPWQInputTool
             {
                 lblStatus.Text = "Could not find directory [" + di.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Could not find directory [" + di.FullName + "]\r\n");
+                MessageBox.Show(lblStatus.Text, "Error");
                 return lblStatus.Text;
             }
 
@@ -2115,6 +2132,7 @@ namespace CSSPWQInputTool
             {
                 lblStatus.Text = "Could not find directory [" + diShared.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Could not find directory [" + diShared.FullName + "]\r\n");
+                MessageBox.Show(lblStatus.Text, "Error");
                 return lblStatus.Text;
             }
 
@@ -2141,6 +2159,7 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error: Lab Sheet File for specific date, subsector and sampling plan file should be unique. More than one was found [" + retStr + "]";
                         richTextBoxLabSheetSender.AppendText(lblStatus.Text + "\r\n");
+                        MessageBox.Show(lblStatus.Text, "Error");
                         return lblStatus.Text;
                     }
 
@@ -2149,6 +2168,7 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error: Lab Sheet File for specific date, subsector and sampling plan file should be unique. More than one was found [" + retStr + "]";
                         richTextBoxLabSheetSender.AppendText(lblStatus.Text + "\r\n");
+                        MessageBox.Show(lblStatus.Text, "Error");
                         return lblStatus.Text;
                     }
 
@@ -2161,6 +2181,7 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error: Lab Sheet File for specific date, subsector and sampling plan file should be unique. More than one was found [" + retStr + "]";
                         richTextBoxLabSheetSender.AppendText(lblStatus.Text + "\r\n");
+                        MessageBox.Show(lblStatus.Text, "Error");
                         return lblStatus.Text;
                     }
 
@@ -2169,6 +2190,7 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error: Lab Sheet File for specific date, subsector and sampling plan file should be unique. More than one was found [" + retStr + "]";
                         richTextBoxLabSheetSender.AppendText(lblStatus.Text + "\r\n");
+                        MessageBox.Show(lblStatus.Text, "Error");
                         return lblStatus.Text;
                     }
 
@@ -2189,7 +2211,8 @@ namespace CSSPWQInputTool
                         {
                             lblStatus.Text = "Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
                             richTextBoxLabSheetSender.AppendText("Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "") + "\r\n");
-                            return "Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
+                            MessageBox.Show(lblStatus.Text, "Error");
+                            return lblStatus.Text;
                         }
                         lblStatus.Text = "Copied - " + fi.FullName + " to " + fiLocal.FullName;
                         richTextBoxLabSheetSender.AppendText("Copied - " + fi.FullName + "\r\n to " + fiLocal.FullName + "\r\n");
@@ -2202,7 +2225,9 @@ namespace CSSPWQInputTool
                             bool FromLocal = false;
                             ReplaceFileFromTo(fi, fiLocal, FromLocal);
                             if (UserActionFileArchiveCancel)
+                            {
                                 return "Cancelling ... ";
+                            }
                         }
                     }
                     fiLocal = new FileInfo(LocalFileName);
@@ -2231,14 +2256,18 @@ namespace CSSPWQInputTool
                     {
                         lblStatus.Text = "Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
                         richTextBoxLabSheetSender.AppendText("Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "") + "\r\n");
-                        return "Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
+                        MessageBox.Show(lblStatus.Text, "Error");
+                        return lblStatus.Text;
                     }
                 }
 
                 string retStr = SyncArchiveFromSharedArchives(di, diSharedNext);
                 if (!string.IsNullOrWhiteSpace(retStr))
                 {
-                    return "Error";
+                    lblStatus.Text = "Error:" + retStr;
+                    richTextBoxLabSheetSender.AppendText("Error:" + retStr + "\r\n");
+                    MessageBox.Show(lblStatus.Text, "Error");
+                    return lblStatus.Text;
                 }
             }
 
@@ -2601,7 +2630,7 @@ namespace CSSPWQInputTool
 
             ValidateCellA1(3, RowIndex);
         }
-        private void TryToSyncArchive()
+        private string TryToSyncArchive()
         {
             lblServerFileDateTime.Text = "";
             lblLocalFileDateTime.Text = "";
@@ -2627,7 +2656,7 @@ namespace CSSPWQInputTool
             if (!fiSamplingPlan.Exists)
             {
                 richTextBoxLabSheetSender.AppendText("Could not find file [" + fiSamplingPlan.FullName + "]\r\n");
-                return;
+                return "Could not find file [" + fiSamplingPlan.FullName + "]\r\n";
             }
 
             lblSendingFileName.Text = fiSamplingPlan.Name;
@@ -2653,7 +2682,7 @@ namespace CSSPWQInputTool
                     lblStatus.Text = "Error: " + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
                     richTextBoxLabSheetSender.AppendText("Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "") + "\r\n");
                     MessageBox.Show(lblStatus.Text, "Error");
-                    return;
+                    return lblStatus.Text;
                 }
                 richTextBoxLabSheetSender.AppendText("Copied - " + fiSamplingPlan.FullName + "\r\n to " + fiArchive.FullName + "\r\n");
             }
@@ -2666,7 +2695,7 @@ namespace CSSPWQInputTool
                     bool FromLocal = true;
                     ReplaceFileFromTo(fiSamplingPlan, fiArchive, FromLocal);
                     if (UserActionFileArchiveCancel)
-                        return;
+                        return "Canceled";
                 }
                 else if (fiSamplingPlan.LastWriteTimeUtc < fiArchive.LastWriteTimeUtc)
                 {
@@ -2675,7 +2704,7 @@ namespace CSSPWQInputTool
                     bool FromLocal = false;
                     ReplaceFileFromTo(fiArchive, fiSamplingPlan, FromLocal);
                     if (UserActionFileArchiveCancel)
-                        return;
+                        return "Canceled";
                 }
             }
 
@@ -2685,7 +2714,7 @@ namespace CSSPWQInputTool
                 lblStatus.Text = "Did not copy file [" + fiArchive.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Did not copy file [" + fiArchive.FullName + "]\r\n");
                 MessageBox.Show(lblStatus.Text, "Error");
-                return;
+                return lblStatus.Text;
             }
 
             DirectoryInfo di = new DirectoryInfo(fiSamplingPlan.FullName.Replace(".txt", "") + @"\");
@@ -2695,7 +2724,7 @@ namespace CSSPWQInputTool
                 lblStatus.Text = "Could not find directory [" + di.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Could not find directory [" + di.FullName + "]\r\n");
                 MessageBox.Show(lblStatus.Text, "Error");
-                return;
+                return lblStatus.Text;
             }
             DirectoryInfo diShared = new DirectoryInfo(textBoxSharedArchivedDirectory.Text + @"\" + fiSamplingPlan.Name.Replace(".txt", "") + @"\");
             if (!diShared.Exists)
@@ -2709,7 +2738,7 @@ namespace CSSPWQInputTool
                     lblStatus.Text = "Error: " + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "");
                     richTextBoxLabSheetSender.AppendText("Error:" + ex.Message + (ex.InnerException != null ? ex.InnerException.Message : "") + "\r\n");
                     MessageBox.Show(lblStatus.Text, "Error");
-                    return;
+                    return lblStatus.Text; 
                 }
             }
 
@@ -2720,10 +2749,17 @@ namespace CSSPWQInputTool
                 lblStatus.Text = "Could not find directory [" + diShared.FullName + "]";
                 richTextBoxLabSheetSender.AppendText("Could not find directory [" + diShared.FullName + "]\r\n");
                 MessageBox.Show(lblStatus.Text, "Error");
-                return;
+                return lblStatus.Text;
             }
 
-            SyncArchives(di, diShared);
+
+            string retStr = SyncArchives(di, diShared);
+            if (!string.IsNullOrWhiteSpace(retStr))
+            {
+                return retStr;
+            }
+
+            return "";
         }
         private void UpdatePanelApp()
         {

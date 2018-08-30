@@ -258,7 +258,11 @@ namespace CSSPWQInputTool
         }
         private void butSyncArchives_Click(object sender, EventArgs e)
         {
-            TryToSyncArchive();
+            if (!string.IsNullOrWhiteSpace(TryToSyncArchive()))
+            {
+                return;
+            }
+
             if (InternetConnection)
             {
                 GetLabSheetsStatus();

@@ -48,6 +48,7 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.listBoxFiles = new System.Windows.Forms.ListBox();
             this.panelAppInputFilesTop = new System.Windows.Forms.Panel();
+            this.butDeleteLabSheet = new System.Windows.Forms.Button();
             this.groupBoxFilterByDate = new System.Windows.Forms.GroupBox();
             this.dateTimePickerArchiveFilterFrom = new System.Windows.Forms.DateTimePicker();
             this.lblBetween = new System.Windows.Forms.Label();
@@ -239,7 +240,6 @@
             this.lblReceiverLocalOrServer = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSendingFileName = new System.Windows.Forms.Label();
-            this.butDeleteLabSheet = new System.Windows.Forms.Button();
             this.panelPassword.SuspendLayout();
             this.panelPasswordCenter.SuspendLayout();
             this.panelAccessCode.SuspendLayout();
@@ -412,6 +412,13 @@
             this.panelAppInputFilesTop.Controls.Add(this.lblFileSubsector);
             resources.ApplyResources(this.panelAppInputFilesTop, "panelAppInputFilesTop");
             this.panelAppInputFilesTop.Name = "panelAppInputFilesTop";
+            // 
+            // butDeleteLabSheet
+            // 
+            resources.ApplyResources(this.butDeleteLabSheet, "butDeleteLabSheet");
+            this.butDeleteLabSheet.Name = "butDeleteLabSheet";
+            this.butDeleteLabSheet.UseVisualStyleBackColor = true;
+            this.butDeleteLabSheet.Click += new System.EventHandler(this.butDeleteLabSheet_Click);
             // 
             // groupBoxFilterByDate
             // 
@@ -1843,13 +1850,6 @@
             // 
             resources.ApplyResources(this.lblSendingFileName, "lblSendingFileName");
             this.lblSendingFileName.Name = "lblSendingFileName";
-            // 
-            // butDeleteLabSheet
-            // 
-            resources.ApplyResources(this.butDeleteLabSheet, "butDeleteLabSheet");
-            this.butDeleteLabSheet.Name = "butDeleteLabSheet";
-            this.butDeleteLabSheet.UseVisualStyleBackColor = true;
-            this.butDeleteLabSheet.Click += new System.EventHandler(this.butDeleteLabSheet_Click);
             // 
             // CSSPWQInputToolForm
             // 
