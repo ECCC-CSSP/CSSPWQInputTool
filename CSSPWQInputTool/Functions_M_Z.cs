@@ -2082,6 +2082,7 @@ namespace CSSPWQInputTool
                 }
             }
 
+
             List<DirectoryInfo> dirInfoList = (from c in di.GetDirectories() select c).ToList();
             foreach (DirectoryInfo diNext in dirInfoList)
             {
