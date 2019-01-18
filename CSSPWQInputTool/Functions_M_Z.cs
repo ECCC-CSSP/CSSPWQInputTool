@@ -611,6 +611,20 @@ namespace CSSPWQInputTool
                         {
                             csspWQInputApp.AccessCode = GetCodeString(LineTxt.Substring(pos + 1, pos2 - pos - 1));
                             csspWQInputApp.ActiveYear = GetCodeString(LineTxt.Substring(pos2 + 1)).Trim();
+                            int ActiveYear;
+                            if (!int.TryParse(csspWQInputApp.ActiveYear, out ActiveYear))
+                            {
+                                lblStatus.Text = "Could not read Sampling Plan File. ActiveYear not a number. Error at line " + LineNumb + "";
+                                return false;
+                            }
+                            if (ActiveYear > 2018)
+                            {
+                                VersionOfResultFile = 2;
+                            }
+                            else
+                            {
+                                VersionOfResultFile = 1;
+                            }
                         }
                         break;
                     case "Precision Criteria":
@@ -940,6 +954,15 @@ namespace CSSPWQInputTool
                     }
                 }
             }
+            else
+            {
+                if (VersionOfResultFile == 2)
+                {
+                    panelAddInputBottomLeftDuplicate.Left = panelAddInputBottomLeft.Right + 20;
+                    panelAddInputBottomLeftDuplicate.Visible = true;
+                    panelAddInputBottomLeft.Visible = true;
+                }
+            }
         }
         private void SaveInfoOnLocalMachine(bool ForChangeDate)
         {
@@ -1185,6 +1208,20 @@ namespace CSSPWQInputTool
                     return;
                 }
             }
+            else
+            {
+                if (VersionOfResultFile == 2)
+                {
+                    DailyDuplicateRLogValue = lblDailyDuplicateRLogValue.Text;
+                    DailyDuplicatePrecisionCriteria = textBoxDailyDuplicatePrecisionCriteria.Text;
+                    DailyDuplicateAcceptableOrUnacceptable = lblDailyDuplicateAcceptableOrUnacceptable.Text;
+                    IntertechDuplicateRLogValue = lblIntertechDuplicateRLogValue.Text;
+                    IntertechDuplicatePrecisionCriteria = textBoxIntertechDuplicatePrecisionCriteria.Text;
+                    IntertechDuplicateAcceptableOrUnacceptable = lblIntertechDuplicateAcceptableOrUnacceptable.Text;
+                    IntertechReadAcceptableOrUnacceptable = lblIntertechReadAcceptableOrUnacceptable.Text;
+                }
+            }
+
             string RunWeatherComment = richTextBoxRunWeatherComment.Text;
             string FieldComment = richTextBoxRunComment.Text;
 
@@ -1259,6 +1296,15 @@ namespace CSSPWQInputTool
                 sb.AppendLine("[Daily Duplicate|" + DailyDuplicateRLogValue + "|" + DailyDuplicatePrecisionCriteria + "|" + DailyDuplicateAcceptableOrUnacceptable + "]");
                 sb.Append("[Intertech Duplicate|" + IntertechDuplicateRLogValue + "|" + IntertechDuplicatePrecisionCriteria + "|" + IntertechDuplicateAcceptableOrUnacceptable + "]");
                 sb.AppendLine("[Intertech Read|" + IntertechReadAcceptableOrUnacceptable + "]");
+            }
+            else
+            {
+                if (VersionOfResultFile == 2)
+                {
+                    sb.AppendLine("[Daily Duplicate|" + DailyDuplicateRLogValue + "|" + DailyDuplicatePrecisionCriteria + "|" + DailyDuplicateAcceptableOrUnacceptable + "]");
+                    sb.Append("[Intertech Duplicate|" + IntertechDuplicateRLogValue + "|" + IntertechDuplicatePrecisionCriteria + "|" + IntertechDuplicateAcceptableOrUnacceptable + "]");
+                    sb.AppendLine("[Intertech Read|" + IntertechReadAcceptableOrUnacceptable + "]");
+                }
             }
             sb.AppendLine("[Run Weather Comment|" + RunWeatherComment + "]");
             sb.AppendLine("[Run Comment|" + FieldComment + "]");
