@@ -129,6 +129,11 @@ namespace CSSPWQInputTool
                     break;
             }
 
+            lblDailyDuplicateAcceptableOrUnacceptable.ForeColor = Color.Black;
+            lblDailyDuplicateAcceptableOrUnacceptable.Text = "N/A";
+            lblDailyDuplicateRLogValue.ForeColor = Color.Black;
+            lblDailyDuplicateRLogValue.Text = "N/A";
+
             // Calculating DailyDuplicate
             int DailyDuplicateRow = -1;
             float DailyDuplicateMPN = 0;
@@ -181,10 +186,10 @@ namespace CSSPWQInputTool
 
                                             float MPNLogDiff = Math.Abs(OtherMPNLog - MPNLog);
 
-                                            lblDailyDuplicateRLogValue.Text = MPNLogDiff.ToString("F5");
-
-                                            if (textBoxDailyDuplicatePrecisionCriteria.Text.Length > 0)
+                                            if (textBoxDailyDuplicatePrecisionCriteria.Text.Length > 0 && textBoxDailyDuplicatePrecisionCriteria.Text.Trim() != "0")
                                             {
+                                                lblDailyDuplicateRLogValue.Text = MPNLogDiff.ToString("F5");
+
                                                 float MPNLogCriteria;
                                                 float.TryParse(textBoxDailyDuplicatePrecisionCriteria.Text, out MPNLogCriteria);
 
@@ -216,6 +221,11 @@ namespace CSSPWQInputTool
                     }
                 }
             }
+
+            lblIntertechDuplicateAcceptableOrUnacceptable.ForeColor = Color.Black;
+            lblIntertechDuplicateAcceptableOrUnacceptable.Text = "N/A";
+            lblIntertechDuplicateRLogValue.ForeColor = Color.Black;
+            lblIntertechDuplicateRLogValue.Text = "N/A";
 
             // Calculating IntertechDuplicate
             int IntertechDuplicateRow = -1;
@@ -256,10 +266,10 @@ namespace CSSPWQInputTool
 
                                             float MPNLogDiff = Math.Abs(OtherMPNLog - MPNLog);
 
-                                            lblIntertechDuplicateRLogValue.Text = MPNLogDiff.ToString("F5");
-
-                                            if (textBoxIntertechDuplicatePrecisionCriteria.Text.Length > 0)
+                                            if (textBoxIntertechDuplicatePrecisionCriteria.Text.Length > 0 && textBoxIntertechDuplicatePrecisionCriteria.Text.Trim() != "0")
                                             {
+                                                lblIntertechDuplicateRLogValue.Text = MPNLogDiff.ToString("F5");
+
                                                 float MPNLogCriteria;
                                                 float.TryParse(textBoxIntertechDuplicatePrecisionCriteria.Text, out MPNLogCriteria);
 
@@ -291,6 +301,9 @@ namespace CSSPWQInputTool
                     }
                 }
             }
+
+            lblIntertechReadAcceptableOrUnacceptable.ForeColor = Color.Black;
+            lblIntertechReadAcceptableOrUnacceptable.Text = "N/A";
 
             // Calculating IntertechRead
             int IntertechReadRow = -1;
@@ -858,7 +871,7 @@ namespace CSSPWQInputTool
             Text = Text.Substring(0, Text.IndexOf("\t"));
             if (!string.IsNullOrWhiteSpace(FileName))
             {
-               DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete [" + Text + "]?", "Deleting LabSheet", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete [" + Text + "]?", "Deleting LabSheet", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.No)
                 {
                     return;

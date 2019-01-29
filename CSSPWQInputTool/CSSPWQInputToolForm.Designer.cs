@@ -185,11 +185,6 @@
             this.lblIntertechDuplicateRLogValue = new System.Windows.Forms.Label();
             this.textBoxIntertechDuplicatePrecisionCriteria = new System.Windows.Forms.TextBox();
             this.lblPrecisionCiteria2 = new System.Windows.Forms.Label();
-            this.lblDailyDuplicateAcceptableOrUnacceptable = new System.Windows.Forms.Label();
-            this.textBoxDailyDuplicatePrecisionCriteria = new System.Windows.Forms.TextBox();
-            this.lblPrecisionCiteria = new System.Windows.Forms.Label();
-            this.lblDailyDuplicateRLogValue = new System.Windows.Forms.Label();
-            this.lblDailyDuplicateRLog = new System.Windows.Forms.Label();
             this.panelAppTop = new System.Windows.Forms.Panel();
             this.comboBoxRunNumber = new System.Windows.Forms.ComboBox();
             this.lblFilePath = new System.Windows.Forms.Label();
@@ -240,6 +235,12 @@
             this.lblReceiverLocalOrServer = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSendingFileName = new System.Windows.Forms.Label();
+            this.panelDuplicate = new System.Windows.Forms.Panel();
+            this.lblDailyDuplicateAcceptableOrUnacceptable = new System.Windows.Forms.Label();
+            this.textBoxDailyDuplicatePrecisionCriteria = new System.Windows.Forms.TextBox();
+            this.lblPrecisionCiteria = new System.Windows.Forms.Label();
+            this.lblDailyDuplicateRLogValue = new System.Windows.Forms.Label();
+            this.lblDailyDuplicateRLog = new System.Windows.Forms.Label();
             this.panelPassword.SuspendLayout();
             this.panelPasswordCenter.SuspendLayout();
             this.panelAccessCode.SuspendLayout();
@@ -276,6 +277,7 @@
             this.panelSenderTop.SuspendLayout();
             this.panelReceiverTop.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelDuplicate.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelPassword
@@ -1213,9 +1215,9 @@
             // 
             // panelAppInputBottom
             // 
+            this.panelAppInputBottom.Controls.Add(this.panelAddInputBottomLeftDuplicate);
             this.panelAppInputBottom.Controls.Add(this.panelAddInputBottomRight);
             this.panelAppInputBottom.Controls.Add(this.panelAddInputBottomLeft);
-            this.panelAppInputBottom.Controls.Add(this.panelAddInputBottomLeftDuplicate);
             resources.ApplyResources(this.panelAppInputBottom, "panelAppInputBottom");
             this.panelAppInputBottom.Name = "panelAppInputBottom";
             // 
@@ -1411,12 +1413,8 @@
             // 
             // panelAddInputBottomLeftDuplicate
             // 
+            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.panelDuplicate);
             this.panelAddInputBottomLeftDuplicate.Controls.Add(this.panelIntertech);
-            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.lblDailyDuplicateAcceptableOrUnacceptable);
-            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.textBoxDailyDuplicatePrecisionCriteria);
-            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.lblPrecisionCiteria);
-            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.lblDailyDuplicateRLogValue);
-            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.lblDailyDuplicateRLog);
             resources.ApplyResources(this.panelAddInputBottomLeftDuplicate, "panelAddInputBottomLeftDuplicate");
             this.panelAddInputBottomLeftDuplicate.Name = "panelAddInputBottomLeftDuplicate";
             // 
@@ -1468,35 +1466,6 @@
             // 
             resources.ApplyResources(this.lblPrecisionCiteria2, "lblPrecisionCiteria2");
             this.lblPrecisionCiteria2.Name = "lblPrecisionCiteria2";
-            // 
-            // lblDailyDuplicateAcceptableOrUnacceptable
-            // 
-            resources.ApplyResources(this.lblDailyDuplicateAcceptableOrUnacceptable, "lblDailyDuplicateAcceptableOrUnacceptable");
-            this.lblDailyDuplicateAcceptableOrUnacceptable.Name = "lblDailyDuplicateAcceptableOrUnacceptable";
-            // 
-            // textBoxDailyDuplicatePrecisionCriteria
-            // 
-            resources.ApplyResources(this.textBoxDailyDuplicatePrecisionCriteria, "textBoxDailyDuplicatePrecisionCriteria");
-            this.textBoxDailyDuplicatePrecisionCriteria.Name = "textBoxDailyDuplicatePrecisionCriteria";
-            this.textBoxDailyDuplicatePrecisionCriteria.TextChanged += new System.EventHandler(this.textBoxDailyDuplicatePrecisionCriteria_TextChanged);
-            this.textBoxDailyDuplicatePrecisionCriteria.Enter += new System.EventHandler(this.textBoxDailyDuplicatePrecisionCriteria_Enter);
-            this.textBoxDailyDuplicatePrecisionCriteria.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxDuplicatePrecisionCriteria_KeyDown);
-            this.textBoxDailyDuplicatePrecisionCriteria.Leave += new System.EventHandler(this.textBoxDailyDuplicatePrecisionCriteria_Leave);
-            // 
-            // lblPrecisionCiteria
-            // 
-            resources.ApplyResources(this.lblPrecisionCiteria, "lblPrecisionCiteria");
-            this.lblPrecisionCiteria.Name = "lblPrecisionCiteria";
-            // 
-            // lblDailyDuplicateRLogValue
-            // 
-            resources.ApplyResources(this.lblDailyDuplicateRLogValue, "lblDailyDuplicateRLogValue");
-            this.lblDailyDuplicateRLogValue.Name = "lblDailyDuplicateRLogValue";
-            // 
-            // lblDailyDuplicateRLog
-            // 
-            resources.ApplyResources(this.lblDailyDuplicateRLog, "lblDailyDuplicateRLog");
-            this.lblDailyDuplicateRLog.Name = "lblDailyDuplicateRLog";
             // 
             // panelAppTop
             // 
@@ -1851,6 +1820,42 @@
             resources.ApplyResources(this.lblSendingFileName, "lblSendingFileName");
             this.lblSendingFileName.Name = "lblSendingFileName";
             // 
+            // panelDuplicate
+            // 
+            this.panelDuplicate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDuplicate.Controls.Add(this.lblDailyDuplicateAcceptableOrUnacceptable);
+            this.panelDuplicate.Controls.Add(this.textBoxDailyDuplicatePrecisionCriteria);
+            this.panelDuplicate.Controls.Add(this.lblPrecisionCiteria);
+            this.panelDuplicate.Controls.Add(this.lblDailyDuplicateRLogValue);
+            this.panelDuplicate.Controls.Add(this.lblDailyDuplicateRLog);
+            resources.ApplyResources(this.panelDuplicate, "panelDuplicate");
+            this.panelDuplicate.Name = "panelDuplicate";
+            // 
+            // lblDailyDuplicateAcceptableOrUnacceptable
+            // 
+            resources.ApplyResources(this.lblDailyDuplicateAcceptableOrUnacceptable, "lblDailyDuplicateAcceptableOrUnacceptable");
+            this.lblDailyDuplicateAcceptableOrUnacceptable.Name = "lblDailyDuplicateAcceptableOrUnacceptable";
+            // 
+            // textBoxDailyDuplicatePrecisionCriteria
+            // 
+            resources.ApplyResources(this.textBoxDailyDuplicatePrecisionCriteria, "textBoxDailyDuplicatePrecisionCriteria");
+            this.textBoxDailyDuplicatePrecisionCriteria.Name = "textBoxDailyDuplicatePrecisionCriteria";
+            // 
+            // lblPrecisionCiteria
+            // 
+            resources.ApplyResources(this.lblPrecisionCiteria, "lblPrecisionCiteria");
+            this.lblPrecisionCiteria.Name = "lblPrecisionCiteria";
+            // 
+            // lblDailyDuplicateRLogValue
+            // 
+            resources.ApplyResources(this.lblDailyDuplicateRLogValue, "lblDailyDuplicateRLogValue");
+            this.lblDailyDuplicateRLogValue.Name = "lblDailyDuplicateRLogValue";
+            // 
+            // lblDailyDuplicateRLog
+            // 
+            resources.ApplyResources(this.lblDailyDuplicateRLog, "lblDailyDuplicateRLog");
+            this.lblDailyDuplicateRLog.Name = "lblDailyDuplicateRLog";
+            // 
             // CSSPWQInputToolForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1896,7 +1901,6 @@
             this.panelAddInputBottomLeft.ResumeLayout(false);
             this.panelAddInputBottomLeft.PerformLayout();
             this.panelAddInputBottomLeftDuplicate.ResumeLayout(false);
-            this.panelAddInputBottomLeftDuplicate.PerformLayout();
             this.panelIntertech.ResumeLayout(false);
             this.panelIntertech.PerformLayout();
             this.panelAppTop.ResumeLayout(false);
@@ -1918,6 +1922,8 @@
             this.panelReceiverTop.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelDuplicate.ResumeLayout(false);
+            this.panelDuplicate.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2003,11 +2009,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxRunWeatherComment;
         private System.Windows.Forms.Timer timerSave;
         private System.Windows.Forms.Panel panelAddInputBottomLeftDuplicate;
-        private System.Windows.Forms.Label lblDailyDuplicateAcceptableOrUnacceptable;
-        private System.Windows.Forms.TextBox textBoxDailyDuplicatePrecisionCriteria;
-        private System.Windows.Forms.Label lblPrecisionCiteria;
-        private System.Windows.Forms.Label lblDailyDuplicateRLog;
-        private System.Windows.Forms.Label lblDailyDuplicateRLogValue;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.ListBox listBoxFiles;
         private System.Windows.Forms.Panel panelAppInputFilesTop;
@@ -2134,6 +2135,12 @@
         private System.Windows.Forms.GroupBox groupBoxFilterByDate;
         private System.Windows.Forms.Label lblBetween;
         private System.Windows.Forms.Button butDeleteLabSheet;
+        private System.Windows.Forms.Panel panelDuplicate;
+        private System.Windows.Forms.Label lblDailyDuplicateAcceptableOrUnacceptable;
+        private System.Windows.Forms.TextBox textBoxDailyDuplicatePrecisionCriteria;
+        private System.Windows.Forms.Label lblPrecisionCiteria;
+        private System.Windows.Forms.Label lblDailyDuplicateRLogValue;
+        private System.Windows.Forms.Label lblDailyDuplicateRLog;
     }
 }
 
