@@ -1521,13 +1521,16 @@ namespace CSSPWQInputTool
             bool ShowTideButton = false;
             for (int row = 0, countRow = dataGridViewCSSP.Rows.Count; row < countRow; row++)
             {
-                if (!string.IsNullOrWhiteSpace(dataGridViewCSSP[TimeColumn, row].Value.ToString()))
+                if (dataGridViewCSSP[TimeColumn, row].Value != null)
                 {
-                    if (dataGridViewCSSP[TimeColumn, row].Value.ToString().Length == 5)
+                    if (!string.IsNullOrWhiteSpace(dataGridViewCSSP[TimeColumn, row].Value.ToString()))
                     {
-                        if (dataGridViewCSSP[TimeColumn, row].Value.ToString().Substring(2, 1) == ":")
+                        if (dataGridViewCSSP[TimeColumn, row].Value.ToString().Length == 5)
                         {
-                            ShowTideButton = true;
+                            if (dataGridViewCSSP[TimeColumn, row].Value.ToString().Substring(2, 1) == ":")
+                            {
+                                ShowTideButton = true;
+                            }
                         }
                     }
                 }
