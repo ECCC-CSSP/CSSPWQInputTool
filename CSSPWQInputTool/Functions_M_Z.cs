@@ -231,7 +231,7 @@ namespace CSSPWQInputTool
 
                 if ("R" + r == RunText)
                 {
-                    comboBoxRunNumber.SelectedValue = runNumberAndText;
+                    comboBoxRunNumber.SelectedIndex = runNumberAndText.RunNumber - 1;
                     break;
                 }
             }

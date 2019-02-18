@@ -84,6 +84,7 @@ namespace CSSPWQInputTool
         }
         private void butCreateLabSheet_Click(object sender, EventArgs e)
         {
+            textBoxTides.Focus();
             butCreateLabSheet.Enabled = false;
             checkBoxViewTotalColiformLabSheets.Checked = false;
             FileListViewTotalColiformLabSheets = false;
