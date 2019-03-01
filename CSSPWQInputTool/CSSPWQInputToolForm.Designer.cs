@@ -151,6 +151,21 @@
             this.textBoxSampleCrewInitials = new System.Windows.Forms.TextBox();
             this.lblSampleCrewInitials = new System.Windows.Forms.Label();
             this.panelAppInputBottom = new System.Windows.Forms.Panel();
+            this.panelAddInputBottomLeftDuplicate = new System.Windows.Forms.Panel();
+            this.panelDuplicate = new System.Windows.Forms.Panel();
+            this.lblDailyDuplicateAcceptableOrUnacceptable = new System.Windows.Forms.Label();
+            this.textBoxDailyDuplicatePrecisionCriteria = new System.Windows.Forms.TextBox();
+            this.lblPrecisionCiteria = new System.Windows.Forms.Label();
+            this.lblDailyDuplicateRLogValue = new System.Windows.Forms.Label();
+            this.lblDailyDuplicateRLog = new System.Windows.Forms.Label();
+            this.panelIntertech = new System.Windows.Forms.Panel();
+            this.lblIntertechReadAcceptableOrUnacceptable = new System.Windows.Forms.Label();
+            this.lblIntertechReadRLog = new System.Windows.Forms.Label();
+            this.lblIntertechDuplicateRLog = new System.Windows.Forms.Label();
+            this.lblIntertechDuplicateAcceptableOrUnacceptable = new System.Windows.Forms.Label();
+            this.lblIntertechDuplicateRLogValue = new System.Windows.Forms.Label();
+            this.textBoxIntertechDuplicatePrecisionCriteria = new System.Windows.Forms.TextBox();
+            this.lblPrecisionCiteria2 = new System.Windows.Forms.Label();
             this.panelAddInputBottomRight = new System.Windows.Forms.Panel();
             this.lblApprovalDate = new System.Windows.Forms.Label();
             this.lblSupervisorInitials = new System.Windows.Forms.Label();
@@ -176,15 +191,6 @@
             this.richTextBoxRunComment = new System.Windows.Forms.RichTextBox();
             this.lblRunCommentTxt = new System.Windows.Forms.Label();
             this.lblRunTxt = new System.Windows.Forms.Label();
-            this.panelAddInputBottomLeftDuplicate = new System.Windows.Forms.Panel();
-            this.panelIntertech = new System.Windows.Forms.Panel();
-            this.lblIntertechReadAcceptableOrUnacceptable = new System.Windows.Forms.Label();
-            this.lblIntertechReadRLog = new System.Windows.Forms.Label();
-            this.lblIntertechDuplicateRLog = new System.Windows.Forms.Label();
-            this.lblIntertechDuplicateAcceptableOrUnacceptable = new System.Windows.Forms.Label();
-            this.lblIntertechDuplicateRLogValue = new System.Windows.Forms.Label();
-            this.textBoxIntertechDuplicatePrecisionCriteria = new System.Windows.Forms.TextBox();
-            this.lblPrecisionCiteria2 = new System.Windows.Forms.Label();
             this.panelAppTop = new System.Windows.Forms.Panel();
             this.comboBoxRunNumber = new System.Windows.Forms.ComboBox();
             this.lblFilePath = new System.Windows.Forms.Label();
@@ -235,12 +241,6 @@
             this.lblReceiverLocalOrServer = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSendingFileName = new System.Windows.Forms.Label();
-            this.panelDuplicate = new System.Windows.Forms.Panel();
-            this.lblDailyDuplicateAcceptableOrUnacceptable = new System.Windows.Forms.Label();
-            this.textBoxDailyDuplicatePrecisionCriteria = new System.Windows.Forms.TextBox();
-            this.lblPrecisionCiteria = new System.Windows.Forms.Label();
-            this.lblDailyDuplicateRLogValue = new System.Windows.Forms.Label();
-            this.lblDailyDuplicateRLog = new System.Windows.Forms.Label();
             this.panelPassword.SuspendLayout();
             this.panelPasswordCenter.SuspendLayout();
             this.panelAccessCode.SuspendLayout();
@@ -261,10 +261,11 @@
             this.panelAppInputTopIncubation.SuspendLayout();
             this.panelAppInputTopTideCrew.SuspendLayout();
             this.panelAppInputBottom.SuspendLayout();
+            this.panelAddInputBottomLeftDuplicate.SuspendLayout();
+            this.panelDuplicate.SuspendLayout();
+            this.panelIntertech.SuspendLayout();
             this.panelAddInputBottomRight.SuspendLayout();
             this.panelAddInputBottomLeft.SuspendLayout();
-            this.panelAddInputBottomLeftDuplicate.SuspendLayout();
-            this.panelIntertech.SuspendLayout();
             this.panelAppTop.SuspendLayout();
             this.panelChangeDateOfCurrentDoc.SuspendLayout();
             this.panelStatusBar.SuspendLayout();
@@ -277,7 +278,6 @@
             this.panelSenderTop.SuspendLayout();
             this.panelReceiverTop.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panelDuplicate.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelPassword
@@ -1221,6 +1221,98 @@
             resources.ApplyResources(this.panelAppInputBottom, "panelAppInputBottom");
             this.panelAppInputBottom.Name = "panelAppInputBottom";
             // 
+            // panelAddInputBottomLeftDuplicate
+            // 
+            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.panelDuplicate);
+            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.panelIntertech);
+            resources.ApplyResources(this.panelAddInputBottomLeftDuplicate, "panelAddInputBottomLeftDuplicate");
+            this.panelAddInputBottomLeftDuplicate.Name = "panelAddInputBottomLeftDuplicate";
+            // 
+            // panelDuplicate
+            // 
+            this.panelDuplicate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDuplicate.Controls.Add(this.lblDailyDuplicateAcceptableOrUnacceptable);
+            this.panelDuplicate.Controls.Add(this.textBoxDailyDuplicatePrecisionCriteria);
+            this.panelDuplicate.Controls.Add(this.lblPrecisionCiteria);
+            this.panelDuplicate.Controls.Add(this.lblDailyDuplicateRLogValue);
+            this.panelDuplicate.Controls.Add(this.lblDailyDuplicateRLog);
+            resources.ApplyResources(this.panelDuplicate, "panelDuplicate");
+            this.panelDuplicate.Name = "panelDuplicate";
+            // 
+            // lblDailyDuplicateAcceptableOrUnacceptable
+            // 
+            resources.ApplyResources(this.lblDailyDuplicateAcceptableOrUnacceptable, "lblDailyDuplicateAcceptableOrUnacceptable");
+            this.lblDailyDuplicateAcceptableOrUnacceptable.Name = "lblDailyDuplicateAcceptableOrUnacceptable";
+            // 
+            // textBoxDailyDuplicatePrecisionCriteria
+            // 
+            resources.ApplyResources(this.textBoxDailyDuplicatePrecisionCriteria, "textBoxDailyDuplicatePrecisionCriteria");
+            this.textBoxDailyDuplicatePrecisionCriteria.Name = "textBoxDailyDuplicatePrecisionCriteria";
+            // 
+            // lblPrecisionCiteria
+            // 
+            resources.ApplyResources(this.lblPrecisionCiteria, "lblPrecisionCiteria");
+            this.lblPrecisionCiteria.Name = "lblPrecisionCiteria";
+            // 
+            // lblDailyDuplicateRLogValue
+            // 
+            resources.ApplyResources(this.lblDailyDuplicateRLogValue, "lblDailyDuplicateRLogValue");
+            this.lblDailyDuplicateRLogValue.Name = "lblDailyDuplicateRLogValue";
+            // 
+            // lblDailyDuplicateRLog
+            // 
+            resources.ApplyResources(this.lblDailyDuplicateRLog, "lblDailyDuplicateRLog");
+            this.lblDailyDuplicateRLog.Name = "lblDailyDuplicateRLog";
+            // 
+            // panelIntertech
+            // 
+            this.panelIntertech.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelIntertech.Controls.Add(this.lblIntertechReadAcceptableOrUnacceptable);
+            this.panelIntertech.Controls.Add(this.lblIntertechReadRLog);
+            this.panelIntertech.Controls.Add(this.lblIntertechDuplicateRLog);
+            this.panelIntertech.Controls.Add(this.lblIntertechDuplicateAcceptableOrUnacceptable);
+            this.panelIntertech.Controls.Add(this.lblIntertechDuplicateRLogValue);
+            this.panelIntertech.Controls.Add(this.textBoxIntertechDuplicatePrecisionCriteria);
+            this.panelIntertech.Controls.Add(this.lblPrecisionCiteria2);
+            resources.ApplyResources(this.panelIntertech, "panelIntertech");
+            this.panelIntertech.Name = "panelIntertech";
+            // 
+            // lblIntertechReadAcceptableOrUnacceptable
+            // 
+            resources.ApplyResources(this.lblIntertechReadAcceptableOrUnacceptable, "lblIntertechReadAcceptableOrUnacceptable");
+            this.lblIntertechReadAcceptableOrUnacceptable.Name = "lblIntertechReadAcceptableOrUnacceptable";
+            // 
+            // lblIntertechReadRLog
+            // 
+            resources.ApplyResources(this.lblIntertechReadRLog, "lblIntertechReadRLog");
+            this.lblIntertechReadRLog.Name = "lblIntertechReadRLog";
+            // 
+            // lblIntertechDuplicateRLog
+            // 
+            resources.ApplyResources(this.lblIntertechDuplicateRLog, "lblIntertechDuplicateRLog");
+            this.lblIntertechDuplicateRLog.Name = "lblIntertechDuplicateRLog";
+            // 
+            // lblIntertechDuplicateAcceptableOrUnacceptable
+            // 
+            resources.ApplyResources(this.lblIntertechDuplicateAcceptableOrUnacceptable, "lblIntertechDuplicateAcceptableOrUnacceptable");
+            this.lblIntertechDuplicateAcceptableOrUnacceptable.Name = "lblIntertechDuplicateAcceptableOrUnacceptable";
+            // 
+            // lblIntertechDuplicateRLogValue
+            // 
+            resources.ApplyResources(this.lblIntertechDuplicateRLogValue, "lblIntertechDuplicateRLogValue");
+            this.lblIntertechDuplicateRLogValue.Name = "lblIntertechDuplicateRLogValue";
+            // 
+            // textBoxIntertechDuplicatePrecisionCriteria
+            // 
+            resources.ApplyResources(this.textBoxIntertechDuplicatePrecisionCriteria, "textBoxIntertechDuplicatePrecisionCriteria");
+            this.textBoxIntertechDuplicatePrecisionCriteria.Name = "textBoxIntertechDuplicatePrecisionCriteria";
+            this.textBoxIntertechDuplicatePrecisionCriteria.TextChanged += new System.EventHandler(this.textBoxIntertechDuplicatePrecisionCriteria_TextChanged);
+            // 
+            // lblPrecisionCiteria2
+            // 
+            resources.ApplyResources(this.lblPrecisionCiteria2, "lblPrecisionCiteria2");
+            this.lblPrecisionCiteria2.Name = "lblPrecisionCiteria2";
+            // 
             // panelAddInputBottomRight
             // 
             this.panelAddInputBottomRight.Controls.Add(this.lblApprovalDate);
@@ -1410,62 +1502,6 @@
             // 
             resources.ApplyResources(this.lblRunTxt, "lblRunTxt");
             this.lblRunTxt.Name = "lblRunTxt";
-            // 
-            // panelAddInputBottomLeftDuplicate
-            // 
-            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.panelDuplicate);
-            this.panelAddInputBottomLeftDuplicate.Controls.Add(this.panelIntertech);
-            resources.ApplyResources(this.panelAddInputBottomLeftDuplicate, "panelAddInputBottomLeftDuplicate");
-            this.panelAddInputBottomLeftDuplicate.Name = "panelAddInputBottomLeftDuplicate";
-            // 
-            // panelIntertech
-            // 
-            this.panelIntertech.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelIntertech.Controls.Add(this.lblIntertechReadAcceptableOrUnacceptable);
-            this.panelIntertech.Controls.Add(this.lblIntertechReadRLog);
-            this.panelIntertech.Controls.Add(this.lblIntertechDuplicateRLog);
-            this.panelIntertech.Controls.Add(this.lblIntertechDuplicateAcceptableOrUnacceptable);
-            this.panelIntertech.Controls.Add(this.lblIntertechDuplicateRLogValue);
-            this.panelIntertech.Controls.Add(this.textBoxIntertechDuplicatePrecisionCriteria);
-            this.panelIntertech.Controls.Add(this.lblPrecisionCiteria2);
-            resources.ApplyResources(this.panelIntertech, "panelIntertech");
-            this.panelIntertech.Name = "panelIntertech";
-            // 
-            // lblIntertechReadAcceptableOrUnacceptable
-            // 
-            resources.ApplyResources(this.lblIntertechReadAcceptableOrUnacceptable, "lblIntertechReadAcceptableOrUnacceptable");
-            this.lblIntertechReadAcceptableOrUnacceptable.Name = "lblIntertechReadAcceptableOrUnacceptable";
-            // 
-            // lblIntertechReadRLog
-            // 
-            resources.ApplyResources(this.lblIntertechReadRLog, "lblIntertechReadRLog");
-            this.lblIntertechReadRLog.Name = "lblIntertechReadRLog";
-            // 
-            // lblIntertechDuplicateRLog
-            // 
-            resources.ApplyResources(this.lblIntertechDuplicateRLog, "lblIntertechDuplicateRLog");
-            this.lblIntertechDuplicateRLog.Name = "lblIntertechDuplicateRLog";
-            // 
-            // lblIntertechDuplicateAcceptableOrUnacceptable
-            // 
-            resources.ApplyResources(this.lblIntertechDuplicateAcceptableOrUnacceptable, "lblIntertechDuplicateAcceptableOrUnacceptable");
-            this.lblIntertechDuplicateAcceptableOrUnacceptable.Name = "lblIntertechDuplicateAcceptableOrUnacceptable";
-            // 
-            // lblIntertechDuplicateRLogValue
-            // 
-            resources.ApplyResources(this.lblIntertechDuplicateRLogValue, "lblIntertechDuplicateRLogValue");
-            this.lblIntertechDuplicateRLogValue.Name = "lblIntertechDuplicateRLogValue";
-            // 
-            // textBoxIntertechDuplicatePrecisionCriteria
-            // 
-            resources.ApplyResources(this.textBoxIntertechDuplicatePrecisionCriteria, "textBoxIntertechDuplicatePrecisionCriteria");
-            this.textBoxIntertechDuplicatePrecisionCriteria.Name = "textBoxIntertechDuplicatePrecisionCriteria";
-            this.textBoxIntertechDuplicatePrecisionCriteria.TextChanged += new System.EventHandler(this.textBoxIntertechDuplicatePrecisionCriteria_TextChanged);
-            // 
-            // lblPrecisionCiteria2
-            // 
-            resources.ApplyResources(this.lblPrecisionCiteria2, "lblPrecisionCiteria2");
-            this.lblPrecisionCiteria2.Name = "lblPrecisionCiteria2";
             // 
             // panelAppTop
             // 
@@ -1820,42 +1856,6 @@
             resources.ApplyResources(this.lblSendingFileName, "lblSendingFileName");
             this.lblSendingFileName.Name = "lblSendingFileName";
             // 
-            // panelDuplicate
-            // 
-            this.panelDuplicate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelDuplicate.Controls.Add(this.lblDailyDuplicateAcceptableOrUnacceptable);
-            this.panelDuplicate.Controls.Add(this.textBoxDailyDuplicatePrecisionCriteria);
-            this.panelDuplicate.Controls.Add(this.lblPrecisionCiteria);
-            this.panelDuplicate.Controls.Add(this.lblDailyDuplicateRLogValue);
-            this.panelDuplicate.Controls.Add(this.lblDailyDuplicateRLog);
-            resources.ApplyResources(this.panelDuplicate, "panelDuplicate");
-            this.panelDuplicate.Name = "panelDuplicate";
-            // 
-            // lblDailyDuplicateAcceptableOrUnacceptable
-            // 
-            resources.ApplyResources(this.lblDailyDuplicateAcceptableOrUnacceptable, "lblDailyDuplicateAcceptableOrUnacceptable");
-            this.lblDailyDuplicateAcceptableOrUnacceptable.Name = "lblDailyDuplicateAcceptableOrUnacceptable";
-            // 
-            // textBoxDailyDuplicatePrecisionCriteria
-            // 
-            resources.ApplyResources(this.textBoxDailyDuplicatePrecisionCriteria, "textBoxDailyDuplicatePrecisionCriteria");
-            this.textBoxDailyDuplicatePrecisionCriteria.Name = "textBoxDailyDuplicatePrecisionCriteria";
-            // 
-            // lblPrecisionCiteria
-            // 
-            resources.ApplyResources(this.lblPrecisionCiteria, "lblPrecisionCiteria");
-            this.lblPrecisionCiteria.Name = "lblPrecisionCiteria";
-            // 
-            // lblDailyDuplicateRLogValue
-            // 
-            resources.ApplyResources(this.lblDailyDuplicateRLogValue, "lblDailyDuplicateRLogValue");
-            this.lblDailyDuplicateRLogValue.Name = "lblDailyDuplicateRLogValue";
-            // 
-            // lblDailyDuplicateRLog
-            // 
-            resources.ApplyResources(this.lblDailyDuplicateRLog, "lblDailyDuplicateRLog");
-            this.lblDailyDuplicateRLog.Name = "lblDailyDuplicateRLog";
-            // 
             // CSSPWQInputToolForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1896,13 +1896,15 @@
             this.panelAppInputTopTideCrew.ResumeLayout(false);
             this.panelAppInputTopTideCrew.PerformLayout();
             this.panelAppInputBottom.ResumeLayout(false);
+            this.panelAddInputBottomLeftDuplicate.ResumeLayout(false);
+            this.panelDuplicate.ResumeLayout(false);
+            this.panelDuplicate.PerformLayout();
+            this.panelIntertech.ResumeLayout(false);
+            this.panelIntertech.PerformLayout();
             this.panelAddInputBottomRight.ResumeLayout(false);
             this.panelAddInputBottomRight.PerformLayout();
             this.panelAddInputBottomLeft.ResumeLayout(false);
             this.panelAddInputBottomLeft.PerformLayout();
-            this.panelAddInputBottomLeftDuplicate.ResumeLayout(false);
-            this.panelIntertech.ResumeLayout(false);
-            this.panelIntertech.PerformLayout();
             this.panelAppTop.ResumeLayout(false);
             this.panelAppTop.PerformLayout();
             this.panelChangeDateOfCurrentDoc.ResumeLayout(false);
@@ -1922,8 +1924,6 @@
             this.panelReceiverTop.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelDuplicate.ResumeLayout(false);
-            this.panelDuplicate.PerformLayout();
             this.ResumeLayout(false);
 
         }

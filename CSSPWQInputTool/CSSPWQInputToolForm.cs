@@ -2204,11 +2204,11 @@ namespace CSSPWQInputTool
         }
         private void textBoxLot35_Enter(object sender, EventArgs e)
         {
-            lblStatus.Text = "Please enter lot number for control at 35.0 ˚C";
+            lblStatus.Text = "Please enter lot number for A1-1X Media";
         }
         private void textBoxLot44_5_Enter(object sender, EventArgs e)
         {
-            lblStatus.Text = "Please enter lot number for control at 44.5 ˚C";
+            lblStatus.Text = "Please enter lot number for A1-2X Media";
         }
         private void textBoxResultsReadBy_Enter(object sender, EventArgs e)
         {
@@ -3492,7 +3492,28 @@ namespace CSSPWQInputTool
                 }
                 if (lblFilePath.Text.Substring(lblFilePath.Text.Length - 6) == "_C.txt")
                 {
-                    butSendToEnvironmentCanada.Enabled = true;
+                    if (csspWQInputApp.IncludeLaboratoryQAQC)
+                    {
+                        if (string.IsNullOrWhiteSpace(textBoxApprovalCode.Text))
+                        {
+                            butSendToEnvironmentCanada.Enabled = false;
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrWhiteSpace(lblSupervisorInitials.Text) && !string.IsNullOrWhiteSpace(lblApprovalDate.Text))
+                            {
+                                butSendToEnvironmentCanada.Enabled = true;
+                            }
+                            else
+                            {
+                                butSendToEnvironmentCanada.Enabled = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        butSendToEnvironmentCanada.Enabled = true;
+                    }
                 }
                 else
                 {
@@ -4461,6 +4482,14 @@ namespace CSSPWQInputTool
 
             if (textBoxAccessCode.Text == csspWQInputApp.AccessCode)
             {
+                if (!string.IsNullOrWhiteSpace(textBoxApprovalCode.Text))
+                {
+                    if (csspWQInputApp.ApprovalCode != textBoxApprovalCode.Text)
+                    {
+                        MessageBox.Show("Approval code not verified. If you are not the person approving the lab sheet you can leave the Approval Code empty and continue.\r\nIf you are the approver please retry.", "Approval code error");
+                        return;
+                    }
+                }
 
                 if (csspWQInputApp.ApprovalCode.Length > 0 && csspWQInputApp.ApprovalCode == textBoxApprovalCode.Text)
                 {

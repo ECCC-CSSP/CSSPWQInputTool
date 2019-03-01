@@ -80,7 +80,7 @@ namespace CSSPWQInputTool
         }
         private void Approve()
         {
-            if (string.IsNullOrWhiteSpace(csspWQInputApp.ApprovalCode))
+            if (string.IsNullOrWhiteSpace(textBoxApprovalCode.Text))
             {
                 MessageBox.Show("Can not approve lab sheet", "Approval Code is empty", MessageBoxButtons.OK);
                 return;
@@ -98,7 +98,15 @@ namespace CSSPWQInputTool
 
             csspWQInputApp.ApprovalDate = DateTime.Now;
             lblApprovalDate.Text = DateTime.Now.ToString("yyyy MMMM dd");
-            Modifying();
+            DoSave();
+            lblSupervisorInitials.Text = "";
+            lblSupervisorInitials.Text = textBoxInitials.Text;
+            ApprovalSupervisorInitials = textBoxInitials.Text;
+
+            csspWQInputApp.ApprovalDate = DateTime.Now;
+            lblApprovalDate.Text = DateTime.Now.ToString("yyyy MMMM dd");
+
+            butSendToEnvironmentCanada.Enabled = true;
         }
         private void CalculateDuplicate()
         {
@@ -440,7 +448,28 @@ namespace CSSPWQInputTool
         private void CancelSendToServer()
         {
             panelSendToServerCompare.SendToBack();
-            butSendToEnvironmentCanada.Enabled = true;
+            if (csspWQInputApp.IncludeLaboratoryQAQC)
+            {
+                if (string.IsNullOrWhiteSpace(textBoxApprovalCode.Text))
+                {
+                    butSendToEnvironmentCanada.Enabled = false;
+                }
+                else
+                {
+                    if (!string.IsNullOrWhiteSpace(lblSupervisorInitials.Text) && !string.IsNullOrWhiteSpace(lblApprovalDate.Text))
+                    {
+                        butSendToEnvironmentCanada.Enabled = true;
+                    }
+                    else
+                    {
+                        butSendToEnvironmentCanada.Enabled = false;
+                    }
+                }
+            }
+            else
+            {
+                butSendToEnvironmentCanada.Enabled = true;
+            }
         }
         private void ContinueSendToServer()
         {
@@ -1377,7 +1406,28 @@ namespace CSSPWQInputTool
                 if (panelAppInputIsVisible)
                 {
                     butSendToEnvironmentCanada.Text = "Send to Environment Canada";
-                    butSendToEnvironmentCanada.Enabled = true;
+                    if (csspWQInputApp.IncludeLaboratoryQAQC)
+                    {
+                        if (string.IsNullOrWhiteSpace(textBoxApprovalCode.Text))
+                        {
+                            butSendToEnvironmentCanada.Enabled = false;
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrWhiteSpace(lblSupervisorInitials.Text) && !string.IsNullOrWhiteSpace(lblApprovalDate.Text))
+                            {
+                                butSendToEnvironmentCanada.Enabled = true;
+                            }
+                            else
+                            {
+                                butSendToEnvironmentCanada.Enabled = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        butSendToEnvironmentCanada.Enabled = true;
+                    }
                 }
             }
             else
@@ -2152,7 +2202,28 @@ namespace CSSPWQInputTool
                     InternetConnection = true;
                     if (panelAppInputIsVisible)
                     {
-                        butSendToEnvironmentCanada.Enabled = true;
+                        if (csspWQInputApp.IncludeLaboratoryQAQC)
+                        {
+                            if (string.IsNullOrWhiteSpace(textBoxApprovalCode.Text))
+                            {
+                                butSendToEnvironmentCanada.Enabled = false;
+                            }
+                            else
+                            {
+                                if (!string.IsNullOrWhiteSpace(lblSupervisorInitials.Text) && !string.IsNullOrWhiteSpace(lblApprovalDate.Text))
+                                {
+                                    butSendToEnvironmentCanada.Enabled = true;
+                                }
+                                else
+                                {
+                                    butSendToEnvironmentCanada.Enabled = false;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            butSendToEnvironmentCanada.Enabled = true;
+                        }
                     }
                 }
             }
