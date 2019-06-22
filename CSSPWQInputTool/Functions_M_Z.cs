@@ -692,7 +692,7 @@ namespace CSSPWQInputTool
             List<string> SampleTypeList = new List<string>()
             {
                 SampleTypeEnum.Routine.ToString(),
-                SampleTypeEnum.RainCMPRoutine.ToString(),
+                SampleTypeEnum.RainCMP.ToString(),
                 SampleTypeEnum.RainRun.ToString(),
                 SampleTypeEnum.ReopeningEmergencyRain.ToString(),
                 SampleTypeEnum.ReopeningSpill.ToString(),

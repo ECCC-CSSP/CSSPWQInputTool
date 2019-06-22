@@ -593,7 +593,7 @@ namespace CSSPWQInputTool
                                 ResetBottomPanels();
                             }
                             break;
-                        case SampleTypeEnum.RainCMPRoutine:
+                        case SampleTypeEnum.RainCMP:
                             {
                             }
                             break;
@@ -4827,7 +4827,7 @@ namespace CSSPWQInputTool
                 case "IntertechRead":
                     return SampleTypeEnum.IntertechRead;
                 case "RainCMPRoutine":
-                    return SampleTypeEnum.RainCMPRoutine;
+                    return SampleTypeEnum.RainCMP;
                 case "RainRun":
                     return SampleTypeEnum.RainRun;
                 case "ReopeningEmergencyRain":
