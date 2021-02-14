@@ -3001,8 +3001,10 @@ namespace CSSPWQInputTool
             }
 
             timerGetTides.Enabled = false;
-            webBrowserCSSP.Navigate(new Uri("http://www.tides.gc.ca/eng/station?type=0&date=" + dateTimePickerRun.Value.Year + "%2F" +
-                         dateTimePickerRun.Value.Month + "%2F" + dateTimePickerRun.Value.Day + "&sid=" + CSSPWQInputParamCurrent.sidList[TideToTryIndex]));
+            string url = "https://www.tides.gc.ca/eng/station?type=0&date=" + dateTimePickerRun.Value.Year + "%2F" +
+                         dateTimePickerRun.Value.Month + "%2F" + dateTimePickerRun.Value.Day + "&sid=" + CSSPWQInputParamCurrent.sidList[TideToTryIndex];
+
+            webBrowserCSSP.Navigate(new Uri(url));
         }
         private string GetTideText()
         {

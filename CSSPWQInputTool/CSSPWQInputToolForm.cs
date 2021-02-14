@@ -4788,7 +4788,7 @@ namespace CSSPWQInputTool
             if (e.Url.AbsolutePath != (sender as WebBrowser).Url.AbsolutePath)
                 return;
 
-            if (webBrowserCSSP.Url.ToString().Contains(@"http://www.tides.gc.ca/eng"))
+            if (webBrowserCSSP.Url.ToString().Contains(@"https://www.tides.gc.ca/eng"))
             {
                 textBoxTides.Text = GetTideText();
                 if (textBoxTides.Text == "-- / --")
