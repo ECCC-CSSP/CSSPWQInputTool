@@ -237,7 +237,7 @@ namespace CSSPWQInputTool
 
             // Calculating IntertechDuplicate
             int IntertechDuplicateRow = -1;
-            int IntertechDuplicateMPN = 0;
+            float IntertechDuplicateMPN = 0;
             for (int i = 0, count = dataGridViewCSSP.Rows.Count; i < count; i++)
             {
                 if (dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString())
@@ -250,7 +250,7 @@ namespace CSSPWQInputTool
             {
                 if (!string.IsNullOrWhiteSpace(dataGridViewCSSP[MPNColumn, IntertechDuplicateRow].Value.ToString()))
                 {
-                    int.TryParse(dataGridViewCSSP[MPNColumn, IntertechDuplicateRow].Value.ToString(), out IntertechDuplicateMPN);
+                    float.TryParse(dataGridViewCSSP[MPNColumn, IntertechDuplicateRow].Value.ToString(), out IntertechDuplicateMPN);
 
                     if (IntertechDuplicateMPN != 0)
                     {
@@ -265,10 +265,18 @@ namespace CSSPWQInputTool
                                         || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
                                         || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
                                     {
-                                        int OtherMPN = 0;
-                                        int.TryParse(dataGridViewCSSP[MPNColumn, i].Value.ToString(), out OtherMPN);
+                                        float OtherMPN = 0;
+                                        float.TryParse(dataGridViewCSSP[MPNColumn, i].Value.ToString(), out OtherMPN);
                                         if (OtherMPN != 0)
                                         {
+                                            if (OtherMPN < 2.0f)
+                                            {
+                                                OtherMPN = 1.9f;
+                                            }
+                                            if (IntertechDuplicateMPN < 2.0f)
+                                            {
+                                                IntertechDuplicateMPN = 1.9f;
+                                            }
                                             float OtherMPNLog = (float)Math.Log10((double)OtherMPN);
                                             float MPNLog = (float)Math.Log10((double)IntertechDuplicateMPN);
 
@@ -315,7 +323,7 @@ namespace CSSPWQInputTool
 
             // Calculating IntertechRead
             int IntertechReadRow = -1;
-            int IntertechReadMPN = 0;
+            float IntertechReadMPN = 0;
             for (int i = 0, count = dataGridViewCSSP.Rows.Count; i < count; i++)
             {
                 if (dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechRead.ToString())
@@ -328,7 +336,7 @@ namespace CSSPWQInputTool
             {
                 if (!string.IsNullOrWhiteSpace(dataGridViewCSSP[MPNColumn, IntertechReadRow].Value.ToString()))
                 {
-                    int.TryParse(dataGridViewCSSP[MPNColumn, IntertechReadRow].Value.ToString(), out IntertechReadMPN);
+                    float.TryParse(dataGridViewCSSP[MPNColumn, IntertechReadRow].Value.ToString(), out IntertechReadMPN);
 
                     if (IntertechReadMPN != 0)
                     {
@@ -343,10 +351,18 @@ namespace CSSPWQInputTool
                                         || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechDuplicate.ToString()
                                         || dataGridViewCSSP[SampleTypeColumn, i].Value.ToString() == SampleTypeEnum.IntertechRead.ToString()))
                                     {
-                                        int OtherMPN = 0;
-                                        int.TryParse(dataGridViewCSSP[MPNColumn, i].Value.ToString(), out OtherMPN);
+                                        float OtherMPN = 0;
+                                        float.TryParse(dataGridViewCSSP[MPNColumn, i].Value.ToString(), out OtherMPN);
                                         if (OtherMPN != 0)
                                         {
+                                            if (OtherMPN < 2.0f)
+                                            {
+                                                OtherMPN = 1.9f;
+                                            }
+                                            if (IntertechReadMPN < 2.0f)
+                                            {
+                                                IntertechReadMPN = 1.9f;
+                                            }
                                             if (OtherMPN == IntertechReadMPN)
                                             {
                                                 lblIntertechReadAcceptableOrUnacceptable.ForeColor = Color.Green;
@@ -1386,7 +1402,7 @@ namespace CSSPWQInputTool
         }
         private void DoSave()
         {
-            lblStatus.Text = "Saving...";
+            lblStatus.Text = "Saving ...";
             if (lblFilePath.Text.Length > 0)
             {
                 FileInfo fi = new FileInfo(lblFilePath.Text);

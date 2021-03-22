@@ -74,6 +74,10 @@ namespace CSSPWQInputTool
             if (InLoadingFile)
                 return;
 
+            panelAppTop.Enabled = false;
+            panelAppTop.Refresh();
+            Application.DoEvents();
+
             lblStatus.Text = "Modified";
             butSendToEnvironmentCanada.Text = "Saving ...";
             butSendToEnvironmentCanada.Enabled = false;

@@ -4780,6 +4780,11 @@ namespace CSSPWQInputTool
         private void timerSave_Tick(object sender, EventArgs e)
         {
             DoSave();
+
+            panelAppTop.Enabled = true;
+            panelAppTop.Refresh();
+            Application.DoEvents();
+
         }
         #endregion timerDataGridViewEditCheck
         #region Events WebBrowserCSSP
