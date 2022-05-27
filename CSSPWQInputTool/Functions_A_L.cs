@@ -3017,8 +3017,42 @@ namespace CSSPWQInputTool
             }
 
             timerGetTides.Enabled = false;
-            string url = "https://www.tides.gc.ca/eng/station?type=0&date=" + dateTimePickerRun.Value.Year + "%2F" +
-                         dateTimePickerRun.Value.Month + "%2F" + dateTimePickerRun.Value.Day + "&sid=" + CSSPWQInputParamCurrent.sidList[TideToTryIndex];
+            //string url = "https://www.tides.gc.ca/eng/station?type=0&date=" + dateTimePickerRun.Value.Year + "%2F" +
+            //             dateTimePickerRun.Value.Month + "%2F" + dateTimePickerRun.Value.Day + "&sid=" + CSSPWQInputParamCurrent.sidList[TideToTryIndex];
+          
+
+            TimeZone localZone = TimeZone.CurrentTimeZone;
+            string TimeZoneStr = localZone.StandardName;
+            string TimeZoneAcronymStr = "";
+
+            switch (TimeZoneStr)
+            {
+                case "Atlantic Standard Time":
+                    {
+                        TimeZoneAcronymStr = "AST";
+
+                        if (localZone.IsDaylightSavingTime(DateTime.Now))
+                        {
+                            TimeZoneAcronymStr = "ADT";
+                        }
+                    }
+                    break;
+                case "Newfoundland Standard Time":
+                    {
+                        TimeZoneAcronymStr = "NST";
+
+                        if (localZone.IsDaylightSavingTime(DateTime.Now))
+                        {
+                            TimeZoneAcronymStr = "NDT";
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            string url = "https://tides.gc.ca/en/stations/" + CSSPWQInputParamCurrent.sidList[TideToTryIndex] + "/" + dateTimePickerRun.Value.Year + "-" +
+             dateTimePickerRun.Value.Month + "-" + dateTimePickerRun.Value.Day + "?tz=" + TimeZoneAcronymStr;
 
             webBrowserCSSP.Navigate(new Uri(url));
         }
@@ -3036,16 +3070,23 @@ namespace CSSPWQInputTool
                 if (heAll.TagName.ToLower() == "table")
                 {
                     HtmlElement heTable = heAll;
-                    if (heTable.GetAttribute("title") == "Predicted Hourly Heights (m)")
+                    if (heTable.Id == "readings-list-hourly-heights")
                     {
-                        HtmlElement heTBody = heTable.Children[1];
+                        HtmlElement heTBody = heTable.Children[2];
+
+                        if (heTBody.TagName.ToLower() != "tbody")
+                        {
+                            textBoxTides.Text = "-- / --";
+                            return textBoxTides.Text;
+                        }
+
                         HtmlElement heRow = heTBody.Children[0];
                         if (heRow.Children.Count != 25)
                         {
                             textBoxTides.Text = "-- / --";
                             return textBoxTides.Text;
                         }
-                        if (heRow.Children[0].TagName.ToLower() == "th")
+                        if (heRow.Children[0].TagName.ToLower() == "td")
                         {
                             string dateTxt = heRow.Children[0].InnerText.Trim();
                             if (dateTxt.Substring(0, 4) != dateTimePickerRun.Value.Year.ToString())
@@ -3066,7 +3107,9 @@ namespace CSSPWQInputTool
                                 return textBoxTides.Text;
                             }
                         }
-                        for (int i = 1; i < 25; i++)
+                        TideByHourList.Add(0);
+
+                        for (int i = 2; i < 25; i++)
                         {
                             TideByHourList.Add(float.Parse(heRow.Children[i].InnerText));
                         }
